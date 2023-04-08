@@ -11,6 +11,10 @@ public enum ControlKey
     Skill1,
     Skill2,
     Special,
+    MoveFront,
+    MoveBack,
+    MoveLeft,
+    MoveRight,
 }
 
 public class InputManager : Singleton<InputManager>
@@ -22,6 +26,11 @@ public class InputManager : Singleton<InputManager>
     public KeyCode player_Skill1Key = KeyCode.W;
     public KeyCode player_Skill2Key = KeyCode.E;
     public KeyCode player_SpecialAttackKey = KeyCode.R;
+
+    public KeyCode player_MoveFront = KeyCode.W;
+    public KeyCode player_MoveBack = KeyCode.S;
+    public KeyCode player_MoveLeft = KeyCode.A;
+    public KeyCode player_MoveRight = KeyCode.D;
 
     private Dictionary<ControlKey, KeyCode> controlKeys = new Dictionary<ControlKey, KeyCode>();
 
