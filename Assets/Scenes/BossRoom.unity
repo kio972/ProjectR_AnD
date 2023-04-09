@@ -576,6 +576,45 @@ MonoBehaviour:
   movePram: Move
   deathPram: Death
   animator: {fileID: 1143127085}
+--- !u!195 &1143127088
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143127084}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1143127090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143127084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a40b4515657ab8549b524da7f0b8efe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDist: 50
+  stopDist: 3
+  agent: {fileID: 0}
+  animator: {fileID: 0}
+  isActive: 0
 --- !u!1 &1168786658 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 809263889663992607, guid: 84fe7c2ba084d224896d46e263f4e2b6,
@@ -988,6 +1027,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -951608786083511892, guid: 53ab6adb6813b1342bc0d7ece6e50f89, type: 3}
+--- !u!1 &1867422147 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4698478915188949572, guid: a0fee733af1e6ce46856f1702a55b59b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1945408704}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1945408704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1063,6 +1108,43 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1945408704}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1945408707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867422147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e3c02bb04bae8d43be91a7f45e6cd84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 1945408708}
+  stopDelayTime: 0.1
+  isKeyboardControl: 1
+--- !u!195 &1945408708
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867422147}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.3
+  m_Speed: 5
+  m_Acceleration: 800
+  avoidancePriority: 50
+  m_AngularSpeed: 1800
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1974683858
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,7 +1207,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1974683858}
-  m_LocalRotation: {x: 0.4508197, y: 0.3340306, z: -0.18673566, w: 0.8064211}
+  m_LocalRotation: {x: 0.45081976, y: 0.3340306, z: -0.18673567, w: 0.8064211}
   m_LocalPosition: {x: -13.773199, y: 38.63, z: -29.779999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1304,7 +1386,7 @@ PrefabInstance:
     - target: {fileID: 5771017186916806759, guid: 84fe7c2ba084d224896d46e263f4e2b6,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6948934466865962803, guid: 84fe7c2ba084d224896d46e263f4e2b6,
         type: 3}

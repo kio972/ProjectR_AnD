@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
+
     public float DamageModify(float baseDamage, AttackType attackType)
     {
         float damage = 0f;

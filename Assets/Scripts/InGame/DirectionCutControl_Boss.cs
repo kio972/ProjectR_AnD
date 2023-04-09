@@ -18,7 +18,7 @@ public class DirectionCutControl_Boss : MonoBehaviour
 
         //DirecitonºÎºÐ
         bossAnimator.SetTrigger("Shout");
-        bossWingAnimator.ChangeBlend("wingSpread", 1, 0.5f);
+        bossWingAnimator.ChangeBlend("wingSpread", 1, 0.8f);
 
 
         while (elapsedTime < waitTime)
@@ -29,7 +29,16 @@ public class DirectionCutControl_Boss : MonoBehaviour
 
         directionVirtualCamera.gameObject.SetActive(false);
         isEnd = true;
+
+        Invoke("ActiveBoss", 0.5f);
         yield return null;
+    }
+
+    private void ActiveBoss()
+    {
+        EnemyController enemyController = FindAnyObjectByType<EnemyController>();
+        if (enemyController != null)
+            enemyController.isActive = true;
     }
 
     private void StartDirection()
