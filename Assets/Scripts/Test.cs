@@ -6,14 +6,15 @@ using UnityEngine.AI;
 public class Test : MonoBehaviour
 {
     public MapGenerator mapGenerator;
+    public NavMeshSurface player;
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             mapGenerator.GenerateMap();
-            NavMeshSurface nav = FindObjectOfType<NavMeshSurface>();
-            nav.BuildNavMesh();
+            player.BuildNavMesh();
         }
     }
 }

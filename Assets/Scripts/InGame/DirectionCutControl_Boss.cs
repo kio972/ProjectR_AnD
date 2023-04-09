@@ -9,8 +9,11 @@ public class DirectionCutControl_Boss : MonoBehaviour
 
     public Transform directionVirtualCamera;
     public float waitTime = 2f;
+    public float rotateTime = 0.8f;
     private bool isEnd = false;
     public bool IsEnd { get { return isEnd; } }
+
+    public Transform directionCameraRotateTarget;
 
     public IEnumerator IStartDirection()
     {
@@ -21,9 +24,27 @@ public class DirectionCutControl_Boss : MonoBehaviour
         bossWingAnimator.ChangeBlend("wingSpread", 1, 0.8f);
 
 
+        Quaternion startRotation = Quaternion.Euler(Vector3.zero);
+        if(directionCameraRotateTarget != null)
+            startRotation = directionCameraRotateTarget.transform.rotation;
+        Quaternion endRotation = Quaternion.Euler(new Vector3(0f, 360f, 0f)) * startRotation;
         while (elapsedTime < waitTime)
         {
             elapsedTime += Time.deltaTime;
+
+            if(directionCameraRotateTarget != null)
+            {
+                if (elapsedTime < rotateTime)
+                {
+                    float t = Mathf.Clamp01(elapsedTime / rotateTime);
+                    float yRotation = Mathf.Lerp(0f, 360f, t);
+                    Quaternion targetRotation = Quaternion.Euler(0f, yRotation, 0f);
+                    directionCameraRotateTarget.transform.rotation = startRotation * targetRotation;
+                }
+                else
+                    directionCameraRotateTarget.transform.rotation = endRotation;
+            }
+
             yield return null;
         }
 

@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     //private Vector3 lastDest = Vector3.zero;
 
-    public bool isKeyboardControl = true;
+    public bool isKeyboardControl = false;
 
     public void ForcedSetPosition(Vector3 positon)
     {
@@ -32,13 +32,15 @@ public class PlayerController : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Terrain")))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Terrain")))
             {
                 NavMeshHit navHit;
                 if (NavMesh.SamplePosition(hit.point, out navHit, 1.0f, NavMesh.AllAreas))
                 {
                     agent.isStopped = false;
                     agent.SetDestination(navHit.position);
+                    if (animator != null)
+                        animator.SetBool("Move", true);
                 }
             }
         }
@@ -50,6 +52,8 @@ public class PlayerController : MonoBehaviour
                 {
                     agent.isStopped = true;
                     stopDelayElapsed = 0f;
+                    if (animator != null)
+                        animator.SetBool("Move", false);
                 }
                 else
                     stopDelayElapsed += Time.deltaTime;
@@ -77,12 +81,16 @@ public class PlayerController : MonoBehaviour
             agent.isStopped = false;
             agent.SetDestination(nextDest);
             stopDelayElapsed = 0;
+            if (animator != null)
+                animator.SetBool("Move", true);
         }
         else
         {
             if (stopDelayElapsed > stopDelayTime)
             {
                 agent.isStopped = true;
+                if (animator != null)
+                    animator.SetBool("Move", false);
             }
 
             stopDelayElapsed += Time.deltaTime;
@@ -99,8 +107,6 @@ public class PlayerController : MonoBehaviour
         else
             PointClickMove();
 
-        if(animator != null)
-            animator.SetBool("Move", !agent.isStopped);
-
+        
     }
 }
