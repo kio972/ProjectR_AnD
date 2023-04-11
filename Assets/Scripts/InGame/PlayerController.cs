@@ -68,9 +68,9 @@ public class PlayerController : MonoBehaviour
             direction += Vector3.forward;
         if (Input.GetKey(InputManager.Instance.player_MoveBack))
             direction += Vector3.back;
-        if (Input.GetKeyDown(InputManager.Instance.player_MoveLeft))
+        if (Input.GetKey(InputManager.Instance.player_MoveLeft))
             direction += Vector3.left;
-        if (Input.GetKeyDown(InputManager.Instance.player_MoveRight))
+        if (Input.GetKey(InputManager.Instance.player_MoveRight))
             direction += Vector3.right;
 
         direction = direction.normalized;

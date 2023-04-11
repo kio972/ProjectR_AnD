@@ -65,12 +65,14 @@ public class KeyBindController : MonoBehaviour
 
     public void Init()
     {
-        keyDisplays.Add(ControlKey.Move, UtillHelper.Find<KeyBinder>(transform, "MoveKey/KeyZone", true));
-        keyDisplays.Add(ControlKey.Aim, UtillHelper.Find<KeyBinder>(transform, "AimKey/KeyZone", true));
-        keyDisplays.Add(ControlKey.Basic, UtillHelper.Find<KeyBinder>(transform, "BasicAttack/KeyZone", true));
-        keyDisplays.Add(ControlKey.Skill1, UtillHelper.Find<KeyBinder>(transform, "Skill1/KeyZone", true));
-        keyDisplays.Add(ControlKey.Skill2, UtillHelper.Find<KeyBinder>(transform, "Skill2/KeyZone", true));
-        keyDisplays.Add(ControlKey.Special, UtillHelper.Find<KeyBinder>(transform, "Special/KeyZone", true));
+        keyDisplays.Add(ControlKey.MoveFront, UtillHelper.Find<KeyBinder>(transform, "Move_Front", true));
+        keyDisplays.Add(ControlKey.MoveBack, UtillHelper.Find<KeyBinder>(transform, "Move_Back", true));
+        keyDisplays.Add(ControlKey.MoveLeft, UtillHelper.Find<KeyBinder>(transform, "Move_Left", true));
+        keyDisplays.Add(ControlKey.MoveRight, UtillHelper.Find<KeyBinder>(transform, "Move_Right", true));
+        keyDisplays.Add(ControlKey.Basic, UtillHelper.Find<KeyBinder>(transform, "Attack_Basic", true));
+        keyDisplays.Add(ControlKey.Skill1, UtillHelper.Find<KeyBinder>(transform, "Attack_Skill1", true));
+        keyDisplays.Add(ControlKey.Skill2, UtillHelper.Find<KeyBinder>(transform, "Attack_Skill2", true));
+        keyDisplays.Add(ControlKey.Special, UtillHelper.Find<KeyBinder>(transform, "Attack_Special", true));
     }
 
     public void UpdateKeyInput(ControlKey curKey)
