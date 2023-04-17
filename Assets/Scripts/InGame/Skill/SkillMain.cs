@@ -4,10 +4,19 @@ using UnityEngine;
 
 public enum AttackType
 {
-    Point,
-    Directional,
+    Basic,
+    Dash,
+    Range,
     Projectile,
+    Chase,
+    Buff,
+    Debuff,
+}
 
+public enum DebuffType
+{
+    Slow,
+    Bleed,
 }
 
 public abstract class SkillMain : MonoBehaviour
