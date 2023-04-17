@@ -18,6 +18,8 @@ public class HPUpdater : MonoBehaviour
     private Image delayed_Bar;
     private TextMeshProUGUI monsterName;
 
+    public float hp_Rate;
+
     public float delayTime = 1f;
     public float lerpTime = 0.2f;
 
@@ -76,6 +78,11 @@ public class HPUpdater : MonoBehaviour
     {
         if (controller == null)
             return false;
+
+        float prevHp = hp_Bar.fillAmount;
+        float curHp = controller.hp / controller.maxHp;
+        if (Mathf.Abs(prevHp - curHp) > 0.1f)
+            return true;
 
         return false;
     }
