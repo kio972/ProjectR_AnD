@@ -5,12 +5,10 @@ using UnityEngine.AI;
 
 public class EnemyController : Controller
 {
-    private PlayerController player;
+    private Controller player;
     public float chaseDist = 10f;
     public float stopDist = 2f;
-    public NavMeshAgent agent;
-    public Animator animator;
-
+    
     private bool isAttacking = false;
     private bool attackTriggered = false;
 
@@ -18,7 +16,7 @@ public class EnemyController : Controller
 
     private void Start()
     {
-        player = FindObjectOfType<PlayerController>();
+        //player = FindObjectOfType<PlayerController>();
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
     }
