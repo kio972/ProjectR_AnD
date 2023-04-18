@@ -40,6 +40,9 @@ public class Controller : FSM<Controller>
     private float stopDelayElapsed = 0f;
 
     private bool isAttacking = false;
+    public bool IsAttacking { get { return isAttacking; } set { isAttacking = value; } }
+    
+    public float rotateTime = 0.1f;
 
     private void Start()
     {
@@ -47,35 +50,8 @@ public class Controller : FSM<Controller>
         animator = GetComponent<Animator>();
     }
 
-    private void BasicAttack()
-    {
-        isAttacking = true;
-        //현재 마우스방향으로 캐릭터 회전
-        if (animator != null)
-            animator.SetTrigger("Attack");
-        //공격전방 부챼꼴 10도 사거리 1이내의 적들에게 데미지 처리
-    }
 
-    private void DashAttack()
-    {
-        isAttacking = true;
-        //현재 마우스방향으로 캐릭터 회전
-        if (animator != null)
-            animator.SetTrigger("Attack2");
 
-        /*마우스 방향으로 2M 이동
-        돌진 이동중 경로에 적과 충돌시 멈춤
-        충돌시 적에게 30의 데미지를 입힘
-        쿨타임 존재
-        기본 쿨타임 5초 */
-    }
-
-    private void SpecialAttack()
-    {
-        isAttacking = true;
-        if (animator != null)
-            animator.SetTrigger("Special");
-    }
 
     public void AttackCheck()
     {
@@ -83,11 +59,20 @@ public class Controller : FSM<Controller>
             return;
 
         if (Input.GetKeyDown(InputManager.Instance.player_BasicAttackKey))
-            BasicAttack();
+        {
+            SkillManager.Instance.UseBasicSkill(this);
+            isAttacking = true;
+        }
         if (Input.GetKeyDown(InputManager.Instance.player_Skill1Key))
-            DashAttack();
+        {
+            SkillManager.Instance.UseDashSkill(this);
+            isAttacking = true;
+        }
         if (Input.GetKeyDown(InputManager.Instance.player_SpecialAttackKey))
-            SpecialAttack();
+        {
+            SkillManager.Instance.UseSpecialSkill(this);
+            isAttacking = true;
+        }
     }
 
     public void KeyBoardMove()

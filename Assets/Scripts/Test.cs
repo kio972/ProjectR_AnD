@@ -8,6 +8,8 @@ public class Test : MonoBehaviour
     public MapGenerator mapGenerator;
     public NavMeshSurface player;
 
+
+
     // Update is called once per frame
     void Update()
     {

@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -16,6 +18,48 @@ public enum AdjacentDirection
 
 public static class UtillHelper
 {
+    public static IEnumerator RotateTowards(Transform transform, Vector3 targetPos, float rotateTime, System.Action callback = null)
+    {
+        float elapsedTime = 0f;
+        Vector3 lookDir = targetPos - transform.position;
+        lookDir.y = 0f;
+        Quaternion targetRotation = Quaternion.LookRotation(lookDir);
+        while (elapsedTime < rotateTime)
+        {
+            elapsedTime += Time.deltaTime;
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, elapsedTime / rotateTime);
+            yield return null;
+        }
+
+        // 코루틴 종료시 callback 호출
+        callback?.Invoke();
+    }
+
+    public static T GetSkill<T>() where T : SkillMain
+    {
+        Assembly assembly = Assembly.GetExecutingAssembly();
+        Type[] types = assembly.GetTypes();
+        foreach (Type type in types)
+        {
+            if (type.IsSubclassOf(typeof(SkillMain)) && type.Name == typeof(T).Name)
+            {
+                return (T)Activator.CreateInstance(type);
+            }
+        }
+
+        return null;
+    }
+
+    public static Vector3 GetMouseWorldPosition(Vector3 playerPosition)
+    {
+        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        float yPosition = playerPosition.y;
+
+        worldPosition = new Vector3(worldPosition.x, yPosition, worldPosition.z);
+
+        return worldPosition;
+    }
+
     public static AdjacentDirection GetOppositeDirection(AdjacentDirection direction)
     {
         switch (direction)
@@ -164,7 +208,7 @@ public static class UtillHelper
         T objectType = Resources.Load<T>(path);
         if (objectType != null)
         {
-            objectType = Object.Instantiate(objectType);
+            objectType = UnityEngine.Object.Instantiate(objectType);
             if (objectType != null)
             {
                 if (init)
