@@ -40,8 +40,8 @@ public class MapGenerator : MonoBehaviour
         }
 
         //InitMap();
-        PlayerController player = FindObjectOfType<PlayerController>();
-        player.ForcedSetPosition(mapCells[0].transform.position);
+        //PlayerController player = FindObjectOfType<PlayerController>();
+        //player.ForcedSetPosition(mapCells[0].transform.position);
     }
 
     private void InitMap()
