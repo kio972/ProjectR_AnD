@@ -12,12 +12,12 @@ public class FSMPossess : FSMSingleton<FSMPossess>, CharState<Controller>
 
     public void Enter(Controller e)
     {
-
+        
     }
 
     public void Excute(Controller e)
     {
-        if (e.agent.isOnNavMesh)
+        if (!e.agent.isOnNavMesh)
             return;
 
         e.KeyBoardMove();

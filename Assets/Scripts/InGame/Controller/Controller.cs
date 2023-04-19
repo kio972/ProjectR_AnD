@@ -44,10 +44,13 @@ public class Controller : FSM<Controller>
     
     public float rotateTime = 0.1f;
 
+    public UnitType unitType = UnitType.Monster;
+
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        InitState(this, FSMSpawn.Instance);
     }
 
 
@@ -55,7 +58,7 @@ public class Controller : FSM<Controller>
 
     public void AttackCheck()
     {
-        if (!isAttacking)
+        if (isAttacking)
             return;
 
         if (Input.GetKeyDown(InputManager.Instance.player_BasicAttackKey))
@@ -173,6 +176,6 @@ public class Controller : FSM<Controller>
     // Update is called once per frame
     void Update()
     {
-        
+        FSMUpdate();
     }
 }

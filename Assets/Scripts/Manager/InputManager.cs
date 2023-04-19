@@ -20,10 +20,10 @@ public enum ControlKey
 public class InputManager : Singleton<InputManager>
 {
     public KeyCode[] nextMessageKeys = { KeyCode.Mouse0 };
-    public KeyCode player_MoveKey = KeyCode.Mouse1;
-    public KeyCode player_AimKey = KeyCode.Mouse0;
-    public KeyCode player_BasicAttackKey = KeyCode.Q;
-    public KeyCode player_Skill1Key = KeyCode.W;
+    //public KeyCode player_MoveKey = KeyCode.Mouse1;
+    //public KeyCode player_AimKey = KeyCode.Mouse0;
+    public KeyCode player_BasicAttackKey = KeyCode.Mouse0;
+    public KeyCode player_Skill1Key = KeyCode.Mouse1;
     public KeyCode player_Skill2Key = KeyCode.E;
     public KeyCode player_SpecialAttackKey = KeyCode.R;
 

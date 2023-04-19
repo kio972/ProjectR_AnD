@@ -67,6 +67,17 @@ public class HPUpdater : MonoBehaviour
         yield return null;
     }
 
+    private void UpdatePosition()
+    {
+        if (controller == null)
+            return;
+
+        if (controller.unitType != UnitType.Monster)
+            return;
+
+        //controller의 위치에 따라 화면에 this의 RectTransform을 이동
+    }
+
     private void UpdateHp()
     {
         if (curCoroutine != null)
@@ -92,5 +103,6 @@ public class HPUpdater : MonoBehaviour
     {
         if (IsNeedUpdate())
             UpdateHp();
+        UpdatePosition();
     }
 }

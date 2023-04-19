@@ -24,7 +24,7 @@ public class SkillManager : Singleton<SkillManager>
     }
 
 
-    public SkillManager()
+    public void Init()
     {
         // 생성자에서 필요한 초기화 작업을 수행합니다.
         GameObject basicSkillObject = new GameObject();

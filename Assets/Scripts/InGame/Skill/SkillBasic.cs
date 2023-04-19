@@ -27,10 +27,12 @@ public class SkillBasic : SkillMain
                 if (Vector3.Angle(attacker.transform.forward, dirToTarget) < 10f)
                 {
                     // 해당 적 공격 처리
-                    ExcuteDamage(attacker, controller);
+                    ExecuteDamage(attacker, controller);
                 }
             }
         }
+
+        SkillEnd(attacker);
     }
 
     //public override void SkillCheck(Controller attacker)

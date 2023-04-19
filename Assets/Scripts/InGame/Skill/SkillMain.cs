@@ -24,11 +24,25 @@ public abstract class SkillMain : MonoBehaviour
     public float baseDamage = 0;
     public AttackType attackType;
     public abstract IEnumerator ISkillFunc(Controller attacker);
-    //public abstract void SkillCheck(Controller attacker);
+    
+    public void PrepareSkill(Controller attacker)
+    {
+        attacker.IsAttacking = true;
+        attacker.agent.updateRotation = false;
+        attacker.agent.isStopped = true;
+    }
+
+    public virtual void SkillCheck(Controller attacker)
+    {
+        PrepareSkill(attacker);
+        StartCoroutine(ISkillFunc(attacker));
+    }
+
+
 
     public virtual void TriggerAnimation(Controller attacker) { }
 
-    protected void ExcuteDamage(Controller attacker, Controller victim)
+    protected void ExecuteDamage(Controller attacker, Controller victim)
     {
         float damage = attacker.baseDamage;
         damage = attacker.DamageModify(damage);
@@ -39,6 +53,8 @@ public abstract class SkillMain : MonoBehaviour
     protected void SkillEnd(Controller attacker)
     {
         attacker.IsAttacking = false;
+        attacker.agent.updateRotation = true;
+        attacker.agent.isStopped = false;
     }
 
     // Update is called once per frame
