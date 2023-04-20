@@ -1,36 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Test1 : MonoBehaviour
 {
-    IEnumerator Coroutine2(System.Action callback = null)
-    {
-        float elapsedTime = 0f;
-        while (elapsedTime < 5f)
-        {
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
 
-        callback?.Invoke();
+    private void SceneMove()
+    {
+        SceneController.Instance.MoveScene("CellScene", 0.5f);
     }
 
-    IEnumerator Coroutine1()
+    private void Awake()
     {
-        print("Start_Coroutine");
-        yield return StartCoroutine(Coroutine2(() => {}));
-
-        print("End_Coroutine");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            StartCoroutine(Coroutine1());
-        }
+        Button btn = GetComponent<Button>();
+        btn.onClick.AddListener(SceneMove);
     }
 }

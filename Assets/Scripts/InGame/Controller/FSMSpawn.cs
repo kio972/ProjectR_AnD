@@ -25,5 +25,6 @@ public class FSMSpawn : FSMSingleton<FSMSpawn>, CharState<Controller>
     public void Exit(Controller e)
     {
         print(e.gameObject.name + " Sapwn end");
+        HPBarController.Instance.InstantiateHPBar(e);
     }
 }

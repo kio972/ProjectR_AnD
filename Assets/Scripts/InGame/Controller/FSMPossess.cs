@@ -5,11 +5,6 @@ using UnityEngine.AI;
 
 public class FSMPossess : FSMSingleton<FSMPossess>, CharState<Controller>
 {
-    
-    //private Vector3 lastDest = Vector3.zero;
-
-    public bool isKeyboardControl = false;
-
     public void Enter(Controller e)
     {
         
@@ -19,7 +14,7 @@ public class FSMPossess : FSMSingleton<FSMPossess>, CharState<Controller>
     {
         if (!e.agent.isOnNavMesh)
             return;
-
+        //공격중 이동 되는 문제 수정 필요
         e.KeyBoardMove();
         e.AttackCheck();
     }

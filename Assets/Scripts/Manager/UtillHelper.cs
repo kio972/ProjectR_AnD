@@ -52,12 +52,17 @@ public static class UtillHelper
 
     public static Vector3 GetMouseWorldPosition(Vector3 playerPosition)
     {
-        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        float yPosition = playerPosition.y;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Plane groundPlane = new Plane(Vector3.up, -playerPosition.y);
+        float rayDistance;
+        if (groundPlane.Raycast(ray, out rayDistance))
+        {
+            Vector3 point = ray.GetPoint(rayDistance);
+            return point;
+        }
 
-        worldPosition = new Vector3(worldPosition.x, yPosition, worldPosition.z);
-
-        return worldPosition;
+        // groundPlane과 교차하지 않을 경우, playerPosition을 반환합니다.
+        return playerPosition;
     }
 
     public static AdjacentDirection GetOppositeDirection(AdjacentDirection direction)
@@ -208,7 +213,7 @@ public static class UtillHelper
         T objectType = Resources.Load<T>(path);
         if (objectType != null)
         {
-            objectType = UnityEngine.Object.Instantiate(objectType);
+            objectType = UnityEngine.Object.Instantiate(objectType, parent);
             if (objectType != null)
             {
                 if (init)
@@ -231,4 +236,5 @@ public static class UtillHelper
 
         return t;
     }
+
 }

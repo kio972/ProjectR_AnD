@@ -6,7 +6,8 @@ public class FSMFollow : FSMSingleton<FSMFollow>, CharState<Controller>
 {
     public void Enter(Controller e)
     {
-
+        print(e.name + "Following" + e.curTarget.name);
+        e.animator.SetBool("Move", true);
     }
 
     public void Excute(Controller e)
@@ -33,6 +34,7 @@ public class FSMFollow : FSMSingleton<FSMFollow>, CharState<Controller>
 
     public void Exit(Controller e)
     {
-        //print(e.name + "Exit Fellow Following : Player");
+        e.animator.SetBool("Move", false);
+        print(e.name + "Follow End");
     }
 }

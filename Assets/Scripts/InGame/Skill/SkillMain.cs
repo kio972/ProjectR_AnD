@@ -23,7 +23,26 @@ public abstract class SkillMain : MonoBehaviour
 {
     public float baseDamage = 0;
     public AttackType attackType;
+    public int stack = 1;
+    public float coolTime = 0;
+
+    protected float after_Delay = 0.3f;
+    
     public abstract IEnumerator ISkillFunc(Controller attacker);
+    public virtual void TriggerAnimation(Controller attacker) { }
+
+    protected IEnumerator IAfterDelay(System.Action callback = null)
+    {
+        float elapsedTime = 0f;
+        while(elapsedTime < after_Delay)
+        {
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        callback?.Invoke();
+    }
+
     
     public void PrepareSkill(Controller attacker)
     {
@@ -38,12 +57,11 @@ public abstract class SkillMain : MonoBehaviour
         StartCoroutine(ISkillFunc(attacker));
     }
 
-
-
-    public virtual void TriggerAnimation(Controller attacker) { }
-
     protected void ExecuteDamage(Controller attacker, Controller victim)
     {
+        if (attacker == null || victim == null)
+            return;
+
         float damage = attacker.baseDamage;
         damage = attacker.DamageModify(damage);
         damage = victim.TakeDamage(damage);

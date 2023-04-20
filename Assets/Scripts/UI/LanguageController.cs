@@ -26,6 +26,8 @@ public class LanguageController : Singleton<LanguageController>
 
     void Start()
     {
+        if (uiCSV == null)
+            return;
         // uiDic을 불러오는 함수 작성 필요
         uiDics = CSVLoader.LoadCSV(uiCSV);
     }

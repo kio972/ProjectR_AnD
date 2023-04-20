@@ -1,42 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SkillDash : SkillMain
 {
+    public override void TriggerAnimation(Controller attacker)
+    {
+        attacker.animator.SetTrigger("Dash");
+    }
+
     public override IEnumerator ISkillFunc(Controller attacker)
     {
-        //¸¶¿ì½º ¹æÇâÀ¸·Î È¸Àü ½ÇÇà, È¸ÀüÀÌ ³¡³¯¶§±îÁö ´ë±â
+        //ë§ˆìš°ìŠ¤ ë°©í–¥ìœ¼ë¡œ íšŒì „ ì‹¤í–‰, íšŒì „ì´ ëë‚ ë•Œê¹Œì§€ ëŒ€ê¸°
         Vector3 direction = UtillHelper.GetMouseWorldPosition(attacker.transform.position);
         yield return StartCoroutine(UtillHelper.RotateTowards(attacker.transform, direction, attacker.rotateTime, () => { }));
-        //°ø°İ¸ğ¼Ç ½ÃÇà
+        //ê³µê²©ëª¨ì…˜ ì‹œí–‰
         TriggerAnimation(attacker);
 
-        //Àü¹æÀ¸·Î x¹ÌÅÍ ÀÌµ¿, ÀÌµ¿ Áß ÇÃ·¹ÀÌ¾îÀÇ collider°¡ ´Ù¸¥ collider¿¡ ºÎµúÈú ½Ã Á¤Áö
-        //ºÎµúÈù collider°¡ "Enemy" ·¹ÀÌ¾îÀÏ °æ¿ì, ÇØ´ç collider¿¡¼­ Controller¸¦ °¡Á®¿Í ExcuteDamage(attacker, controller); Ã³¸®
-        float moveDistance = 5f;
-        float interval = 0.1f;
+        //ì „ë°©ìœ¼ë¡œ xë¯¸í„° ì´ë™, ì´ë™ ì¤‘ í”Œë ˆì´ì–´ì˜ colliderê°€ ë‹¤ë¥¸ colliderì— ë¶€ë”ªí ì‹œ ì •ì§€
+        //ë¶€ë”ªíŒ colliderê°€ "Enemy" ë ˆì´ì–´ì¼ ê²½ìš°, í•´ë‹¹ colliderì—ì„œ Controllerë¥¼ ê°€ì ¸ì™€ ë°ë¯¸ì§€ ì²˜ë¦¬
+        float moveDistance = 3f;
+        float interval = 0.01f;
+        float lerpTime = 0.5f;
         Vector3 startPosition = attacker.transform.position;
         Vector3 endPosition = attacker.transform.position + attacker.transform.forward * moveDistance;
-        float currentDistance = 0f;
-        while (currentDistance < moveDistance)
+        float currentTime = 0f; // ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+        while (currentTime < lerpTime)
         {
-            Vector3 currentPosition = Vector3.Lerp(startPosition, endPosition, currentDistance / moveDistance);
+            Vector3 currentPosition = Vector3.Lerp(startPosition, endPosition, currentTime / lerpTime);
             RaycastHit hit;
             if (Physics.Linecast(attacker.transform.position, currentPosition, out hit))
             {
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
                 {
-                    Controller controller = hit.collider.GetComponent<Controller>();
+                    Controller controller = hit.collider.GetComponentInParent<Controller>();
                     ExecuteDamage(attacker, controller);
                 }
                 break;
             }
             attacker.transform.position = currentPosition;
-            currentDistance += interval;
-            yield return new WaitForSeconds(interval);
+            currentTime += interval;
+            yield return null;
         }
 
+        yield return StartCoroutine(IAfterDelay(() => { }));
         SkillEnd(attacker);
     }
 }

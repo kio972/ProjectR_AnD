@@ -12,7 +12,7 @@ public class Controller : FSM<Controller>
     public float hp = 150;
     public float maxHp = 150;
     public float baseDamage = 30;
-    public float attackRange = 1f;
+    public float attackRange = 2f;
     public float criticalChange = 0.15f;
     public float speed = 1f;
     public int dashCount = 1;
@@ -46,6 +46,8 @@ public class Controller : FSM<Controller>
 
     public UnitType unitType = UnitType.Monster;
 
+    public bool isDead = false;
+
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -53,42 +55,33 @@ public class Controller : FSM<Controller>
         InitState(this, FSMSpawn.Instance);
     }
 
-
-
-
     public void AttackCheck()
     {
         if (isAttacking)
             return;
 
         if (Input.GetKeyDown(InputManager.Instance.player_BasicAttackKey))
-        {
             SkillManager.Instance.UseBasicSkill(this);
-            isAttacking = true;
-        }
         if (Input.GetKeyDown(InputManager.Instance.player_Skill1Key))
-        {
             SkillManager.Instance.UseDashSkill(this);
-            isAttacking = true;
-        }
         if (Input.GetKeyDown(InputManager.Instance.player_SpecialAttackKey))
-        {
             SkillManager.Instance.UseSpecialSkill(this);
-            isAttacking = true;
-        }
     }
 
     public void KeyBoardMove()
     {
+        if (isAttacking)
+            return;
+
         Vector3 direction = Vector3.zero;
         if (Input.GetKey(InputManager.Instance.player_MoveFront))
-            direction += Vector3.forward;
+            direction += Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0) * Vector3.forward;
         if (Input.GetKey(InputManager.Instance.player_MoveBack))
-            direction += Vector3.back;
+            direction += Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0) * Vector3.back;
         if (Input.GetKey(InputManager.Instance.player_MoveLeft))
-            direction += Vector3.left;
+            direction += Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0) * Vector3.left;
         if (Input.GetKey(InputManager.Instance.player_MoveRight))
-            direction += Vector3.right;
+            direction += Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0) * Vector3.right;
 
         direction = direction.normalized;
 
@@ -116,12 +109,24 @@ public class Controller : FSM<Controller>
 
     public void Dead()
     {
-
+        animator.SetInteger("Random", Random.Range(0, 3));
+        animator.SetBool("Dead", true);
+        isDead = true;
+        Destroy(agent);
     }
 
     public void Attack()
     {
-        
+        //대상에게 회전 실행 
+        attackElapsed += Time.deltaTime;
+        if (isAttacking)
+            return;
+
+        //공격처리
+        StartCoroutine(UtillHelper.RotateTowards(transform, curTarget.transform.position, rotateTime));
+        isAttacking = true;
+        animator.SetInteger("Random", Random.Range(0, 3));
+        animator.SetTrigger("Attack");
     }
 
     public void PatrolMove()
@@ -131,6 +136,7 @@ public class Controller : FSM<Controller>
 
     public void FollowTarget()
     {
+        agent.isStopped = false;
         agent.SetDestination(curTarget.transform.position);
     }
 
@@ -142,6 +148,9 @@ public class Controller : FSM<Controller>
 
     public void ModifyHp(float value)
     {
+        if (isDead)
+            return;
+
         float curHp = hp;
         curHp += value;
         curHp = Mathf.Round(curHp);
@@ -150,6 +159,9 @@ public class Controller : FSM<Controller>
         if (curHp < 0)
             curHp = 0;
         hp = curHp;
+
+        if (hp <= 0)
+            ChangeState(FSMDead.Instance);
     }
 
     public void DrainHp(float damage)

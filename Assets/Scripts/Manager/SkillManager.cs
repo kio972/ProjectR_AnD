@@ -29,9 +29,11 @@ public class SkillManager : Singleton<SkillManager>
         // 생성자에서 필요한 초기화 작업을 수행합니다.
         GameObject basicSkillObject = new GameObject();
         basicSkillObject.name = "BasicSkill";
+        basicSkillObject.transform.SetParent(transform);
         basicSkill = basicSkillObject.AddComponent<SkillBasic>();
         GameObject dashSkillObject = new GameObject();
         dashSkillObject.name = "DashSkill";
-        dashSkill = gameObject.AddComponent<SkillDash>();
+        dashSkillObject.transform.SetParent(transform);
+        dashSkill = dashSkillObject.gameObject.AddComponent<SkillDash>();
     }
 }

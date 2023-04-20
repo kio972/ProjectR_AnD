@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : Singleton<SceneController>
 {
-    public float sceneWaitTime = 0.5f;
+    public float sceneWaitTime = 1f;
     private bool sceneChanging = false;
     public bool SceneChanging { get { return sceneChanging; } }
 
