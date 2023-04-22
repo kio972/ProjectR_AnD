@@ -23,7 +23,7 @@ public class SkillBasic : SkillMain
         foreach (Collider hitCollider in hitColliders)
         {
             Controller controller = hitCollider.GetComponentInParent<Controller>();
-            if (controller != null && controller.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+            if (controller != null && controller.gameObject.layer == 1 << attacker.enemyLayer)
             {
                 print(controller.gameObject.name);
                 Vector3 dirToTarget = (controller.transform.position - attacker.transform.position).normalized;

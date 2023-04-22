@@ -48,6 +48,8 @@ public class Controller : FSM<Controller>
 
     public bool isDead = false;
 
+    public SkillMain basicAttack = null;
+
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -127,6 +129,8 @@ public class Controller : FSM<Controller>
         isAttacking = true;
         animator.SetInteger("Random", Random.Range(0, 3));
         animator.SetTrigger("Attack");
+        if (basicAttack != null)
+            StartCoroutine(basicAttack.ISkillFunc(this));
     }
 
     public void PatrolMove()
