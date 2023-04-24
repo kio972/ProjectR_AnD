@@ -24,49 +24,36 @@ public class SkillDash : SkillMain
         //float moveDistance = 3f;
         //float interval = 0.01f;
         float lerpTime = 0.5f;
-        Vector3 startPos = transform.position;
+        Vector3 startPos = attacker.transform.position;
         Vector3 dir = (attacker.transform.forward).normalized * dashDist;
-        Vector3 endPos = transform.position + dir;
+        Vector3 endPos = attacker.transform.position + dir;
+        float distance = Vector3.Distance(startPos, endPos);
+        float speed = distance / lerpTime;
         float elapsedTime = 0f;
         while (elapsedTime < lerpTime)
         {
-            attacker.agent.Move(dir.normalized * attacker.agent.speed * Time.deltaTime);
+            attacker.agent.Move(dir.normalized * speed * Time.deltaTime);
             elapsedTime += Time.deltaTime;
 
+            bool isStop = false;
             // 이동 중 충돌하는 물체에서 Controller 컴포넌트를 받아옴
-            Collider[] colliders = Physics.OverlapSphere(transform.position, (attacker.agent.radius) + 0.1f);
+            Collider[] colliders = Physics.OverlapSphere(attacker.transform.position, (attacker.agent.radius) + 0.2f);
             foreach (Collider c in colliders)
             {
-                if (c.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+                Controller controller = c.GetComponentInParent<Controller>();
+                if (controller == null || controller.gameObject.layer == attacker.gameObject.layer)
+                    continue;
+
+                if (controller != null && controller.gameObject.layer == 1 << attacker.enemyLayer)
                 {
-                    Controller controller = c.GetComponent<Controller>();
-                    if (controller != null)
-                    {
-                        ExecuteDamage(attacker, controller);
-                    }
+                    ExecuteDamage(attacker, controller);
+                    isStop = true;
                 }
             }
-
+            if (isStop)
+                break;
             yield return null;
         }
-
-        //while (currentTime < lerpTime)
-        //{
-        //    Vector3 currentPosition = Vector3.Lerp(startPosition, endPosition, currentTime / lerpTime);
-        //    RaycastHit hit;
-        //    if (Physics.Linecast(attacker.transform.position, currentPosition, out hit))
-        //    {
-        //        if (hit.collider.gameObject.layer == 1 << attacker.enemyLayer)
-        //        {
-        //            Controller controller = hit.collider.GetComponentInParent<Controller>();
-        //            ExecuteDamage(attacker, controller);
-        //        }
-        //        break;
-        //    }
-        //    attacker.transform.position = currentPosition;
-        //    currentTime += interval;
-        //    yield return null;
-        //}
 
         yield return StartCoroutine(IAfterDelay(() => { }));
         SkillEnd(attacker);
