@@ -50,15 +50,15 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _CloudScale: 120
-    - _CloudsAlpha: 0.49
-    - _CloudsPower: -1.62
-    - _CloudsScale: 110.34
-    - _DistortScale: 1.13
+    - _CloudsAlpha: 0.7
+    - _CloudsPower: 2.16
+    - _CloudsScale: 20
+    - _DistortScale: 19.82
     - _QueueControl: 1
     - _QueueOffset: 0
-    - _VertexOffset: -0.33
+    - _VertexOffset: 2
     m_Colors:
-    - _CloudsColor: {r: 132.88245, g: 131.00203, b: 131.00203, a: 1}
-    - _CloudsSpeed: {r: 0.002, g: 0.008, b: 0, a: 0}
+    - _CloudsColor: {r: 66.44121, g: 65.74549, b: 65.74549, a: 1}
+    - _CloudsSpeed: {r: 0.01, g: 0.01, b: 0, a: 0}
     - _DistortSpeed: {r: 0.01, g: 0.005, b: 0, a: 0}
   m_BuildTextureStacks: []
