@@ -117,13 +117,8 @@ public class Controller : FSM<Controller>
         Destroy(agent);
     }
 
-    public void Attack()
+    public virtual void Attack()
     {
-        //대상에게 회전 실행 
-        attackElapsed += Time.deltaTime;
-        if (isAttacking)
-            return;
-
         //공격처리
         StartCoroutine(UtillHelper.RotateTowards(transform, curTarget.transform.position, rotateTime));
         isAttacking = true;

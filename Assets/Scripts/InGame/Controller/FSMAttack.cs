@@ -13,9 +13,16 @@ public class FSMAttack : FSMSingleton<FSMAttack>, CharState<Controller>
 
     public void Excute(Controller e)
     {
-        e.Attack();
+        if (e.attackElapsed == 0f)
+        {
+            e.Attack();
+        }
+        e.attackElapsed += Time.deltaTime;
         if (e.attackElapsed > e.attackDelayTime)
+        {
+            e.attackElapsed = 0f;
             e.ChangeState(FSMFollow.Instance);
+        }
     }
 
     public void Exit(Controller e)

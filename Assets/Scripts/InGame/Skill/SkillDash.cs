@@ -11,14 +11,17 @@ public class SkillDash : SkillMain
         attacker.animator.SetTrigger("Dash");
     }
 
-    public override IEnumerator ISkillFunc(Controller attacker)
+    public override IEnumerator ISkillFunc(Controller attacker, bool mouseRotate = false)
     {
         //마우스 방향으로 회전 실행, 회전이 끝날때까지 대기
-        Vector3 direction = UtillHelper.GetMouseWorldPosition(attacker.transform.position);
-        yield return StartCoroutine(UtillHelper.RotateTowards(attacker.transform, direction, attacker.rotateTime, () => { }));
-        //공격모션 시행
-        TriggerAnimation(attacker);
-
+        if (mouseRotate)
+        {
+            Vector3 direction = UtillHelper.GetMouseWorldPosition(attacker.transform.position);
+            yield return StartCoroutine(UtillHelper.RotateTowards(attacker.transform, direction, attacker.rotateTime, () => { }));
+            //공격모션 시행
+            TriggerAnimation(attacker);
+        }
+        
         //전방으로 x미터 이동, 이동 중 플레이어의 collider가 다른 collider에 부딪힐 시 정지
         //부딪힌 collider가 "Enemy" 레이어일 경우, 해당 collider에서 Controller를 가져와 데미지 처리
         //float moveDistance = 3f;
@@ -44,7 +47,7 @@ public class SkillDash : SkillMain
                 if (controller == null || controller.gameObject.layer == attacker.gameObject.layer)
                     continue;
 
-                if (controller != null && controller.gameObject.layer == 1 << attacker.enemyLayer)
+                if (controller != null && 1 << controller.gameObject.layer == attacker.enemyLayer)
                 {
                     ExecuteDamage(attacker, controller);
                     isStop = true;

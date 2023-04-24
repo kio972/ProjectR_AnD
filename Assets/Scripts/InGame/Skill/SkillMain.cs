@@ -28,7 +28,7 @@ public abstract class SkillMain : MonoBehaviour
 
     protected float after_Delay = 0.3f;
     
-    public abstract IEnumerator ISkillFunc(Controller attacker);
+    public abstract IEnumerator ISkillFunc(Controller attacker, bool mouseRotate = false);
     public virtual void TriggerAnimation(Controller attacker) { }
 
     protected IEnumerator IAfterDelay(System.Action callback = null)
@@ -54,7 +54,7 @@ public abstract class SkillMain : MonoBehaviour
     public virtual void SkillCheck(Controller attacker)
     {
         PrepareSkill(attacker);
-        StartCoroutine(ISkillFunc(attacker));
+        StartCoroutine(ISkillFunc(attacker, true));
     }
 
     protected void ExecuteDamage(Controller attacker, Controller victim)
