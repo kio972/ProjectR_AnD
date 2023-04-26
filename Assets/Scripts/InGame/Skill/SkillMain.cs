@@ -23,11 +23,13 @@ public abstract class SkillMain : MonoBehaviour
 {
     public float baseDamage = 0;
     public AttackType attackType;
-    public int stack = 1;
-    public float coolTime = 0;
+    private int curStack = 1;
+    public int maxStack = 1;
+    private float coolTimeElapsed = 0f;
+    public float coolTime = 0f;
 
     protected float after_Delay = 0.3f;
-    
+
     public abstract IEnumerator ISkillFunc(Controller attacker, bool mouseRotate = false);
     public virtual void TriggerAnimation(Controller attacker) { }
 
@@ -43,6 +45,23 @@ public abstract class SkillMain : MonoBehaviour
         callback?.Invoke();
     }
 
+    private bool CoolTimeUpdate()
+    {
+        print(coolTimeElapsed);
+        coolTimeElapsed += Time.deltaTime;
+        if(coolTimeElapsed >= coolTime)
+        {
+            curStack++;
+            coolTimeElapsed = 0f;
+            if(curStack >= maxStack)
+            {
+                curStack = maxStack;
+                return true;
+            }
+        }
+        return false;
+    }
+
     
     public void PrepareSkill(Controller attacker)
     {
@@ -53,8 +72,17 @@ public abstract class SkillMain : MonoBehaviour
 
     public virtual void SkillCheck(Controller attacker)
     {
-        PrepareSkill(attacker);
-        StartCoroutine(ISkillFunc(attacker, true));
+        if(curStack >= 1)
+        {
+            curStack--;
+            SkillManager.Instance.ActivateSkill(CoolTimeUpdate);
+            PrepareSkill(attacker);
+            StartCoroutine(ISkillFunc(attacker, true));
+        }
+        else
+        {
+            //스킬 쿨타임 부족, 관련 표시 출력함수 실행
+        }
     }
 
     protected void ExecuteDamage(Controller attacker, Controller victim)
@@ -75,9 +103,8 @@ public abstract class SkillMain : MonoBehaviour
         attacker.agent.isStopped = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void Init()
     {
-        
+        //스킬테이블에서 스킬정보 받아오는 함수 추가예정
     }
 }
