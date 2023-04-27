@@ -28,7 +28,12 @@ public abstract class SkillMain : MonoBehaviour
     private float coolTimeElapsed = 0f;
     public float coolTime = 0f;
 
+    protected CCType ccType = CCType.Stiff;
+    protected float ccTime = 0.3f;
+
     protected float after_Delay = 0.3f;
+
+    protected Coroutine coroutine = null;
 
     public abstract IEnumerator ISkillFunc(Controller attacker, bool mouseRotate = false);
     public virtual void TriggerAnimation(Controller attacker) { }
@@ -69,19 +74,31 @@ public abstract class SkillMain : MonoBehaviour
         attacker.agent.updateRotation = false;
         attacker.agent.isStopped = true;
     }
+    
 
-    public virtual void SkillCheck(Controller attacker)
+    public virtual void SkillCheck(Controller attacker, bool isPlayer = true)
     {
-        if(curStack >= 1)
+        if(isPlayer)
         {
-            curStack--;
-            SkillManager.Instance.ActivateSkill(CoolTimeUpdate);
-            PrepareSkill(attacker);
-            StartCoroutine(ISkillFunc(attacker, true));
+            if (curStack >= 1)
+            {
+                curStack--;
+                SkillManager.Instance.ActivateSkill(CoolTimeUpdate);
+                PrepareSkill(attacker);
+                if (coroutine != null)
+                    StopCoroutine(coroutine);
+                coroutine = StartCoroutine(ISkillFunc(attacker, isPlayer));
+            }
+            else
+            {
+                //스킬 쿨타임 부족, 관련 표시 출력함수 실행
+            }
         }
         else
         {
-            //스킬 쿨타임 부족, 관련 표시 출력함수 실행
+            if (coroutine != null)
+                StopCoroutine(coroutine);
+            coroutine = StartCoroutine(ISkillFunc(attacker));
         }
     }
 
@@ -93,7 +110,15 @@ public abstract class SkillMain : MonoBehaviour
         float damage = attacker.baseDamage;
         damage = attacker.DamageModify(damage);
         damage = victim.TakeDamage(damage);
+        if (ccType != CCType.None)
+            victim.GetCC(ccType, ccTime);
         attacker.DrainHp(damage);
+    }
+
+    public void StopSkill(Controller attacker)
+    {
+        StopCoroutine(coroutine);
+        SkillEnd(attacker);
     }
 
     protected void SkillEnd(Controller attacker)

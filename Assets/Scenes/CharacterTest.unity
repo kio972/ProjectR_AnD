@@ -329,7 +329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 0
   attackType: 0
-  stack: 1
+  maxStack: 1
   coolTime: 0
 --- !u!1 &1860450372 stripped
 GameObject:
@@ -1641,7 +1641,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 5
-  m_Acceleration: 15
+  m_Acceleration: 100
   avoidancePriority: 51
   m_AngularSpeed: 2000
   m_StoppingDistance: 0

@@ -50,11 +50,38 @@ public class Controller : FSM<Controller>
 
     public SkillMain basicAttack = null;
 
+    public CCType curCCState = CCType.None;
+    private float ccDuration = 0f;
+    private float ccElapsed = 0f;
+    public float CCDuration { get => ccDuration; }
+    public float CCElapsed { get => ccElapsed; set => ccElapsed = value; }
+    
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         InitState(this, FSMSpawn.Instance);
+    }
+
+    public int GetCCPriority(CCType ccType)
+    {
+        //CC우선순위 계산 함수 추가 필요
+        return 0;
+    }
+
+    public void GetCC(CCType ccType, float ccDuration)
+    {
+        if (isDead)
+            return;
+
+        if(GetCCPriority(ccType) >= GetCCPriority(curCCState))
+        {
+            curCCState = ccType;
+            this.ccDuration = ccDuration;
+            ccElapsed = 0f;
+            
+            ChangeState(FSMCC.Instance);
+        }
     }
 
     public void AttackCheck()
@@ -125,7 +152,7 @@ public class Controller : FSM<Controller>
         animator.SetInteger("Random", Random.Range(0, 3));
         animator.SetTrigger("Attack");
         if (basicAttack != null)
-            StartCoroutine(basicAttack.ISkillFunc(this));
+            basicAttack.SkillCheck(this, false);
     }
 
     public void PatrolMove()
@@ -175,7 +202,12 @@ public class Controller : FSM<Controller>
     public float TakeDamage(float damage)
     {
         float finalDamage = Mathf.Round(damage * (1 - damageReduce));
+        if (finalDamage <= 0)
+            return 0;
+
         ModifyHp(-finalDamage);
+        if (animator != null)
+            animator.SetTrigger("Damaged");
         return finalDamage;
     }
 

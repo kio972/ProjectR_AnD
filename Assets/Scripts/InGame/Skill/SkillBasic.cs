@@ -20,8 +20,8 @@ public class SkillBasic : SkillMain
             TriggerAnimation(attacker);
         }
         yield return new WaitForSeconds(0.4f);
-        //attacker 전방 10도범위의 2f거리 내의 Controller를 가진 적들을 받아옴
-        Collider[] hitColliders = Physics.OverlapSphere(attacker.transform.position, 2f);
+        //attacker 전방 x도범위의 x거리 내의 Controller를 가진 적들을 받아옴
+        Collider[] hitColliders = Physics.OverlapSphere(attacker.transform.position, 1.5f);
         foreach (Collider hitCollider in hitColliders)
         {
             Controller controller = hitCollider.GetComponentInParent<Controller>();

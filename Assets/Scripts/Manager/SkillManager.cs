@@ -10,6 +10,8 @@ public class SkillManager : Singleton<SkillManager>
     public SkillMain dashSkill;
     public SkillMain specialSkill;
 
+    public SkillMain curSkill;
+
     public List<SkillUpdater> activatedSkills = new List<SkillUpdater>();
 
     private void Update()
@@ -38,16 +40,19 @@ public class SkillManager : Singleton<SkillManager>
     public void UseBasicSkill(Controller attacker)
     {
         basicSkill.SkillCheck(attacker);
+        curSkill = basicSkill;
     }
 
     public void UseDashSkill(Controller attacker)
     {
         dashSkill.SkillCheck(attacker);
+        curSkill = dashSkill;
     }
 
     public void UseSpecialSkill(Controller attacker)
     {
         specialSkill.SkillCheck(attacker);
+        curSkill = specialSkill;
     }
 
 

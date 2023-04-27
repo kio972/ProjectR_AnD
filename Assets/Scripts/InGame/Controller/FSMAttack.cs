@@ -7,8 +7,6 @@ public class FSMAttack : FSMSingleton<FSMAttack>, CharState<Controller>
     public void Enter(Controller e)
     {
         e.agent.isStopped = true;
-        e.attackElapsed = 0;
-        print(e.name + "Attack");
     }
 
     public void Excute(Controller e)

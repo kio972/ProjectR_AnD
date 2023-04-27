@@ -24,8 +24,6 @@ public class SkillDash : SkillMain
         
         //전방으로 x미터 이동, 이동 중 플레이어의 collider가 다른 collider에 부딪힐 시 정지
         //부딪힌 collider가 "Enemy" 레이어일 경우, 해당 collider에서 Controller를 가져와 데미지 처리
-        //float moveDistance = 3f;
-        //float interval = 0.01f;
         float lerpTime = 0.5f;
         Vector3 startPos = attacker.transform.position;
         Vector3 dir = (attacker.transform.forward).normalized * dashDist;
