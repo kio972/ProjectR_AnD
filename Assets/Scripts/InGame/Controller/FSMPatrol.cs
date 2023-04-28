@@ -21,7 +21,7 @@ public class FSMPatrol : FSMSingleton<FSMPatrol>, CharState<Controller>
         foreach (Collider collider in colliders)
         {
             Controller controller = collider.GetComponentInParent<Controller>();
-            if (controller != null)
+            if (controller != null && !controller.isDead)
             {
                 float dist = Vector3.Distance(e.transform.position, controller.transform.position);
                 if (dist < closestDist)

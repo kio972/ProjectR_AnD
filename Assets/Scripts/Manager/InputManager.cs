@@ -85,13 +85,16 @@ public class InputManager : Singleton<InputManager>
 
     public void Init()
     {
+        //세이브데이터에서 설정값 불러오는 함수로 변경필요
         controlKeys.Clear();
         controlKeys.Add(ControlKey.None, KeyCode.None);
-        controlKeys.Add(ControlKey.Move, KeyCode.Mouse1);
-        controlKeys.Add(ControlKey.Aim, KeyCode.Mouse0);
-        controlKeys.Add(ControlKey.Basic, KeyCode.Q);
-        controlKeys.Add(ControlKey.Skill1, KeyCode.W);
-        controlKeys.Add(ControlKey.Skill2, KeyCode.E);
+        controlKeys.Add(ControlKey.MoveFront, KeyCode.W);
+        controlKeys.Add(ControlKey.MoveBack, KeyCode.S);
+        controlKeys.Add(ControlKey.MoveLeft, KeyCode.A);
+        controlKeys.Add(ControlKey.MoveRight, KeyCode.D);
+        controlKeys.Add(ControlKey.Basic, KeyCode.Mouse0);
+        controlKeys.Add(ControlKey.Skill1, KeyCode.Mouse1);
+        //controlKeys.Add(ControlKey.Skill2, KeyCode.E);
         controlKeys.Add(ControlKey.Special, KeyCode.R);
     }
 }

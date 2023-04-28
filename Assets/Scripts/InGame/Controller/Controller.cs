@@ -141,7 +141,7 @@ public class Controller : FSM<Controller>
         animator.SetInteger("Random", Random.Range(0, 3));
         animator.SetBool("Dead", true);
         isDead = true;
-        Destroy(agent);
+        agent.enabled = false;
     }
 
     public virtual void Attack()
@@ -201,6 +201,9 @@ public class Controller : FSM<Controller>
 
     public float TakeDamage(float damage)
     {
+        if (isDead)
+            return 0;
+
         float finalDamage = Mathf.Round(damage * (1 - damageReduce));
         if (finalDamage <= 0)
             return 0;

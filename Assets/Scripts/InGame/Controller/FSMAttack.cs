@@ -25,6 +25,8 @@ public class FSMAttack : FSMSingleton<FSMAttack>, CharState<Controller>
 
     public void Exit(Controller e)
     {
+        if (e.curTarget != null && e.curTarget.isDead)
+            e.curTarget = null;
         e.agent.isStopped = false;
         e.IsAttacking = false;
         print(e.name + "Attack End");

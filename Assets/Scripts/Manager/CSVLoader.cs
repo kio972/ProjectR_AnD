@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CSVLoader : MonoBehaviour
+public class CSVLoader
 {
     public static List<Dictionary<string, string>> LoadCSV(TextAsset textFile)
     {

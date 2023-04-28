@@ -17,7 +17,7 @@ public class FSMCC : FSMSingleton<FSMCC>, CharState<Controller>
         if (e.basicAttack != null)
             e.basicAttack.StopSkill(e);
         else
-            SkillManager.Instance.curSkill.StopSkill(e);
+            SkillManager.Instance.curSkill?.StopSkill(e);
     }
 
     public void Excute(Controller e)

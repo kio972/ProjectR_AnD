@@ -124,8 +124,11 @@ public abstract class SkillMain : MonoBehaviour
     protected void SkillEnd(Controller attacker)
     {
         attacker.IsAttacking = false;
-        attacker.agent.updateRotation = true;
-        attacker.agent.isStopped = false;
+        if(attacker.agent.enabled)
+        {
+            attacker.agent.updateRotation = true;
+            attacker.agent.isStopped = false;
+        }
     }
 
     public virtual void Init()
