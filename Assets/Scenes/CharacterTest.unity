@@ -1693,6 +1693,7 @@ MonoBehaviour:
   unitType: 0
   isDead: 0
   basicAttack: {fileID: 0}
+  curCCState: 0
 --- !u!95 &2056731576 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 2062549493358625412, guid: a0fee733af1e6ce46856f1702a55b59b,

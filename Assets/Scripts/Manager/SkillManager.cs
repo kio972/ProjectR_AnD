@@ -14,6 +14,10 @@ public class SkillManager : Singleton<SkillManager>
 
     public List<SkillUpdater> activatedSkills = new List<SkillUpdater>();
 
+    private bool isAttackReadyState = false;
+
+    private Transform guideObject;
+
     private void Update()
     {
         List<SkillUpdater> needRemoveSkills = new List<SkillUpdater>();
@@ -37,28 +41,69 @@ public class SkillManager : Singleton<SkillManager>
         activatedSkills.Add(updater);
     }
 
+    private void DrawGuide(bool value, Controller player = null)
+    {
+        if (guideObject == null)
+            return;
+
+        if (value)
+        {
+            Vector3 mousePos = UtillHelper.GetMouseWorldPosition(player.transform.position);
+            Vector3 dir = (mousePos - player.transform.position).normalized;
+            guideObject.gameObject.SetActive(true);
+            guideObject.position = player.transform.position;
+            guideObject.rotation = Quaternion.LookRotation(dir);
+        }
+        else
+            guideObject.gameObject.SetActive(false);
+    }
+
+    public IEnumerator SkillUpdate(Controller attacker, SkillMain skill, KeyCode skillKey)
+    {
+        if (isAttackReadyState)
+            yield break;
+        isAttackReadyState = true;
+        curSkill = skill;
+        while (true)
+        {
+            if (curSkill == null)
+            {
+                DrawGuide(false);
+                isAttackReadyState = false;
+                yield break;
+            }
+
+            DrawGuide(true, attacker);
+
+            if (Input.GetKeyUp(skillKey))
+                break;
+            yield return null;
+        }
+
+        DrawGuide(false);
+        isAttackReadyState = false;
+        skill.SkillCheck(attacker);
+        yield return null;
+    }
+
     public void UseBasicSkill(Controller attacker)
     {
-        basicSkill.SkillCheck(attacker);
-        curSkill = basicSkill;
+        StartCoroutine(SkillUpdate(attacker, basicSkill, InputManager.Instance.player_BasicAttackKey));
     }
 
     public void UseDashSkill(Controller attacker)
     {
-        dashSkill.SkillCheck(attacker);
-        curSkill = dashSkill;
+        StartCoroutine(SkillUpdate(attacker, dashSkill, InputManager.Instance.player_Skill1Key));
     }
 
     public void UseSpecialSkill(Controller attacker)
     {
-        specialSkill.SkillCheck(attacker);
-        curSkill = specialSkill;
+        StartCoroutine(SkillUpdate(attacker, specialSkill, InputManager.Instance.player_SpecialAttackKey));
     }
 
 
     public void Init()
     {
-        // 생성자에서 필요한 초기화 작업을 수행합니다.
         GameObject basicSkillObject = new GameObject();
         basicSkillObject.name = "BasicSkill";
         basicSkillObject.transform.SetParent(transform);
@@ -67,5 +112,7 @@ public class SkillManager : Singleton<SkillManager>
         dashSkillObject.name = "DashSkill";
         dashSkillObject.transform.SetParent(transform);
         dashSkill = dashSkillObject.gameObject.AddComponent<SkillDash>();
+        if (guideObject == null)
+            guideObject = Instantiate(Resources.Load<Transform>("Prefab/UI/GuideObject"));
     }
 }
