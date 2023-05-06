@@ -14,9 +14,10 @@ public class FSMPossess : FSMSingleton<FSMPossess>, CharState<Controller>
     {
         if (!e.agent.isOnNavMesh)
             return;
+        if (e.IsAttacking)
+            return;
 
-        e.KeyBoardMove();
-        e.AttackCheck();
+        InputManager.Instance.InputCheck(e);
     }
 
     public void Exit(Controller e)

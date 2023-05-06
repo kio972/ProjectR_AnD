@@ -23,15 +23,15 @@ public enum ModifyTarget
 public enum ModifyStat
 {
     None,
-    Damage,
-    DamageRate,
-    DamageReduce,
-    DashDist,
-    DashCount,
-    Shield,
-    Hp,
-    MaxHp,
-    Speed,
+    baseDamage,
+    damageRate,
+    damageReduce,
+    dashDist,
+    dashCount,
+    shield,
+    hp,
+    maxHp,
+    speed,
 }
 
 public struct Skill_Passive

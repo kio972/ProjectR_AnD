@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class Controller : FSM<Controller>
 {
     public int id = -1;
-    public string name;
+    public string _name;
 
     public NavMeshAgent agent;
 
@@ -22,11 +22,10 @@ public class Controller : FSM<Controller>
     public float damageRate = 1f;
     public float damageReduce = 0f;
     public float drainRate = 0f;
-
+    public float shield = 0f;
 
     public Animator animator;
 
-    
     public float spawnTime = 2f;
     public float spawnElapsed = 0f;
 
@@ -59,13 +58,30 @@ public class Controller : FSM<Controller>
     private float ccElapsed = 0f;
     public float CCDuration { get => ccDuration; }
     public float CCElapsed { get => ccElapsed; set => ccElapsed = value; }
-    
+
+    public List<Skill_Passive> cur_Skill_Passives = new List<Skill_Passive>();
+
+    public void ModifyStatus(ModifyStat targetStat, float value)
+    {
+        var field = GetType().GetField(targetStat.ToString());
+        if (field != null)
+        {
+            field.SetValue(this, (float)field.GetValue(this) + value);
+        }
+    }
+
+    public void GetPassive(Skill_Passive passive)
+    {
+        cur_Skill_Passives.Add(passive);
+        
+    }
+
     public void Init(Dictionary<string, object> data = null)
     {
         if(data != null)
         {
             id = Convert.ToInt32(data["ID"]);
-            name = (string)data["Name"];
+            _name = (string)data["Name"];
             maxHp = Convert.ToInt32(data["Hp"]);
             hp = maxHp;
             float.TryParse(data["Damage"].ToString(), out baseDamage);
@@ -109,33 +125,23 @@ public class Controller : FSM<Controller>
         }
     }
 
-    public void AttackCheck()
+    //public void AttackCheck()
+    //{
+    //    if (isAttacking)
+    //        return;
+
+    //    if (Input.GetKeyDown(InputManager.Instance.player_BasicAttackKey))
+    //        SkillManager.Instance.UseBasicSkill(this);
+    //    if (Input.GetKeyDown(InputManager.Instance.player_Skill1Key))
+    //        SkillManager.Instance.UseDashSkill(this);
+    //    if (Input.GetKeyDown(InputManager.Instance.player_SpecialAttackKey))
+    //        SkillManager.Instance.UseSpecialSkill(this);
+    //}
+
+    public void Move(Vector3 direction)
     {
         if (isAttacking)
             return;
-
-        if (Input.GetKeyDown(InputManager.Instance.player_BasicAttackKey))
-            SkillManager.Instance.UseBasicSkill(this);
-        if (Input.GetKeyDown(InputManager.Instance.player_Skill1Key))
-            SkillManager.Instance.UseDashSkill(this);
-        if (Input.GetKeyDown(InputManager.Instance.player_SpecialAttackKey))
-            SkillManager.Instance.UseSpecialSkill(this);
-    }
-
-    public void KeyBoardMove()
-    {
-        if (isAttacking)
-            return;
-
-        Vector3 direction = Vector3.zero;
-        if (Input.GetKey(InputManager.Instance.player_MoveFront))
-            direction += Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0) * Vector3.forward;
-        if (Input.GetKey(InputManager.Instance.player_MoveBack))
-            direction += Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0) * Vector3.back;
-        if (Input.GetKey(InputManager.Instance.player_MoveLeft))
-            direction += Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0) * Vector3.left;
-        if (Input.GetKey(InputManager.Instance.player_MoveRight))
-            direction += Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0) * Vector3.right;
 
         direction = direction.normalized;
 
