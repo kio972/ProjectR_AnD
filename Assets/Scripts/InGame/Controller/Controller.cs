@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine.AI;
 
 public class Controller : FSM<Controller>
 {
+    public int id = -1;
     public string name;
 
     public NavMeshAgent agent;
@@ -15,14 +17,16 @@ public class Controller : FSM<Controller>
     public float attackRange = 2f;
     public float criticalChange = 0.15f;
     public float speed = 1f;
+    public float dashDist = 5f;
     public int dashCount = 1;
     public float damageRate = 1f;
     public float damageReduce = 0f;
     public float drainRate = 0f;
 
+
     public Animator animator;
 
-        
+    
     public float spawnTime = 2f;
     public float spawnElapsed = 0f;
 
@@ -56,11 +60,32 @@ public class Controller : FSM<Controller>
     public float CCDuration { get => ccDuration; }
     public float CCElapsed { get => ccElapsed; set => ccElapsed = value; }
     
-    private void Start()
+    public void Init(Dictionary<string, object> data = null)
     {
+        if(data != null)
+        {
+            id = Convert.ToInt32(data["ID"]);
+            name = (string)data["Name"];
+            maxHp = Convert.ToInt32(data["Hp"]);
+            hp = maxHp;
+            float.TryParse(data["Damage"].ToString(), out baseDamage);
+            float.TryParse(data["Range"].ToString(), out attackRange);
+            float.TryParse(data["Speed"].ToString(), out speed);
+            dashCount = Convert.ToInt32(data["DashCount"]);
+            //DashCoolTime
+            //AttackSpeed
+            float.TryParse(data["CritChance"].ToString(), out criticalChange);
+            criticalChange *= 0.01f;
+        }
+
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         InitState(this, FSMSpawn.Instance);
+    }
+
+    private void Start()
+    {
+        Init();
     }
 
     public int GetCCPriority(CCType ccType)
@@ -138,7 +163,7 @@ public class Controller : FSM<Controller>
 
     public void Dead()
     {
-        animator.SetInteger("Random", Random.Range(0, 3));
+        animator.SetInteger("Random", UnityEngine.Random.Range(0, 3));
         animator.SetBool("Dead", true);
         isDead = true;
         agent.enabled = false;
@@ -149,7 +174,7 @@ public class Controller : FSM<Controller>
         //공격처리
         StartCoroutine(UtillHelper.RotateTowards(transform, curTarget.transform.position, rotateTime));
         isAttacking = true;
-        animator.SetInteger("Random", Random.Range(0, 3));
+        animator.SetInteger("Random", UnityEngine.Random.Range(0, 3));
         animator.SetTrigger("Attack");
         if (basicAttack != null)
             basicAttack.SkillCheck(this, false);

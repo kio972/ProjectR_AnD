@@ -101,7 +101,6 @@ public class SkillManager : Singleton<SkillManager>
         StartCoroutine(SkillUpdate(attacker, specialSkill, InputManager.Instance.player_SpecialAttackKey));
     }
 
-
     public void Init()
     {
         GameObject basicSkillObject = new GameObject();

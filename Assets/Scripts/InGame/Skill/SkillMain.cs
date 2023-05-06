@@ -134,5 +134,6 @@ public abstract class SkillMain : MonoBehaviour
     public virtual void Init()
     {
         //스킬테이블에서 스킬정보 받아오는 함수 추가예정
+
     }
 }
