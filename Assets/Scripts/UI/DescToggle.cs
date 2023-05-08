@@ -25,6 +25,7 @@ public class DescToggle : MonoBehaviour
         Cut,
         Slide,
         Drop,
+        Fade,
     }
 
     public enum ToggleDirection
@@ -35,6 +36,12 @@ public class DescToggle : MonoBehaviour
     private void DescButton()
     {
         desc.gameObject.SetActive(value);
+    }
+
+    private IEnumerator I_FadeUI(bool value)
+    {
+        //데스크 알파값 조정
+        yield return null;
     }
 
     private Vector2 GetStartPosition()
@@ -157,6 +164,11 @@ public class DescToggle : MonoBehaviour
                     if (toggleCorutine != null)
                         StopCoroutine(toggleCorutine);
                     toggleCorutine = StartCoroutine(I_DropUI(!value));
+                    break;
+                case ToggleType.Fade:
+                    if(toggleCorutine != null)
+                        StopCoroutine(toggleCorutine);
+                    toggleCorutine = StartCoroutine(I_FadeUI(!value));
                     break;
             }
         }
