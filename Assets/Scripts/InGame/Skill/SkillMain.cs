@@ -21,15 +21,15 @@ public enum DebuffType
 
 public abstract class SkillMain : MonoBehaviour
 {
-    public float baseDamage = 0;
+    //public float baseDamage = 0;
     public AttackType attackType;
     private int curStack = 1;
     public int maxStack = 1;
     private float coolTimeElapsed = 0f;
     public float coolTime = 0f;
-
+    [SerializeField]
     protected CCType ccType = CCType.Stiff;
-    protected float ccTime = 0.3f;
+    protected float ccTime = 0.5f;
 
     protected float after_Delay = 0.3f;
 
@@ -117,7 +117,8 @@ public abstract class SkillMain : MonoBehaviour
 
     public void StopSkill(Controller attacker)
     {
-        StopCoroutine(coroutine);
+        if(coroutine != null)
+            StopCoroutine(coroutine);
         SkillEnd(attacker);
     }
 

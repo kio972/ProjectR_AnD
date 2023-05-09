@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CSVLoader
 {
-    public static List<Dictionary<string, string>> LoadCSV(TextAsset textFile)
+    public static List<Dictionary<string, object>> LoadCSV(TextAsset textFile)
     {
         string str = textFile.text;
 
@@ -14,11 +14,11 @@ public class CSVLoader
 
         heads[heads.Length - 1] = heads[heads.Length - 1].Replace("\r", "");
 
-        List<Dictionary<string, string>> list = new List<Dictionary<string, string>>();
+        List<Dictionary<string, object>> list = new List<Dictionary<string, object>>();
 
         for (int i = 1; i < lines.Length; i++)
         {
-            Dictionary<string, string> dic = new Dictionary<string, string>();
+            Dictionary<string, object> dic = new Dictionary<string, object>();
             string[] col = lines[i].Split(',');
             col[col.Length - 1] = col[col.Length - 1].Replace("\r", "");
             for (int j = 0; j < heads.Length; j++)

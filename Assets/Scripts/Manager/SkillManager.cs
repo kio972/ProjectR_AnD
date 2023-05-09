@@ -88,7 +88,8 @@ public class SkillManager : Singleton<SkillManager>
 
     public void UseBasicSkill(Controller attacker)
     {
-        StartCoroutine(SkillUpdate(attacker, basicSkill, InputManager.Instance.player_BasicAttackKey));
+        basicSkill.SkillCheck(attacker);
+        //StartCoroutine(SkillUpdate(attacker, basicSkill, InputManager.Instance.player_BasicAttackKey));
     }
 
     public void UseDashSkill(Controller attacker)

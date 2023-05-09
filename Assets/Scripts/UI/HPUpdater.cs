@@ -107,7 +107,7 @@ public class HPUpdater : MonoBehaviour
 
         float prevHp = hp_Bar.fillAmount;
         float curHp = controller.hp / controller.maxHp;
-        if (Mathf.Abs(prevHp - curHp) > 0.1f)
+        if (Mathf.Abs(prevHp - curHp) > 0.01f)
             return true;
 
         return false;

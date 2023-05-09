@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class LanguageController : Singleton<LanguageController>
 {
-    private List<Dictionary<string, string>> uiDics;
+    private List<Dictionary<string, object>> uiDics;
     public TextAsset uiCSV;
 
     public string GetValue(string key)
     {
+        //아마 수정필요
         if (uiDics == null)
             return key;
 
-        foreach (Dictionary<string, string> uiDic in uiDics)
+        foreach (Dictionary<string, object> uiDic in uiDics)
         {
             if (uiDic.ContainsKey(key))
             {
-                return uiDic[key];
+                return uiDic[key].ToString();
             }
         }
 

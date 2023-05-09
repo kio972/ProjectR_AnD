@@ -33,7 +33,7 @@ public class HPBarController : Singleton<HPBarController>
 
     public void InstantiateHPBar(Controller controller)
     {
-        switch(controller.unitType)
+        switch (controller.unitType)
         {
             case UnitType.Player:
                 player_HP.Init(controller);
@@ -63,7 +63,7 @@ public class HPBarController : Singleton<HPBarController>
             overlayCanvas = UtillHelper.Instantiate<Canvas>("Prefab/UI/IngameOverlayUI", null);
 
         if (cameraCanvas == null)
-            overlayCanvas = UtillHelper.Instantiate<Canvas>("Prefab/UI/IngameCameraUI", null);
+            cameraCanvas = UtillHelper.Instantiate<Canvas>("Prefab/UI/IngameCameraUI", null);
 
         player_HP = UtillHelper.Find<HPUpdater>(overlayCanvas.transform, "Player_HP_Bar");
         boss_HP = UtillHelper.Find<HPUpdater>(overlayCanvas.transform, "Boss_HP_Bar");

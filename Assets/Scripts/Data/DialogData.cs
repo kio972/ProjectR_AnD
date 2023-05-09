@@ -12,8 +12,8 @@ public class DialogData : Singleton<DialogData>
     private string dialogKey = "Dialog";
 
     public TextAsset dialogCSV;
-    private List<Dictionary<string, string>> dialogDictionary;
-    public List<Dictionary<string, string>> DialogDictionary
+    private List<Dictionary<string, object>> dialogDictionary;
+    public List<Dictionary<string, object>> DialogDictionary
     {
         get
         {
@@ -26,15 +26,14 @@ public class DialogData : Singleton<DialogData>
     public List<string[]> LoadDialog(int index)
     {
         List<string[]> values = new List<string[]>();
-        string indexValue = index.ToString();
         
         foreach (var dict in DialogDictionary)
         {
-            if (dict.ContainsKey(indexKey) && dict[indexKey] == indexValue)
+            if (dict.ContainsKey(indexKey))
             {
                 string[] pair = new string[2];
-                pair[0] = dict[speakerKey];
-                pair[1] = dict[dialogKey];
+                pair[0] = dict[speakerKey].ToString();
+                pair[1] = dict[dialogKey].ToString();
                 values.Add(pair);
             }
         }

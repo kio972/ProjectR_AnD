@@ -7,6 +7,7 @@ public class FSMAttack : FSMSingleton<FSMAttack>, CharState<Controller>
     public void Enter(Controller e)
     {
         e.agent.isStopped = true;
+        e.agent.stoppingDistance = e.attackRange;
     }
 
     public void Excute(Controller e)

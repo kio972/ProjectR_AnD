@@ -21,7 +21,7 @@ public class SkillBasic : SkillMain
         }
         yield return new WaitForSeconds(0.4f);
         //attacker 전방 x도범위의 x거리 내의 Controller를 가진 적들을 받아옴
-        Collider[] hitColliders = Physics.OverlapSphere(attacker.transform.position, 1.5f);
+        Collider[] hitColliders = Physics.OverlapSphere(attacker.transform.position, attacker.attackRange);
         foreach (Collider hitCollider in hitColliders)
         {
             Controller controller = hitCollider.GetComponentInParent<Controller>();

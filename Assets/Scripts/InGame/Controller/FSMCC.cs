@@ -14,9 +14,10 @@ public class FSMCC : FSMSingleton<FSMCC>, CharState<Controller>
     public void Enter(Controller e)
     {
         print(e + " Get CC:" + e.curCCState + " Duration:" + e.CCDuration);
+        e.agent.isStopped = true;
         if (e.basicAttack != null)
             e.basicAttack.StopSkill(e);
-        else
+        else if(e.unitType == UnitType.Player)
         {
             SkillManager.Instance.curSkill?.StopSkill(e);
             SkillManager.Instance.curSkill = null;
@@ -35,6 +36,6 @@ public class FSMCC : FSMSingleton<FSMCC>, CharState<Controller>
 
     public void Exit(Controller e)
     {
-
+        e.agent.isStopped = false;
     }
 }

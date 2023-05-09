@@ -7,6 +7,12 @@ public class WingAnimationController : MonoBehaviour
     private Animator wingAnimator;
     private Coroutine blendOpenCoroutine = null;
 
+    public void SetFlap(bool value)
+    {
+        wingAnimator.SetBool("isFlapping", value);
+        wingAnimator.SetBool("isFlapping_L", value);
+    }
+
     private IEnumerator ISetBlendOpen(string targetPram, float value, float lerpTime)
     {
         float elapsedTime = 0f;

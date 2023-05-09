@@ -14,7 +14,7 @@ public class Controller : FSM<Controller>
     public float hp = 150;
     public float maxHp = 150;
     public float baseDamage = 30;
-    public float attackRange = 2f;
+    public float attackRange = 1.5f;
     public float criticalChange = 0.15f;
     public float speed = 1f;
     public float dashDist = 5f;
@@ -41,7 +41,7 @@ public class Controller : FSM<Controller>
 
     public float stopDelayTime = 0.1f;
     private float stopDelayElapsed = 0f;
-
+    [SerializeField]
     private bool isAttacking = false;
     public bool IsAttacking { get { return isAttacking; } set { isAttacking = value; } }
     
@@ -87,7 +87,6 @@ public class Controller : FSM<Controller>
             float.TryParse(data["Damage"].ToString(), out baseDamage);
             float.TryParse(data["Range"].ToString(), out attackRange);
             float.TryParse(data["Speed"].ToString(), out speed);
-            dashCount = Convert.ToInt32(data["DashCount"]);
             //DashCoolTime
             //AttackSpeed
             float.TryParse(data["CritChance"].ToString(), out criticalChange);
@@ -101,7 +100,8 @@ public class Controller : FSM<Controller>
 
     private void Start()
     {
-        Init();
+        if(unitType == UnitType.Player)
+            Init();
     }
 
     public int GetCCPriority(CCType ccType)
@@ -173,6 +173,12 @@ public class Controller : FSM<Controller>
         animator.SetBool("Dead", true);
         isDead = true;
         agent.enabled = false;
+        Collider collider = GetComponentInChildren<Collider>();
+        if (collider != null)
+            collider.enabled = false;
+        WingAnimationController wing = GetComponentInChildren<WingAnimationController>();
+        if (wing != null)
+            wing.SetFlap(false);
     }
 
     public virtual void Attack()

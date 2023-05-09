@@ -18,6 +18,26 @@ public enum AdjacentDirection
 
 public static class UtillHelper
 {
+    public static T Find_Prefab<T>(int id, List<Dictionary<string, object>> dataDic) where T : UnityEngine.Object
+    {
+        int index = Find_Data_Index(id, dataDic);
+        string prefabPath = dataDic[index]["Prefab"].ToString();
+        T prefab = Resources.Load<T>(prefabPath);
+        return prefab;
+    }
+
+    public static int Find_Data_Index(object target, List<Dictionary<string, object>> targetDic, string key = "ID")
+    {
+        for (int i = 0; i < targetDic.Count; i++)
+        {
+            if (targetDic[i][key].ToString() == target.ToString())
+            {
+                return i;
+            }
+        }
+        return -1; // 일치하는 데이터가 없을 경우 -1 반환
+    }
+
     public static IEnumerator RotateTowards(Transform transform, Vector3 targetPos, float rotateTime, System.Action callback = null)
     {
         float elapsedTime = 0f;

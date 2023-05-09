@@ -86,7 +86,7 @@ public class TerrainVisibilityController : MonoBehaviour
         Ray ray = new Ray(origin, direction);
         Debug.DrawRay(origin, direction);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Terrain")))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Wall")))
         {
             Renderer renderer = hit.transform.GetComponent<Renderer>();
             if (currentRenderer != renderer)
