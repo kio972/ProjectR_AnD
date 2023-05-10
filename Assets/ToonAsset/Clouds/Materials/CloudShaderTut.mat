@@ -24,7 +24,8 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: a46f5b13a2ab95245b237b30b6557dc7,
     type: 3}
   m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _ALPHATEST_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -48,17 +49,17 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaClip: 0
+    - _AlphaClip: 0.58
     - _CloudScale: 120
-    - _CloudsAlpha: 0.7
-    - _CloudsPower: 2.16
-    - _CloudsScale: 20
-    - _DistortScale: 19.82
+    - _CloudsAlpha: 1.09
+    - _CloudsPower: 0.32
+    - _CloudsScale: 27.48
+    - _DistortScale: 0.7
     - _QueueControl: 1
     - _QueueOffset: 0
-    - _VertexOffset: 2
+    - _VertexOffset: -0.4
     m_Colors:
-    - _CloudsColor: {r: 66.44121, g: 65.74549, b: 65.74549, a: 1}
+    - _CloudsColor: {r: 22.176058, g: 22.176058, b: 22.176058, a: 1}
     - _CloudsSpeed: {r: 0.01, g: 0.01, b: 0, a: 0}
     - _DistortSpeed: {r: 0.01, g: 0.005, b: 0, a: 0}
   m_BuildTextureStacks: []
