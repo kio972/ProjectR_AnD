@@ -29,7 +29,7 @@ public abstract class SkillMain : MonoBehaviour
     public float coolTime = 0f;
     [SerializeField]
     protected CCType ccType = CCType.Stiff;
-    protected float ccTime = 0.5f;
+    protected float ccTime = 0.8f;
 
     protected float after_Delay = 0.3f;
 

@@ -5,18 +5,13 @@ using UnityEngine.AI;
 
 public class Test : MonoBehaviour
 {
-    public MapGenerator mapGenerator;
-    public NavMeshSurface player;
-
-
-
+    public Controller monster;
     // Update is called once per frame
-    void Update()
+    void Start()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            mapGenerator.GenerateMap();
-            player.BuildNavMesh();
-        }
+        if (monster == null)
+            return;
+
+        monster.Init(DataManager.Instance.CharacterDic[1]);
     }
 }

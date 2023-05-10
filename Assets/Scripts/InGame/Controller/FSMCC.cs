@@ -14,7 +14,9 @@ public class FSMCC : FSMSingleton<FSMCC>, CharState<Controller>
     public void Enter(Controller e)
     {
         print(e + " Get CC:" + e.curCCState + " Duration:" + e.CCDuration);
+        e.agent.ResetPath();
         e.agent.isStopped = true;
+        e.agent.velocity = Vector3.zero;
         if (e.basicAttack != null)
             e.basicAttack.StopSkill(e);
         else if(e.unitType == UnitType.Player)

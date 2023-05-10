@@ -54,7 +54,9 @@ public class Controller : FSM<Controller>
     public SkillMain basicAttack = null;
 
     public CCType curCCState = CCType.None;
+    [SerializeField]
     private float ccDuration = 0f;
+    [SerializeField]
     private float ccElapsed = 0f;
     public float CCDuration { get => ccDuration; }
     public float CCElapsed { get => ccElapsed; set => ccElapsed = value; }
@@ -121,7 +123,8 @@ public class Controller : FSM<Controller>
             this.ccDuration = ccDuration;
             ccElapsed = 0f;
             
-            ChangeState(FSMCC.Instance);
+            if(CurState != FSMCC.Instance)
+                ChangeState(FSMCC.Instance);
         }
     }
 
