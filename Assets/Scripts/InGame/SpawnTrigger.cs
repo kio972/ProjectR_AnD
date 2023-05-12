@@ -12,6 +12,7 @@ public class SpawnTrigger : MonoBehaviour
             if(spawnGroup != null)
             {
                 spawnGroup.SpawnMonsters();
+                this.gameObject.SetActive(false);
             }
         }
     }

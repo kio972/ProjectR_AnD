@@ -184,15 +184,20 @@ public class Controller : FSM<Controller>
             wing.SetFlap(false);
     }
 
+    private void Invoke_Attack()
+    {
+        animator.SetInteger("Random", UnityEngine.Random.Range(0, 3));
+        animator.SetTrigger("Attack");
+        if (basicAttack != null)
+            basicAttack.SkillCheck(this, false);
+    }
+
     public virtual void Attack()
     {
         //공격처리
         StartCoroutine(UtillHelper.RotateTowards(transform, curTarget.transform.position, rotateTime));
         isAttacking = true;
-        animator.SetInteger("Random", UnityEngine.Random.Range(0, 3));
-        animator.SetTrigger("Attack");
-        if (basicAttack != null)
-            basicAttack.SkillCheck(this, false);
+        Invoke("Invoke_Attack", rotateTime);
     }
 
     public void PatrolMove()
@@ -251,6 +256,7 @@ public class Controller : FSM<Controller>
         ModifyHp(-finalDamage);
         if (animator != null)
             animator.SetTrigger("Damaged");
+        EffectManager.Instance.PlayEffect("Bloodaura", transform, Vector3.up * 0.5f);
         return finalDamage;
     }
 

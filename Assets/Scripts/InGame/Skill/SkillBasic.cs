@@ -32,6 +32,7 @@ public class SkillBasic : SkillMain
                 {
                     // 해당 적 공격 처리
                     ExecuteDamage(attacker, controller);
+                    AudioManager.Instance.Play2DSound("attack_blunt07");
                 }
             }
         }

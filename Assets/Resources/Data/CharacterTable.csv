@@ -1,8 +1,8 @@
 ID,Name,Hp,Damage,Range,Speed,AttackSpeed,CritChance,Prefab
-10000,플레이어,1500,300,1,1,1,15,Prefab/Monsters/Main_Model
-10001,좀비1,1320,350,1,1,1,0,Prefab/Monsters/Monster_1
-10002,좀비2,1320,350,1,1,1,0,Prefab/Monsters/Monster_2
-10003,좀비3,990,200,3~15,0.5,0.75,0,Prefab/Monsters/Monster_3
-10004,좀비4,1750,350,1,1,1,15,Prefab/Monsters/Monster_1
-10005,좀비5,1750,350,1,1,1,15,Prefab/Monsters/Monster_2
-10006,좀비6,1300,200,3~15,0.5,0.75,15,Prefab/Monsters/Monster_3
+10000,플레이어,1500,350,3,1,1,15,Prefab/Monsters/Main_Model
+10001,좀비1,900,180,1.5,1,1,0,Prefab/Monsters/Monster_1
+10002,좀비2,900,180,1.5,1,1,0,Prefab/Monsters/Monster_2
+10003,좀비3,900,100,15,0.5,0.75,0,Prefab/Monsters/Monster_3
+10004,좀비4,1750,350,1.5,1,1,15,Prefab/Monsters/Monster_1
+10005,좀비5,1750,350,1.5,1,1,15,Prefab/Monsters/Monster_2
+10006,좀비6,1300,200,15,0.5,0.75,15,Prefab/Monsters/Monster_3

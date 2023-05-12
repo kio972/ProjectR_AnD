@@ -24,8 +24,6 @@ public class ChapterController : MonoBehaviour
 
     public void Init()
     {
-        //if (startPosition == null)
-        //    ;
         if (endPosition != null)
             endPosition.gameObject.SetActive(false);
         spawnGroups = GetComponentsInChildren<SpawnController>();
@@ -34,6 +32,8 @@ public class ChapterController : MonoBehaviour
             spawnGroup.chapterController = this;
             spawnGroup.Init(waitTime);
         }
+
+        cutSceneCam.gameObject.SetActive(true);
     }
 
     private void Update()

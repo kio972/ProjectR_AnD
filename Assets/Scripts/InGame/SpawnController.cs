@@ -8,6 +8,7 @@ public class SpawnController : MonoBehaviour
     public Collider spawnTrigger = null;
     public ChapterController chapterController;
 
+
     public void SpawnMonsters(float spawnWaitTime = 2f)
     {
         foreach (SpawnPoint spawnPoint in spawnPoints)

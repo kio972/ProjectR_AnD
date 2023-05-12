@@ -8,7 +8,7 @@ public class Test1 : MonoBehaviour
 
     private void SceneMove()
     {
-        SceneController.Instance.MoveScene("CellScene", 0.5f);
+        SceneController.Instance.MoveScene("StartScene", 1f);
     }
 
     private void Awake()

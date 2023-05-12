@@ -8,11 +8,21 @@ public class AudioManager : Singleton<AudioManager>
     private List<AudioSource> effectAudioList = new List<AudioSource>();
     private Dictionary<string, AudioClip> clipDic = new Dictionary<string, AudioClip>();
     // 오브젝트 풀링의 제한 개수
-    private int limitCount = 5;
+    private int limitCount = 10;
     // 제한 개수 이상이 되었을 경우 파괴시킬 시간 간격
     private float intervalTime = 1.0f;
     private float prevTime = 0;
 
+    private ClipController bgmClips;
+    private ClipController sfxClips;
+
+    private void AddClipDic(List<AudioClip> clipList)
+    {
+        foreach (AudioClip clip in clipList)
+        {
+            clipDic.Add(clip.name, clip);
+        }
+    }
 
     public void Init()
     {
@@ -22,6 +32,22 @@ public class AudioManager : Singleton<AudioManager>
         background.volume = 1.0f;
 
         background.playOnAwake = false;
+
+        if(bgmClips == null)
+        {
+            ClipController prefab = Resources.Load<ClipController>("Prefab/Audio/BGMClip");
+            bgmClips = Instantiate(prefab);
+            AddClipDic(bgmClips.audioClips);
+            DontDestroyOnLoad(bgmClips);
+        }
+
+        if(sfxClips == null)
+        {
+            ClipController prefab = Resources.Load<ClipController>("Prefab/Audio/SFXClip");
+            sfxClips = Instantiate(prefab);
+            AddClipDic(sfxClips.audioClips);
+            DontDestroyOnLoad(sfxClips);
+        }
     }
 
     public void UpdateMusicVolume(float volume)
@@ -53,6 +79,7 @@ public class AudioManager : Singleton<AudioManager>
         {
             background.clip = clip;
             background.volume = voulme;
+            background.loop = true;
             background.Play();
         }
     }

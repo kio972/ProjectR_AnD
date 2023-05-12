@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class DialogController : MonoBehaviour
@@ -10,6 +11,8 @@ public class DialogController : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI textField;
     private Coroutine currentDisplay = null;
+    
+    public Image illurst;
 
     public void CallDialog(int index)
     {
@@ -20,7 +23,15 @@ public class DialogController : MonoBehaviour
         currentDisplay = StartCoroutine(DisplayText(messages));
     }
 
-    private IEnumerator DisplayText(List<string[]> messages)
+    public void CallDialog(List<string[]> messages, System.Action callback = null)
+    {
+        if (currentDisplay != null)
+            StopCoroutine(currentDisplay);
+
+        currentDisplay = StartCoroutine(DisplayText(messages, callback));
+    }
+
+    private IEnumerator DisplayText(List<string[]> messages, System.Action callback = null)
     {
         int currentMessageIndex = 0;
 
@@ -50,5 +61,7 @@ public class DialogController : MonoBehaviour
             currentMessageIndex++;
             yield return null;
         }
+
+        callback?.Invoke();
     }
 }

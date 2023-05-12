@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScene.unity
     guid: 9f171702500eb5c47a1109e031af05a9
   - enabled: 1
-    path: Assets/Scenes/CellScene.unity
-    guid: 7e9bda1dfc68c774caa265aee5c5c1da
+    path: Assets/Scenes/StartScene.unity
+    guid: f15b3043374faf4468bccc5c9e020bfa
+  - enabled: 1
+    path: Assets/Scenes/Stage1Scene.unity
+    guid: 64ced3c4d68a5674587fd2231b81d6b1
+  - enabled: 1
+    path: Assets/Scenes/BossRoom.unity
+    guid: efd610bb27ebaa249b5b7ee071d6a93f
   m_configObjects: {}

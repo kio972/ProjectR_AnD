@@ -8,7 +8,7 @@ public class FSMFollow : FSMSingleton<FSMFollow>, CharState<Controller>
     {
         if(e.curTarget != null)
             print(e.name + "Following" + e.curTarget.name);
-        e.animator.SetBool("Move", true);
+        
     }
 
     public void Excute(Controller e)
@@ -30,7 +30,10 @@ public class FSMFollow : FSMSingleton<FSMFollow>, CharState<Controller>
             e.ChangeState(FSMAttack.Instance);
         }
         else
+        {
             e.FollowTarget();
+            e.animator.SetBool("Move", true);
+        }
     }
 
     public void Exit(Controller e)

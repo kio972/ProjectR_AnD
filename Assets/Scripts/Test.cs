@@ -12,6 +12,6 @@ public class Test : MonoBehaviour
         if (monster == null)
             return;
 
-        monster.Init(DataManager.Instance.CharacterDic[1]);
+        monster.Init(DataManager.Instance.CharacterDic[3]);
     }
 }

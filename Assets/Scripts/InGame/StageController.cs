@@ -11,11 +11,18 @@ public class StageController : MonoBehaviour
     [SerializeField]
     private Controller player;
 
+    public string nextSceneName = "";
+
+    private float waitTime = 0f;
+    private float elapsedTime = 0f;
+
     public void Init()
     {
         chapters = GetComponentsInChildren<ChapterController>();
         //foreach (ChapterController chapter in chapters)
-        //    chapter.Init();
+        //{
+            
+        //}
     }
 
     public void Start()
@@ -23,10 +30,32 @@ public class StageController : MonoBehaviour
         Init();
     }
 
+    private void GoNextZone()
+    {
+        player.agent.enabled = false;
+        player.transform.position = chapters[curChapter].startPosition.position;
+        player.transform.rotation = chapters[curChapter].startPosition.rotation;
+        player.agent.enabled = true;
+        player.Init();
+        player.animator.SetTrigger("Init");
+    }
+
     private void Update()
     {
         if (curChapter > chapters.Length - 1)
             return;
+
+        if (waitTime > 0)
+        {
+            elapsedTime += Time.deltaTime;
+            if (waitTime < elapsedTime)
+                return;
+            elapsedTime = 0;
+            waitTime = 0;
+            UIFade uiFade = FindObjectOfType<UIFade>();
+            if (uiFade != null)
+                uiFade.FadeIn(0.2f);
+        }
 
         if(!chapters[curChapter].isChapterStart)
         {
@@ -39,16 +68,20 @@ public class StageController : MonoBehaviour
             if (curChapter > chapters.Length - 1)
             {
                 //다음 챕터가 없다면, 다음 맵으로 이동
+                SceneController.Instance.MoveScene(nextSceneName);
             }
             else
             {
                 //다음 챕터가 있다면, 다음챕터의 시작포인트로 이동
-                player.agent.enabled = false;
-                player.transform.position = chapters[curChapter].startPosition.position;
-                player.transform.rotation = chapters[curChapter].startPosition.rotation;
-                player.agent.enabled = true;
-                player.Init();
-                player.animator.SetTrigger("Init");
+                UIFade uiFade = FindObjectOfType<UIFade>();
+                if (uiFade != null)
+                {
+                    uiFade.FadeOut(0.2f);
+                    Invoke("GoNextZone", 0.2f);
+                    waitTime = 0.2f;
+                }
+                else
+                    GoNextZone();
             }
         }
     }
