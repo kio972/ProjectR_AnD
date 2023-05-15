@@ -2122,6 +2122,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Arch_Preset_02 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4639241764300386, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -2185,6 +2189,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arch_Alley_01 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 418572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -2247,6 +2255,10 @@ PrefabInstance:
     - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_Name
       value: Wall_Arch_Preset_02 (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4639241764300386, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_RootOrder
@@ -2437,6 +2449,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Arch_Preset_02 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4639241764300386, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -2499,6 +2515,10 @@ PrefabInstance:
     - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_Name
       value: Wall_Arch_Preset_02 (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4639241764300386, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_RootOrder
@@ -2815,6 +2835,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Arch_Preset_02 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4639241764300386, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2940,6 +2964,10 @@ PrefabInstance:
     - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_Name
       value: Arch_Alley_01 (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 418572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_RootOrder
@@ -3570,6 +3598,10 @@ PrefabInstance:
     - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_Name
       value: Arch_Alley_01 (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 418572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_RootOrder
@@ -4516,6 +4548,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Arch_Preset_02 (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4639241764300386, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_RootOrder
       value: 22
@@ -4893,6 +4929,10 @@ PrefabInstance:
     - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_Name
       value: Arch_Alley_01 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 418572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_RootOrder
@@ -5524,6 +5564,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Arch_Preset_02 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4639241764300386, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -5591,7 +5635,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &454704859
 Transform:
   m_ObjectHideFlags: 0
@@ -6065,6 +6109,10 @@ PrefabInstance:
     - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_Name
       value: Arch_Alley_01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 418572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_RootOrder
@@ -6633,6 +6681,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arch_Alley_01 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 418572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -6884,6 +6936,10 @@ PrefabInstance:
     - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_Name
       value: Arch_Alley_01 (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 418572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_RootOrder
@@ -7452,6 +7508,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arch_Alley_01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 418572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -7640,6 +7700,10 @@ PrefabInstance:
     - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_Name
       value: Wall_Arch_Preset_02 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4639241764300386, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_RootOrder
@@ -9422,7 +9486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 161182, guid: e346e2d25cc146a29d057ec8634b1e5a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 461182, guid: e346e2d25cc146a29d057ec8634b1e5a, type: 3}
       propertyPath: m_RootOrder
@@ -9549,6 +9613,10 @@ PrefabInstance:
     - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_Name
       value: Wall_Arch_Preset_02 (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4639241764300386, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_RootOrder
@@ -9800,6 +9868,10 @@ PrefabInstance:
     - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_Name
       value: Arch_Alley_01 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 418572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_RootOrder
@@ -10179,6 +10251,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arch_Alley_01 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 418572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -10367,6 +10443,10 @@ PrefabInstance:
     - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_Name
       value: Wall_Arch_Preset_02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4639241764300386, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_RootOrder
@@ -10620,6 +10700,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arch_Alley_01 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 418572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -10871,6 +10955,10 @@ PrefabInstance:
     - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_Name
       value: Arch_Alley_01 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 418572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_RootOrder
@@ -11998,6 +12086,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Arch_Preset_02 (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4639241764300386, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -12250,6 +12342,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arch_Alley_01 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 418572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -12375,6 +12471,10 @@ PrefabInstance:
     - target: {fileID: 161182, guid: e346e2d25cc146a29d057ec8634b1e5a, type: 3}
       propertyPath: m_Name
       value: Arch_Alley_Corner_01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 161182, guid: e346e2d25cc146a29d057ec8634b1e5a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 461182, guid: e346e2d25cc146a29d057ec8634b1e5a, type: 3}
       propertyPath: m_RootOrder
@@ -12564,6 +12664,10 @@ PrefabInstance:
     - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_Name
       value: Arch_Alley_01 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 418572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_RootOrder
@@ -12984,6 +13088,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Arch_Preset_02 (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4639241764300386, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_RootOrder
       value: 27
@@ -13236,6 +13344,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arch_Alley_Corner_01
       objectReference: {fileID: 0}
+    - target: {fileID: 161182, guid: e346e2d25cc146a29d057ec8634b1e5a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 461182, guid: e346e2d25cc146a29d057ec8634b1e5a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -13361,6 +13473,10 @@ PrefabInstance:
     - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_Name
       value: Wall_Arch_Preset_02 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4639241764300386, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_RootOrder
@@ -14232,6 +14348,10 @@ PrefabInstance:
     - target: {fileID: 161182, guid: e346e2d25cc146a29d057ec8634b1e5a, type: 3}
       propertyPath: m_Name
       value: Arch_Alley_Corner_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 161182, guid: e346e2d25cc146a29d057ec8634b1e5a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 461182, guid: e346e2d25cc146a29d057ec8634b1e5a, type: 3}
       propertyPath: m_RootOrder
@@ -15367,6 +15487,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arch_Alley_01 (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 418572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_RootOrder
       value: 27
@@ -15619,6 +15743,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arch_Alley_01
       objectReference: {fileID: 0}
+    - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 418572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -15745,6 +15873,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Arch_Preset_02 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4639241764300386, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -15870,6 +16002,10 @@ PrefabInstance:
     - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_Name
       value: Arch_Alley_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 418572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_RootOrder
@@ -17257,6 +17393,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Arch_Preset_02 (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4639241764300386, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -18139,6 +18279,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arch_Alley_01 (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 418572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_RootOrder
       value: 29
@@ -18769,6 +18913,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Arch_Preset_02 (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4639241764300386, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_RootOrder
       value: 28
@@ -18895,6 +19043,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Arch_Preset_02 (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4639241764300386, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_RootOrder
       value: 26
@@ -19020,6 +19172,10 @@ PrefabInstance:
     - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_Name
       value: Wall_Arch_Preset_02 (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4639241764300386, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_RootOrder
@@ -19210,6 +19366,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arch_Alley_01 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 418572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -19335,6 +19495,10 @@ PrefabInstance:
     - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_Name
       value: Arch_Alley_01 (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 418572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_RootOrder
@@ -20040,6 +20204,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arch_Alley_01 (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 418572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_RootOrder
       value: 20
@@ -20481,6 +20649,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Arch_Preset_02 (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4639241764300386, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -20669,6 +20841,10 @@ PrefabInstance:
     - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_Name
       value: Wall_Arch_Preset_02 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4639241764300386, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_RootOrder
@@ -21048,6 +21224,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Arch_Preset_02 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4639241764300386, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -21299,6 +21479,10 @@ PrefabInstance:
     - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_Name
       value: Wall_Arch_Preset_02 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4639241764300386, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_RootOrder
@@ -22308,6 +22492,10 @@ PrefabInstance:
     - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_Name
       value: Wall_Arch_Preset_02 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4639241764300386, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_RootOrder
@@ -24199,6 +24387,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arch_Alley_01 (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 418572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_RootOrder
       value: 22
@@ -24773,6 +24965,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Arch_Preset_02 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4639241764300386, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -25339,6 +25535,10 @@ PrefabInstance:
     - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_Name
       value: Arch_Alley_01 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 418572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_RootOrder
@@ -25907,6 +26107,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Arch_Preset_02 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4639241764300386, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -26239,6 +26443,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Arch_Preset_02
       objectReference: {fileID: 0}
+    - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4639241764300386, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -26364,6 +26572,10 @@ PrefabInstance:
     - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_Name
       value: Wall_Arch_Preset_02 (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4639241764300386, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_RootOrder
@@ -26554,6 +26766,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arch_Alley_01 (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 418572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_RootOrder
       value: 26
@@ -26679,6 +26895,10 @@ PrefabInstance:
     - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_Name
       value: Arch_Alley_01 (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 418572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_RootOrder
@@ -26932,6 +27152,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arch_Alley_01 (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 418572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -26994,6 +27218,10 @@ PrefabInstance:
     - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_Name
       value: Arch_Alley_01 (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 418572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_RootOrder
@@ -27310,6 +27538,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arch_Alley_01 (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 118572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 418572, guid: 7e562d2e1e1b4c2d861a54b5022d9a51, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -27372,6 +27604,10 @@ PrefabInstance:
     - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_Name
       value: Wall_Arch_Preset_02 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4639241764300386, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_RootOrder
@@ -28191,6 +28427,10 @@ PrefabInstance:
     - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_Name
       value: Wall_Arch_Preset_02 (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1371054378343070, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4639241764300386, guid: 8a3b2beb06994ed188a0f9a9b9921b67, type: 3}
       propertyPath: m_RootOrder
@@ -56321,7 +56561,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7169741037522488649
 Transform:
   m_ObjectHideFlags: 0
