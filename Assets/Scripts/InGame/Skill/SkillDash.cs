@@ -48,7 +48,7 @@ public class SkillDash : SkillMain
                 Controller controller = c.GetComponentInParent<Controller>();
                 if (controller == null || controller.gameObject.layer == attacker.gameObject.layer)
                     continue;
-
+                
                 if (controller != null && 1 << controller.gameObject.layer == attacker.enemyLayer)
                 {
                     ExecuteDamage(attacker, controller);

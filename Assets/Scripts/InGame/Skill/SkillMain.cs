@@ -52,7 +52,6 @@ public abstract class SkillMain : MonoBehaviour
 
     private bool CoolTimeUpdate()
     {
-        print(coolTimeElapsed);
         coolTimeElapsed += Time.deltaTime;
         if(coolTimeElapsed >= coolTime)
         {

@@ -205,7 +205,7 @@ public class Controller : FSM<Controller>
         
     }
 
-    public void FollowTarget()
+    public virtual void FollowTarget()
     {
         agent.isStopped = false;
         agent.SetDestination(curTarget.transform.position);
