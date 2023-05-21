@@ -19,12 +19,18 @@ public class FSM<T> : MonoBehaviour
 
     protected void FSMUpdate()
     {
+        if (owner == null)
+            return;
+
         if (curState != null)
             curState.Excute(owner);
     }
 
     public void ChangeState(CharState<T> nextState)
     {
+        if (owner == null)
+            return;
+
         prevState = curState;
         if (prevState != null)
             prevState.Exit(owner);
