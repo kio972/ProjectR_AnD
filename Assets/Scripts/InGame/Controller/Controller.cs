@@ -78,7 +78,7 @@ public class Controller : FSM<Controller>
         
     }
 
-    public void Init(Dictionary<string, object> data = null)
+    public virtual void Init(Dictionary<string, object> data = null)
     {
         if(data != null)
         {
@@ -123,7 +123,7 @@ public class Controller : FSM<Controller>
             this.ccDuration = ccDuration;
             ccElapsed = 0f;
             
-            if(CurState != FSMCC.Instance)
+            if((object)CurState != FSMCC.Instance)
                 ChangeState(FSMCC.Instance);
         }
     }

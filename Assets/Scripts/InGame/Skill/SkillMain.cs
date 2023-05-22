@@ -105,7 +105,7 @@ public abstract class SkillMain : MonoBehaviour
     {
         if (attacker == null || victim == null)
             return;
-        if (attacker.isDead || attacker.CurState == FSMCC.Instance)
+        if (attacker.isDead || (object)attacker.CurState == FSMCC.Instance)
             return;
 
         float damage = attacker.baseDamage;

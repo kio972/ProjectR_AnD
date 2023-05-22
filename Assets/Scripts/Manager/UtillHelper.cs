@@ -18,6 +18,14 @@ public enum AdjacentDirection
 
 public static class UtillHelper
 {
+    public static T AddSkill<T>(Transform parent, string skillName) where T: SkillMain
+    {
+        GameObject skillObject = new GameObject();
+        skillObject.name = skillName;
+        skillObject.transform.SetParent(parent);
+        return skillObject.AddComponent<T>();
+    }
+
     public static T Find_Prefab<T>(int id, List<Dictionary<string, object>> dataDic) where T : UnityEngine.Object
     {
         int index = Find_Data_Index(id, dataDic);

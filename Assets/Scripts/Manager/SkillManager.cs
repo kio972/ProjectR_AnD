@@ -104,14 +104,8 @@ public class SkillManager : Singleton<SkillManager>
 
     public void Init()
     {
-        GameObject basicSkillObject = new GameObject();
-        basicSkillObject.name = "BasicSkill";
-        basicSkillObject.transform.SetParent(transform);
-        basicSkill = basicSkillObject.AddComponent<SkillBasic>();
-        GameObject dashSkillObject = new GameObject();
-        dashSkillObject.name = "DashSkill";
-        dashSkillObject.transform.SetParent(transform);
-        dashSkill = dashSkillObject.gameObject.AddComponent<SkillDash>();
+        basicSkill = UtillHelper.AddSkill<SkillBasic>(transform, "BasicSkill");
+        dashSkill = UtillHelper.AddSkill<SkillDash>(transform, "DashSkill");
         if (guideObject == null)
             guideObject = Instantiate(Resources.Load<Transform>("Prefab/UI/GuideObject"));
     }

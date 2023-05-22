@@ -6,7 +6,23 @@ public class AngleBoss : Controller
 {
     public float rotationSpeed = 1f;
 
-    public List<SkillMain> bossSkills = new List<SkillMain>();
+    public SkillMain[] bossSkills = new SkillMain[4];
+
+    private void AttachSkills()
+    {
+        bossSkills[0] = (UtillHelper.AddSkill<AngleImpact>(transform, "AngleImpact"));
+        bossSkills[0].coolTime = 45f;
+        bossSkills[1] = (UtillHelper.AddSkill<AngleImpact>(transform, "AngleImpact"));
+        bossSkills[1].coolTime = 70f;
+        bossSkills[2] = (UtillHelper.AddSkill<AngleImpact>(transform, "AngleImpact"));
+        bossSkills[3] = (UtillHelper.AddSkill<AngleImpact>(transform, "AngleImpact"));
+    }
+
+    public override void Init(Dictionary<string, object> data = null)
+    {
+        base.Init(data);
+        AttachSkills();
+    }
 
     public override void FollowTarget()
     {
@@ -27,7 +43,9 @@ public class AngleBoss : Controller
 
     public override void Attack()
     {
-        //bossSkills에 있는 스킬 사용,
+        //bossSkills에 있는 스킬 사용, 쿨타임내 재사용 불가
+        //
+        //FollowTarget
 
     }
 
