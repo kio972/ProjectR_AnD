@@ -50,7 +50,13 @@ public abstract class SkillMain : MonoBehaviour
         callback?.Invoke();
     }
 
-    private bool CoolTimeUpdate()
+    public void SetStartCoolTime(float coolTime)
+    {
+        this.coolTimeElapsed = this.coolTime - coolTime;
+        curStack = 0;
+    }
+
+    public bool CoolTimeUpdate()
     {
         coolTimeElapsed += Time.deltaTime;
         if(coolTimeElapsed >= coolTime)
@@ -75,9 +81,9 @@ public abstract class SkillMain : MonoBehaviour
     }
     
 
-    public virtual void SkillCheck(Controller attacker, bool isPlayer = true)
+    public virtual void SkillCheck(Controller attacker, bool coolCheck = true, bool rotateToMouse = true)
     {
-        if(isPlayer)
+        if(coolCheck)
         {
             if (curStack >= 1)
             {
@@ -86,11 +92,7 @@ public abstract class SkillMain : MonoBehaviour
                 PrepareSkill(attacker);
                 if (coroutine != null)
                     StopCoroutine(coroutine);
-                coroutine = StartCoroutine(ISkillFunc(attacker, isPlayer));
-            }
-            else
-            {
-                //스킬 쿨타임 부족, 관련 표시 출력함수 실행
+                coroutine = StartCoroutine(ISkillFunc(attacker, rotateToMouse));
             }
         }
         else

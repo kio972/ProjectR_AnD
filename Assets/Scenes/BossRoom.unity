@@ -2297,7 +2297,7 @@ MonoBehaviour:
   hp: 1500
   maxHp: 1500
   baseDamage: 30
-  attackRange: 1.5
+  attackRange: 1000
   criticalChange: 0.15
   speed: 1
   dashDist: 5
@@ -2309,9 +2309,9 @@ MonoBehaviour:
   animator: {fileID: 0}
   spawnTime: 2
   spawnElapsed: 0
-  patrolDist: 15
-  chasingDist: 20
-  maxAggroRange: 20
+  patrolDist: 1000
+  chasingDist: 1000
+  maxAggroRange: 1000
   enemyLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -2442,6 +2442,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ClipStarter
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954875217311334394, guid: 9a3fc2003dd7cd740a890bafa667b00a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3954875217311334395, guid: 9a3fc2003dd7cd740a890bafa667b00a,
         type: 3}
