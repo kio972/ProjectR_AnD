@@ -24,6 +24,7 @@ public abstract class SkillMain : MonoBehaviour
     //public float baseDamage = 0;
     public AttackType attackType;
     private int curStack = 1;
+    public int Curstack { get { return curStack; } }
     public int maxStack = 1;
     private float coolTimeElapsed = 0f;
     public float coolTime = 0f;

@@ -7,21 +7,26 @@ public class ProjectileObject : MonoBehaviour
     public float movingDist = 20f;
     public float duration = 1f;
     public float movingSpeed = 10f; // 1초당 몇m를 이동할지
+    public float damage = 150f;
+
+    public UnitType targetType = UnitType.Player;
+
+    public string soundName = "PostEffect2";
 
     private float elapsedTime = 0f;
 
     public Transform rootTransform;
 
+    public string collisionEffect = string.Empty;
+
     void OnCollisionEnter(Collision collision)
     {
         Controller controller = collision.gameObject.GetComponentInParent<Controller>();
-        if (controller != null)
+        if (controller != null && controller.unitType == targetType)
         {
-            // 타겟에 Controller 클래스가 있음
-            // 추가적인 동작 수행
-            print("hi");
-            controller.TakeDamage(150);
-            AudioManager.Instance.Play2DSound("PostEffect2", 1);
+            controller.TakeDamage(damage);
+            EffectManager.Instance.PlayEffect(collisionEffect, controller.transform);
+            AudioManager.Instance.Play2DSound(soundName, 1);
         }
     }
 

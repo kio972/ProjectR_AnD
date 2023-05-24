@@ -4,20 +4,25 @@ using UnityEngine;
 
 public class AngleBoss : Controller
 {
-    public float rotationSpeed = 1f;
+    [SerializeField]
+    private float rotationSpeed = 1f;
 
-    public SkillMain[] bossSkills;
+    private SkillMain[] bossSkills;
+
+    private SkillMain rageSkill;
+
+    [SerializeField]
+    private GameObject auraEffect;
 
     private void AttachSkills()
     {
-        bossSkills = new SkillMain[4];
+        bossSkills = new SkillMain[3];
         bossSkills[0] = (UtillHelper.AddSkill<AngleImpact>(transform, "AngleImpact"));
         bossSkills[0].SetStartCoolTime(45f);
         bossSkills[1] = (UtillHelper.AddSkill<SpaceSeparation>(transform, "SpaceSeparation"));
         bossSkills[1].SetStartCoolTime(70f);
         bossSkills[2] = (UtillHelper.AddSkill<RegionControl>(transform, "RegionControl"));
         bossSkills[2].SetStartCoolTime(1f);
-        bossSkills[3] = null;
 
         SkillManager.Instance.ActivateSkill(bossSkills[0].CoolTimeUpdate);
         SkillManager.Instance.ActivateSkill(bossSkills[1].CoolTimeUpdate);
@@ -55,10 +60,19 @@ public class AngleBoss : Controller
             return;
 
         foreach(SkillMain skill in bossSkills)
-            skill?.SkillCheck(this, true, false);
+        {
+            if(skill.Curstack >= 1)
+            {
+                skill.SkillCheck(this, true, false);
 
-        if (hp / maxHp <= 0.3f && bossSkills[3] == null)
-            bossSkills[3] = (UtillHelper.AddSkill<RegionControlImplace>(transform, "RegionControlImplace"));
+            }
+        }
+
+        if (hp / maxHp <= 0.3f && rageSkill == null)
+        {
+            rageSkill = UtillHelper.AddSkill<RegionControlImplace>(transform, "RegionControlImplace");
+            rageSkill.SkillCheck(this);
+        }
 
         FollowTarget();
     }

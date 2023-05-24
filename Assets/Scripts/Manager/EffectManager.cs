@@ -10,6 +10,8 @@ public class EffectManager : Singleton<EffectManager>
     {
         string particleAddress = "Prefab/Effects/" + effectName;
         GameObject fxEffect = Resources.Load<GameObject>(particleAddress);
+        if (fxEffect == null)
+            return;
         PlayEffect(fxEffect, pos, modifyPos);
     }
 
