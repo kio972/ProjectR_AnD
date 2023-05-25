@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AngleImpact : SkillMain
+public class AngelImpact : SkillMain
 {
     public override void TriggerAnimation(Controller attacker)
     {
@@ -11,6 +11,9 @@ public class AngleImpact : SkillMain
 
     public override IEnumerator ISkillFunc(Controller attacker, bool mouseRotate = false)
     {
+        AngelBoss boss = attacker.GetComponent<AngelBoss>();
+        if (boss != null)
+            boss.auraEffect.SetActive(true);
         //attacker.curTarget방향으로 공격 3회, 공격간 텀은 x초
         float attackDelay = 1f;
         for(int i = 0; i < 3; i++)
@@ -22,5 +25,7 @@ public class AngleImpact : SkillMain
 
         yield return StartCoroutine(IAfterDelay(() => { }));
         SkillEnd(attacker);
+        if (boss != null)
+            boss.auraEffect.SetActive(false);
     }
 }

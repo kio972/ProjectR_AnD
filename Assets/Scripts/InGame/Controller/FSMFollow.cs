@@ -27,6 +27,7 @@ public class FSMFollow : FSMSingleton<FSMFollow>, CharState<Controller>
         }
         else if (dist < e.attackRange)
         {
+            //타겟에게 회전하는 함수 추가, 타겟방향을 바라보고있을경우에 공격수행하도록 변경예정
             e.ChangeState(FSMAttack.Instance);
         }
         else

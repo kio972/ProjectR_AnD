@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AngleBoss : Controller
+public class AngelBoss : Controller
 {
     [SerializeField]
     private float rotationSpeed = 1f;
@@ -11,18 +11,21 @@ public class AngleBoss : Controller
 
     private SkillMain rageSkill;
 
-    [SerializeField]
-    private GameObject auraEffect;
+
+    public GameObject auraEffect;
 
     private void AttachSkills()
     {
         bossSkills = new SkillMain[3];
-        bossSkills[0] = (UtillHelper.AddSkill<AngleImpact>(transform, "AngleImpact"));
+        bossSkills[0] = (UtillHelper.AddSkill<AngelImpact>(transform, "AngleImpact"));
         bossSkills[0].SetStartCoolTime(45f);
+        bossSkills[0].coolTime = 30f;
         bossSkills[1] = (UtillHelper.AddSkill<SpaceSeparation>(transform, "SpaceSeparation"));
         bossSkills[1].SetStartCoolTime(70f);
+        bossSkills[1].coolTime = 90f;
         bossSkills[2] = (UtillHelper.AddSkill<RegionControl>(transform, "RegionControl"));
         bossSkills[2].SetStartCoolTime(1f);
+        bossSkills[2].coolTime = 2f;
 
         SkillManager.Instance.ActivateSkill(bossSkills[0].CoolTimeUpdate);
         SkillManager.Instance.ActivateSkill(bossSkills[1].CoolTimeUpdate);
@@ -64,7 +67,6 @@ public class AngleBoss : Controller
             if(skill.Curstack >= 1)
             {
                 skill.SkillCheck(this, true, false);
-
             }
         }
 
@@ -74,6 +76,6 @@ public class AngleBoss : Controller
             rageSkill.SkillCheck(this);
         }
 
-        FollowTarget();
+        
     }
 }

@@ -6,6 +6,8 @@ public class SpaceSeparation : SkillMain
 {
     public override IEnumerator ISkillFunc(Controller attacker, bool mouseRotate = false)
     {
-        throw new System.NotImplementedException();
+        print("use SpaceSepration");
+        SkillEnd(attacker);
+        yield return null;
     }
 }
