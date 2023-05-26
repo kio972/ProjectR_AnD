@@ -802,6 +802,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 758714050}
     m_Modifications:
+    - target: {fileID: 1768531005, guid: 0fe4933770bdaee4789ea0d734ae3296, type: 3}
+      propertyPath: m_Radius
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768531006, guid: 0fe4933770bdaee4789ea0d734ae3296, type: 3}
+      propertyPath: m_Radius
+      value: 2.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768531007, guid: 0fe4933770bdaee4789ea0d734ae3296, type: 3}
+      propertyPath: canMove
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768531007, guid: 0fe4933770bdaee4789ea0d734ae3296, type: 3}
+      propertyPath: rotationSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 180136405726150171, guid: 0fe4933770bdaee4789ea0d734ae3296,
         type: 3}
       propertyPath: m_RootOrder

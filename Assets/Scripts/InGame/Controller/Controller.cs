@@ -26,6 +26,10 @@ public class Controller : FSM<Controller>
 
     public Animator animator;
 
+    public bool canMove = true;
+    [SerializeField]
+    private float rotationSpeed = 1f;
+
     public float spawnTime = 2f;
     public float spawnElapsed = 0f;
 
@@ -128,18 +132,22 @@ public class Controller : FSM<Controller>
         }
     }
 
-    //public void AttackCheck()
-    //{
-    //    if (isAttacking)
-    //        return;
+    public void LookTarget()
+    {
+        if (curTarget == null)
+            return;
 
-    //    if (Input.GetKeyDown(InputManager.Instance.player_BasicAttackKey))
-    //        SkillManager.Instance.UseBasicSkill(this);
-    //    if (Input.GetKeyDown(InputManager.Instance.player_Skill1Key))
-    //        SkillManager.Instance.UseDashSkill(this);
-    //    if (Input.GetKeyDown(InputManager.Instance.player_SpecialAttackKey))
-    //        SkillManager.Instance.UseSpecialSkill(this);
-    //}
+        // 타겟 방향 계산
+        Vector3 direction = curTarget.transform.position - transform.position;
+        direction.y = 0f; // 수평 방향으로만 회전하도록 y 축 값은 0으로 설정
+
+        if (direction.magnitude > 0f)
+        {
+            // 타겟 방향으로 회전
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        }
+    }
 
     public void Move(Vector3 direction)
     {

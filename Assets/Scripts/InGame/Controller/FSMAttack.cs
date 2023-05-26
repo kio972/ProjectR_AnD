@@ -12,11 +12,14 @@ public class FSMAttack : FSMSingleton<FSMAttack>, CharState<Controller>
 
     public void Excute(Controller e)
     {
-        if (e.attackElapsed == 0f)
+        if(!e.IsAttacking)
         {
-            e.Attack();
+            if (e.attackElapsed == 0f)
+                e.Attack();
+
+            e.attackElapsed += Time.deltaTime;
         }
-        e.attackElapsed += Time.deltaTime;
+        
         if (e.attackElapsed > e.attackDelayTime)
         {
             e.attackElapsed = 0f;

@@ -6,6 +6,8 @@ public class RegionControlImplace : SkillMain
 {
     public override IEnumerator ISkillFunc(Controller attacker, bool mouseRotate = false)
     {
-        throw new System.NotImplementedException();
+        print("use RegionControlImplace");
+        SkillEnd(attacker);
+        yield return null;
     }
 }

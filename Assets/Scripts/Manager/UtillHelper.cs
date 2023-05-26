@@ -18,6 +18,25 @@ public enum AdjacentDirection
 
 public static class UtillHelper
 {
+    public static float TargetAngle(Transform myTransform, Vector3 targetPos)
+    {
+        // 타겟과의 방향 벡터 계산
+        Vector3 targetDirection = targetPos - myTransform.position;
+        targetDirection.y = 0f; // 수평 방향으로만 고려하기 위해 y 축 값은 0으로 설정
+
+        // 내 전방 벡터와 타겟 방향 벡터 사이의 각도 계산
+        float angle = Vector3.Angle(myTransform.forward, targetDirection);
+
+        //// 내 전방 벡터와 타겟 방향 벡터의 외적을 통해 각도의 부호(양수 또는 음수) 결정
+        //Vector3 cross = Vector3.Cross(myTransform.forward, targetDirection);
+        //if (cross.y < 0f)
+        //{
+        //    angle = -angle; // 각도의 부호를 반대로 설정
+        //}
+
+        return Mathf.Abs(angle);
+    }
+
     public static T AddSkill<T>(Transform parent, string skillName) where T: SkillMain
     {
         GameObject skillObject = new GameObject();
@@ -264,5 +283,4 @@ public static class UtillHelper
 
         return t;
     }
-
 }

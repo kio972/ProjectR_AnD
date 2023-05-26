@@ -7,6 +7,8 @@ public class RegionControl : SkillMain
     public override IEnumerator ISkillFunc(Controller attacker, bool mouseRotate = false)
     {
         print("use RegionControl");
+
+        yield return new WaitForSeconds(1f);
         SkillEnd(attacker);
         yield return null;
     }
