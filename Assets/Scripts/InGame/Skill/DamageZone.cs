@@ -4,15 +4,45 @@ using UnityEngine;
 
 public class DamageZone : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float radius = 1f;
+    public float damage;
+    public UnitType targetType = UnitType.Player;
+
+    private ParticleSystem effect;
+    private bool isActive = true;
+
+    private void Excute()
     {
-        
+        Collider[] colliders = Physics.OverlapSphere(transform.position, radius/2);
+        foreach(Collider collider in colliders)
+        {
+            Controller target = collider.GetComponentInParent<Controller>();
+            if (target == null || target.unitType != targetType)
+                continue;
+            target.TakeDamage(damage);
+        }
+
+        isActive = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        effect = GetComponentInChildren<ParticleSystem>();
+    }
+
+
+    private void Update()
+    {
+        if (effect == null)
+            return;
+
+        if(effect.isPlaying && isActive)
+        {
+            Excute();
+        }
+        else if(!effect.isPlaying && !isActive)
+        {
+            isActive = true;
+        }
     }
 }

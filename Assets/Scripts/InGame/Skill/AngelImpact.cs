@@ -13,19 +13,19 @@ public class AngelImpact : SkillMain
     {
         AngelBoss boss = attacker.GetComponent<AngelBoss>();
         if (boss != null)
-            boss.auraEffect.SetActive(true);
+            boss.auraEffect.Play();
         //attacker.curTarget방향으로 공격 3회, 공격간 텀은 x초
         float attackDelay = 1f;
         for(int i = 0; i < 3; i++)
         {
             yield return new WaitForSeconds(attackDelay);
-            EffectManager.Instance.PlayEffect("Projectile_19", transform, Vector3.forward + (Vector3.up * 1.5f));
+            EffectManager.Instance.PlayEffect("Projectile_19", transform, (Vector3.up * 1.5f), 8);
             //AudioManager.Instance.Play3DSound("Hand1", transform.position, 1);
         }
 
         yield return StartCoroutine(IAfterDelay(() => { }));
         SkillEnd(attacker);
         if (boss != null)
-            boss.auraEffect.SetActive(false);
+            boss.auraEffect.Stop();
     }
 }

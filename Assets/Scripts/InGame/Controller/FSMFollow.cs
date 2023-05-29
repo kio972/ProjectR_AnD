@@ -29,8 +29,7 @@ public class FSMFollow : FSMSingleton<FSMFollow>, CharState<Controller>
         else if (dist < e.attackRange)
         {
             float angle = UtillHelper.TargetAngle(e.transform, e.curTarget.transform.position);
-            print(angle);
-            if (!e.canMove && angle < 10f)
+            if (!e.canMove && angle < 5f)
             {
                 e.ChangeState(FSMAttack.Instance);
                 return;

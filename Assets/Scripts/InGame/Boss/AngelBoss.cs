@@ -8,7 +8,7 @@ public class AngelBoss : Controller
 
     private SkillMain rageSkill;
 
-    public GameObject auraEffect;
+    public ParticleSystem auraEffect;
 
     private void AttachSkills()
     {

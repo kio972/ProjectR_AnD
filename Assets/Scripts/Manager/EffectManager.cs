@@ -6,16 +6,16 @@ public class EffectManager : Singleton<EffectManager>
 {
     private List<GameObject> fxEffects = new List<GameObject>();
 
-    public void PlayEffect(string effectName, Transform pos, Vector3 modifyPos = new Vector3())
+    public void PlayEffect(string effectName, Transform pos, Vector3 modifyPos = new Vector3(), float modifyScale = 1f)
     {
         string particleAddress = "Prefab/Effects/" + effectName;
         GameObject fxEffect = Resources.Load<GameObject>(particleAddress);
         if (fxEffect == null)
             return;
-        PlayEffect(fxEffect, pos, modifyPos);
+        PlayEffect(fxEffect, pos, modifyPos, modifyScale);
     }
 
-    public void PlayEffect(GameObject particle, Transform pos, Vector3 modifyPos = new Vector3())
+    public void PlayEffect(GameObject particle, Transform pos, Vector3 modifyPos = new Vector3(), float modifyScale = 1f)
     {
         if (particle == null)
             return;
@@ -37,16 +37,17 @@ public class EffectManager : Singleton<EffectManager>
                     }
                     fxEffect.transform.position = targetPos;
                     fxEffect.transform.rotation = pos.rotation;
+                    fxEffect.transform.localScale = new Vector3(modifyScale, modifyScale, modifyScale);
                     particleSystem.Play();
                     return;
                 }
             }
         }
 
-        InstanceParticle(particle, pos, modifyPos);
+        InstanceParticle(particle, pos, modifyPos, modifyScale);
     }
 
-    private void InstanceParticle(GameObject particle, Transform pos, Vector3 modifyPos = new Vector3())
+    private void InstanceParticle(GameObject particle, Transform pos, Vector3 modifyPos = new Vector3(), float modifyScale = 1f)
     {
         GameObject effect = Instantiate(particle, transform);
         fxEffects.Add(effect);
@@ -58,6 +59,7 @@ public class EffectManager : Singleton<EffectManager>
         }
         effect.transform.position = targetPos;
         effect.transform.rotation = pos.rotation;
+        effect.transform.localScale = new Vector3(modifyScale, modifyScale, modifyScale);
         ParticleSystem particleSystem = effect.GetComponentInChildren<ParticleSystem>();
         particleSystem.Play();
     }

@@ -6,10 +6,18 @@ public class RegionControl : SkillMain
 {
     public override IEnumerator ISkillFunc(Controller attacker, bool mouseRotate = false)
     {
-        print("use RegionControl");
+        AngelBoss boss = attacker.GetComponent<AngelBoss>();
+        if (boss != null)
+            boss.auraEffect.Play();
 
-        yield return new WaitForSeconds(1f);
+        Transform targetPos = attacker.curTarget.transform;
+        float radius = 3f;
+        EffectManager.Instance.PlayEffect("RegionControl", targetPos, Vector3.zero, radius);
+
+        after_Delay = 1f;
+        yield return StartCoroutine(IAfterDelay(() => { }));
         SkillEnd(attacker);
-        yield return null;
+        if (boss != null)
+            boss.auraEffect.Stop();
     }
 }

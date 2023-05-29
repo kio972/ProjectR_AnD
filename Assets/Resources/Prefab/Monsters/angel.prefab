@@ -1768,7 +1768,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 4.61
+  m_Radius: 3
   m_Height: 10
   m_Direction: 1
   m_Center: {x: 0, y: 2, z: 0}
@@ -1782,7 +1782,7 @@ Animator:
   m_GameObject: {fileID: 663200914590164129}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 65a8cf9da7508b643a74354361c83ddc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1802,7 +1802,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 663200914590164129}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 4
+  m_Radius: 2.82
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 49
@@ -1843,6 +1843,8 @@ MonoBehaviour:
   drainRate: 0
   shield: 0
   animator: {fileID: 0}
+  canMove: 0
+  rotationSpeed: 6
   spawnTime: 2
   spawnElapsed: 0
   patrolDist: 1000
@@ -1863,8 +1865,7 @@ MonoBehaviour:
   curCCState: 0
   ccDuration: 0
   ccElapsed: 0
-  rotationSpeed: 3
-  auraEffect: {fileID: 6766414653795944212}
+  auraEffect: {fileID: 6871107663942796316}
 --- !u!1 &1824805577158827732
 GameObject:
   m_ObjectHideFlags: 0
@@ -7160,7 +7161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1084983192572740, guid: 6ee654896519a1145a3879638a2c7456, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4201152911914004, guid: 6ee654896519a1145a3879638a2c7456, type: 3}
       propertyPath: m_RootOrder
@@ -7218,6 +7219,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 198136987243302988, guid: 6ee654896519a1145a3879638a2c7456,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198249068751138298, guid: 6ee654896519a1145a3879638a2c7456,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198743170936093628, guid: 6ee654896519a1145a3879638a2c7456,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 199052545029736712, guid: 6ee654896519a1145a3879638a2c7456,
         type: 3}
       propertyPath: m_Materials.Array.size
@@ -7235,15 +7251,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ee654896519a1145a3879638a2c7456, type: 3}
---- !u!1 &6766414653795944212 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1084983192572740, guid: 6ee654896519a1145a3879638a2c7456,
-    type: 3}
-  m_PrefabInstance: {fileID: 6765805830182179920}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6767243807217983556 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4201152911914004, guid: 6ee654896519a1145a3879638a2c7456,
+    type: 3}
+  m_PrefabInstance: {fileID: 6765805830182179920}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6871107663942796316 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198136987243302988, guid: 6ee654896519a1145a3879638a2c7456,
     type: 3}
   m_PrefabInstance: {fileID: 6765805830182179920}
   m_PrefabAsset: {fileID: 0}
