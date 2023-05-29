@@ -46,9 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ad4de30160ffe5448caad5beabf3e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillPrefab: {fileID: 1038321487754978, guid: 6ffde7a02fec27f4f9cf365e3274c118,
+  skillPrefab: {fileID: 1542403496074674, guid: 9fe2e516f6627f947b965f07db7bcf69,
     type: 3}
-  scale: 2.6
 --- !u!198 &19851692
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -57,7 +56,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181552}
   serializedVersion: 8
-  lengthInSec: 1.2
+  lengthInSec: 0.6
   simulationSpeed: 1
   stopAction: 3
   cullingMode: 0
@@ -132,7 +131,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.2
+      scalar: 0.6
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -283,7 +282,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4872,7 +4871,7 @@ GameObject:
   m_Component:
   - component: {fileID: 480938}
   m_Layer: 0
-  m_Name: RegionControl
+  m_Name: SpaceSepartion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

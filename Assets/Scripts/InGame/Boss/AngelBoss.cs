@@ -10,6 +10,11 @@ public class AngelBoss : Controller
 
     public ParticleSystem auraEffect;
 
+    public override void GetCC(CCType ccType, float ccDuration)
+    {
+        return;
+    }
+
     private void AttachSkills()
     {
         bossSkills = new SkillMain[3];
@@ -40,7 +45,14 @@ public class AngelBoss : Controller
         if (IsAttacking || curTarget == null)
             return;
 
-        foreach(SkillMain skill in bossSkills)
+        if (hp / maxHp <= 0.3f && rageSkill == null)
+        {
+            rageSkill = UtillHelper.AddSkill<RegionControlImplace>(transform, "RegionControlImplace");
+            rageSkill.SkillCheck(this);
+            return;
+        }
+
+        foreach (SkillMain skill in bossSkills)
         {
             if(skill.Curstack >= 1)
             {
@@ -48,12 +60,5 @@ public class AngelBoss : Controller
                 return;
             }
         }
-
-        if (hp / maxHp <= 0.3f && rageSkill == null)
-        {
-            rageSkill = UtillHelper.AddSkill<RegionControlImplace>(transform, "RegionControlImplace");
-            rageSkill.SkillCheck(this);
-        }
-
     }
 }

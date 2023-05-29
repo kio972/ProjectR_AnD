@@ -18,20 +18,43 @@ public class ProjectileObject : MonoBehaviour
     public Transform rootTransform;
 
     public string collisionEffect = string.Empty;
+    public float collisionEffectScale = 1f;
 
-    void OnCollisionEnter(Collision collision)
+    private ParticleSystem particle;
+    private Rigidbody rigidbody;
+
+
+    protected virtual void OnCollisionEnter(Collision collision)
     {
         Controller controller = collision.gameObject.GetComponentInParent<Controller>();
         if (controller != null && controller.unitType == targetType)
         {
+            rigidbody.isKinematic = true;
             controller.TakeDamage(damage);
-            EffectManager.Instance.PlayEffect(collisionEffect, controller.transform);
             AudioManager.Instance.Play2DSound(soundName, 1);
+            if (collisionEffect != string.Empty)
+            {
+                particle.Stop();
+                EffectManager.Instance.PlayEffect(collisionEffect, controller.transform, Vector3.zero, collisionEffectScale);
+            }
         }
+    }
+
+    private void Start()
+    {
+        particle = GetComponentInChildren<ParticleSystem>();
+    }
+
+    private void OnDisable()
+    {
+        rigidbody.isKinematic = false;
     }
 
     private void Update()
     {
+        if(rigidbody == null)
+            rigidbody = GetComponentInChildren<Rigidbody>();
+
         float distanceToMove = movingSpeed * Time.deltaTime;
         transform.position += transform.forward * distanceToMove;
         elapsedTime += Time.deltaTime;

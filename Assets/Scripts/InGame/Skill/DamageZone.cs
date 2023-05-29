@@ -11,6 +11,11 @@ public class DamageZone : MonoBehaviour
     private ParticleSystem effect;
     private bool isActive = true;
 
+    public bool knockBack = false;
+    public bool continuous = false;
+    public float interval = 0.2f;
+    private float timer = 0f;
+
     private void Excute()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius/2);
@@ -20,6 +25,8 @@ public class DamageZone : MonoBehaviour
             if (target == null || target.unitType != targetType)
                 continue;
             target.TakeDamage(damage);
+            if (knockBack)
+                target.GetKnockBack(Vector3.zero);
         }
 
         isActive = false;
@@ -36,13 +43,21 @@ public class DamageZone : MonoBehaviour
         if (effect == null)
             return;
 
-        if(effect.isPlaying && isActive)
+        if (continuous)
         {
-            Excute();
+            timer += Time.deltaTime;
+            if (timer >= interval)
+            {
+                Excute();
+                timer = 0f;
+            }
         }
-        else if(!effect.isPlaying && !isActive)
+        else
         {
-            isActive = true;
+            if (effect.isPlaying && isActive)
+                Excute();
+            else if (!effect.isPlaying && !isActive)
+                isActive = true;
         }
     }
 }

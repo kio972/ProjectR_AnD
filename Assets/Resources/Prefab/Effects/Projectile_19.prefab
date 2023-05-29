@@ -14622,11 +14622,12 @@ MonoBehaviour:
   movingDist: 20
   duration: 15
   movingSpeed: 10
-  damage: 150
+  damage: 300
   targetType: 0
   soundName: PostEffect2
   rootTransform: {fileID: 0}
-  collisionEffect: 
+  collisionEffect: Magic circle_16
+  collisionEffectScale: 1.5
 --- !u!199 &199470418353522432
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -14713,7 +14714,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!135 &135543802754298092
 SphereCollider:

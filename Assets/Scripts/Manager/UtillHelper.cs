@@ -18,6 +18,17 @@ public enum AdjacentDirection
 
 public static class UtillHelper
 {
+    public static Vector3 GetRandomPosition(Vector3 zeroPos, float radius)
+    {
+        Vector3 randomPosition = zeroPos;
+        Vector2 modify = UnityEngine.Random.insideUnitCircle * radius;
+        randomPosition.x += modify.x;
+        randomPosition.z += modify.y;
+        randomPosition.y = zeroPos.y;
+
+        return randomPosition;
+    }
+
     public static float TargetAngle(Transform myTransform, Vector3 targetPos)
     {
         // 타겟과의 방향 벡터 계산

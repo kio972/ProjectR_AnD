@@ -5,9 +5,10 @@ using UnityEngine;
 public class DelaySkillCall : MonoBehaviour
 {
     public GameObject skillPrefab;
+    public float scale = 1f;
 
     private void OnParticleSystemStopped()
     {
-        EffectManager.Instance.PlayEffect(skillPrefab, transform, Vector3.zero, 2.6f);
+        EffectManager.Instance.PlayEffect(skillPrefab, transform, Vector3.zero, scale);
     }
 }

@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ad4de30160ffe5448caad5beabf3e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillPrefab: {fileID: 1038321487754978, guid: 6ffde7a02fec27f4f9cf365e3274c118,
+  skillPrefab: {fileID: 1038321487754978, guid: 9b2ac2d4d4d495644b3b813b664c6599,
     type: 3}
   scale: 2.6
 --- !u!198 &19851692
@@ -4872,7 +4872,7 @@ GameObject:
   m_Component:
   - component: {fileID: 480938}
   m_Layer: 0
-  m_Name: RegionControl
+  m_Name: RegionControlImplace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

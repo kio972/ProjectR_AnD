@@ -67,6 +67,20 @@ public class Controller : FSM<Controller>
 
     public List<Skill_Passive> cur_Skill_Passives = new List<Skill_Passive>();
 
+    public void GetKnockBack(Vector3 direction)
+    {
+        StartCoroutine(MovePlayer(direction));
+    }
+
+    private IEnumerator MovePlayer(Vector3 direction)
+    {
+        // 넉백 거리와 이동 속도 설정
+        float knockbackDistance = direction.magnitude;
+        float moveSpeed = 5.0f;
+
+        yield return null;
+    }
+
     public void ModifyStatus(ModifyStat targetStat, float value)
     {
         var field = GetType().GetField(targetStat.ToString());
@@ -116,7 +130,7 @@ public class Controller : FSM<Controller>
         return 0;
     }
 
-    public void GetCC(CCType ccType, float ccDuration)
+    public virtual void GetCC(CCType ccType, float ccDuration)
     {
         if (isDead)
             return;
