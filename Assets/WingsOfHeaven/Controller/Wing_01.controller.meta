@@ -1,8 +1,19 @@
 fileFormatVersion: 2
-guid: 919a2c4061f88b94b9b86fef4a61f72a
+guid: f58b733f4acb96e46ab2d88e38a1ab27
+labels:
+- Animation
+- Acessory
+- Fly
+- Dragon
+- Bat
+- Wings
+- Wing
+- Demon
+- character
+- Fantasy
+timeCreated: 1437359998
+licenseType: Store
 NativeFormatImporter:
-  externalObjects: {}
-  mainObjectFileID: 9100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
