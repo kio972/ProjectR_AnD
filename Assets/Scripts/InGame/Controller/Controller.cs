@@ -67,17 +67,25 @@ public class Controller : FSM<Controller>
 
     public List<Skill_Passive> cur_Skill_Passives = new List<Skill_Passive>();
 
-    public void GetKnockBack(Vector3 direction)
+    public void GetKnockBack(Vector3 direction, float knockBackTime)
     {
-        StartCoroutine(MovePlayer(direction));
+        StartCoroutine(MovePlayer(direction, knockBackTime));
     }
 
-    private IEnumerator MovePlayer(Vector3 direction)
+    private IEnumerator MovePlayer(Vector3 direction, float lerpTime)
     {
-        // 넉백 거리와 이동 속도 설정
-        float knockbackDistance = direction.magnitude;
-        float moveSpeed = 5.0f;
-
+        direction.y = 0f;
+        Vector3 startPos = transform.position;
+        Vector3 endPos = startPos + direction;
+        float distance = Vector3.Distance(startPos, endPos);
+        float speed = distance / lerpTime;
+        float elapsedTime = 0f;
+        while (elapsedTime < lerpTime)
+        {
+            agent.Move(direction.normalized * speed * Time.deltaTime);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
         yield return null;
     }
 

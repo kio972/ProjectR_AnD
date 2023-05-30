@@ -12,6 +12,7 @@ public class DamageZone : MonoBehaviour
     private bool isActive = true;
 
     public bool knockBack = false;
+    public float knockBackTime = 0.1f;
     public bool continuous = false;
     public float interval = 0.2f;
     private float timer = 0f;
@@ -26,7 +27,11 @@ public class DamageZone : MonoBehaviour
                 continue;
             target.TakeDamage(damage);
             if (knockBack)
-                target.GetKnockBack(Vector3.zero);
+            {
+                Vector3 direction = (target.transform.position - transform.position).normalized;
+                target.GetKnockBack(direction, knockBackTime);
+                target.GetCC(CCType.Stiff, knockBackTime);
+            }
         }
 
         isActive = false;

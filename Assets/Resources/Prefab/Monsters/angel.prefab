@@ -1830,8 +1830,8 @@ MonoBehaviour:
   id: -1
   _name: 
   agent: {fileID: 0}
-  hp: 1500
-  maxHp: 1500
+  hp: 7200
+  maxHp: 7200
   baseDamage: 30
   attackRange: 1000
   criticalChange: 0.15
