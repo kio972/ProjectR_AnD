@@ -19,11 +19,11 @@ public class AngelBoss : Controller
     {
         bossSkills = new SkillMain[3];
         bossSkills[0] = (UtillHelper.AddSkill<AngelImpact>(transform, "AngleImpact"));
-        bossSkills[0].SetStartCoolTime(45f);
-        bossSkills[0].coolTime = 30f;
+        bossSkills[0].SetStartCoolTime(10f);
+        bossSkills[0].coolTime = 20f;
         bossSkills[1] = (UtillHelper.AddSkill<SpaceSeparation>(transform, "SpaceSeparation"));
-        bossSkills[1].SetStartCoolTime(70f);
-        bossSkills[1].coolTime = 90f;
+        bossSkills[1].SetStartCoolTime(30f);
+        bossSkills[1].coolTime = 30f;
         bossSkills[2] = (UtillHelper.AddSkill<RegionControl>(transform, "RegionControl"));
         bossSkills[2].SetStartCoolTime(1f);
         bossSkills[2].coolTime = 2f;
@@ -39,26 +39,50 @@ public class AngelBoss : Controller
         AttachSkills();
     }
 
+    private bool RageSkillCheck()
+    {
+        if (rageSkill != null && rageSkill.Curstack >= 1)
+        {
+            rageSkill.SkillCheck(this, true, false);
+            return true;
+        }
+        return false;
+    }
+
+    private bool BasicSkillCheck()
+    {
+        foreach (SkillMain skill in bossSkills)
+        {
+            if (skill.Curstack >= 1)
+            {
+                skill.SkillCheck(this, true, false);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void RageConditionCheck()
+    {
+        if (hp / maxHp <= 0.3f && rageSkill == null)
+        {
+            rageSkill = UtillHelper.AddSkill<RegionControlImplace>(transform, "RegionControlImplace");
+            rageSkill.coolTime = 19f;
+        }
+    }
+
     public override void Attack()
     {
         //bossSkills에 있는 스킬 사용, 쿨타임내 재사용 불가
         if (IsAttacking || curTarget == null)
             return;
 
-        if (hp / maxHp <= 0.3f && rageSkill == null)
-        {
-            rageSkill = UtillHelper.AddSkill<RegionControlImplace>(transform, "RegionControlImplace");
-            rageSkill.SkillCheck(this);
-            return;
-        }
+        RageConditionCheck();
 
-        foreach (SkillMain skill in bossSkills)
-        {
-            if(skill.Curstack >= 1)
-            {
-                skill.SkillCheck(this, true, false);
-                return;
-            }
-        }
+        if (RageSkillCheck())
+            return;
+
+        if (BasicSkillCheck())
+            return;
     }
 }

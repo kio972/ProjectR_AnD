@@ -18,15 +18,20 @@ public enum AdjacentDirection
 
 public static class UtillHelper
 {
-    public static Vector3 GetRandomPosition(Vector3 zeroPos, float radius)
+    public static Vector3 GetRandomPosition(Vector3 zeroPos, float radius, float deadRadius = 0f)
     {
-        Vector3 randomPosition = zeroPos;
-        Vector2 modify = UnityEngine.Random.insideUnitCircle * radius;
-        randomPosition.x += modify.x;
-        randomPosition.z += modify.y;
-        randomPosition.y = zeroPos.y;
+        while(true)
+        {
+            Vector3 randomPosition = zeroPos;
+            Vector2 modify = UnityEngine.Random.insideUnitCircle * radius;
+            randomPosition.x += modify.x;
+            randomPosition.z += modify.y;
+            randomPosition.y = zeroPos.y;
 
-        return randomPosition;
+            float distance = Mathf.Abs((zeroPos - randomPosition).magnitude);
+            if (distance > deadRadius)
+                return randomPosition;
+        }
     }
 
     public static float TargetAngle(Transform myTransform, Vector3 targetPos)

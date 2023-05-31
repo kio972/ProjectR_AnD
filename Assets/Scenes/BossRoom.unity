@@ -802,6 +802,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 758714050}
     m_Modifications:
+    - target: {fileID: 1768531007, guid: 0fe4933770bdaee4789ea0d734ae3296, type: 3}
+      propertyPath: hp
+      value: 9000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768531007, guid: 0fe4933770bdaee4789ea0d734ae3296, type: 3}
+      propertyPath: maxHp
+      value: 9000
+      objectReference: {fileID: 0}
     - target: {fileID: 180136405726150171, guid: 0fe4933770bdaee4789ea0d734ae3296,
         type: 3}
       propertyPath: m_RootOrder

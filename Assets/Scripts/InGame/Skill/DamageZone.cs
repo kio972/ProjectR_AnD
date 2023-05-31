@@ -15,6 +15,8 @@ public class DamageZone : MonoBehaviour
     public float knockBackTime = 0.1f;
     public bool continuous = false;
     public float interval = 0.2f;
+    public float duration = 0f;
+    private float elapsedTime = 0f;
     private float timer = 0f;
 
     private void Excute()
@@ -42,7 +44,6 @@ public class DamageZone : MonoBehaviour
         effect = GetComponentInChildren<ParticleSystem>();
     }
 
-
     private void Update()
     {
         if (effect == null)
@@ -55,6 +56,16 @@ public class DamageZone : MonoBehaviour
             {
                 Excute();
                 timer = 0f;
+            }
+
+            if (duration != 0)
+            {
+                elapsedTime += Time.deltaTime;
+                if(elapsedTime >= duration)
+                {
+                    elapsedTime = 0f;
+                    gameObject.SetActive(false);
+                }
             }
         }
         else

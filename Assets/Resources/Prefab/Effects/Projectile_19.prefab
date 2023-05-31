@@ -14621,7 +14621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movingDist: 20
   duration: 15
-  movingSpeed: 10
+  movingSpeed: 13
   damage: 300
   targetType: 0
   soundName: PostEffect2
