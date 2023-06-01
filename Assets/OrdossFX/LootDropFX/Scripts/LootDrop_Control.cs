@@ -15,13 +15,12 @@ public class LootDrop_Control : MonoBehaviour
     void OnEnable()
     {   
         var lifetime = MeshSystem.main.startLifetime.constant;
-        Invoke("OnParticlesDeath", lifetime);
         GetComponent<SphereCollider>().enabled = true;
     }
 
     private void OnDisable()
     {
-        CancelInvoke("OnParticlesDeath");
+        
     }
 
 

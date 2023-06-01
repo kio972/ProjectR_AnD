@@ -80,6 +80,31 @@ MonoBehaviour:
   bladeRotation:
     m_OverrideState: 0
     m_Value: 0
+--- !u!114 &-522809130769236506
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf1aba9553839d41ae37dd52e9ebcce, type: 3}
+  m_Name: MotionBlur
+  m_EditorClassIdentifier: 
+  active: 1
+  mode:
+    m_OverrideState: 0
+    m_Value: 0
+  quality:
+    m_OverrideState: 1
+    m_Value: 2
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.23
+  clamp:
+    m_OverrideState: 0
+    m_Value: 0.05
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,6 +124,7 @@ MonoBehaviour:
   - {fileID: -5580252865105707759}
   - {fileID: 8376659180514889019}
   - {fileID: -8079504621158300341}
+  - {fileID: -522809130769236506}
 --- !u!114 &1289347783132739166
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -202,7 +228,7 @@ MonoBehaviour:
   active: 1
   lift:
     m_OverrideState: 1
-    m_Value: {x: 0.9750915, y: 0.996543, z: 1, w: 0}
+    m_Value: {x: 0.98247933, y: 0.9918692, z: 1, w: 0}
   gamma:
     m_OverrideState: 1
     m_Value: {x: 0.9877129, y: 0.9905906, z: 1, w: 0}

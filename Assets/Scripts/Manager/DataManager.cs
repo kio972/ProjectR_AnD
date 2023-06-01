@@ -37,7 +37,7 @@ public class DataManager : Singleton<DataManager>
     {
         // csv파일 불러오는 함수
         //skill_Active_Dic = CSVLoader.LoadCSV(Resources.Load<TextAsset>(skill_Active_DataPath));
-        //skill_Passive_Dic = CSVLoader.LoadCSV(Resources.Load<TextAsset>(skill_Passive__DataPath));
+        skill_Passive_Dic = CSVLoader.LoadCSV(Resources.Load<TextAsset>(skill_Passive__DataPath));
         characterDic = CSVLoader.LoadCSV(Resources.Load<TextAsset>(character_DataPath));
         mapTableDic = CSVLoader.LoadCSV(Resources.Load<TextAsset>(mapTable_DataPath));
     }

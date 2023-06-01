@@ -20,15 +20,20 @@ public class Synergy : MonoBehaviour
     private TextMeshProUGUI skillName;
     private TextMeshProUGUI skillText;
     public SkillInfo SkillInfo { get { return skillInfo; } }
+    public bool haveSkill = false;
 
     private void CallSkillTree()
     {
 
     }
 
-    private void GetSkillData()
+    private void GetSkillData(int skillID)
     {
         // skillInfo에 정보를 불러오는 함수
+        int skillIndex = UtillHelper.Find_Data_Index(skillID, DataManager.Instance.Skill_Passive_Dic);
+        //skillIcon.sprite = ;
+        skillName.text = DataManager.Instance.Skill_Passive_Dic[skillIndex]["SkillName"].ToString();
+        skillText.text = DataManager.Instance.Skill_Passive_Dic[skillIndex]["Description"].ToString();
     }
 
     private void GetElements()
@@ -58,7 +63,7 @@ public class Synergy : MonoBehaviour
     public void Init()
     {
         GetElements();
-        GetSkillData();
+        GetSkillData(0);
         SetElements();
     }
 
