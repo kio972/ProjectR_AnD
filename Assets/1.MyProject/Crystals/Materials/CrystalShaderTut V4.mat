@@ -123,7 +123,7 @@ Material:
     - EFFECT_BILLBOARD: 0
     - EFFECT_EXTRA_TEX: 1
     - _AlphaClip: 0
-    - _AlphaClipThreshold: 0.33
+    - _AlphaClipThreshold: 0.851
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
     - _Blend: 0
@@ -140,12 +140,12 @@ Material:
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
-    - _Glossiness: 0
+    - _Glossiness: 1
     - _GlossinessSource: 0
     - _GlossyReflections: 0
     - _HueVariationKwToggle: 1
     - _Metallic: 0.702
-    - _NormalMapKwToggle: 1
+    - _NormalMapKwToggle: 0
     - _OcclusionStrength: 1
     - _OldHueVarBehavior: 0
     - _Parallax: 0.005
@@ -159,7 +159,7 @@ Material:
     - _SpecSource: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _SubsurfaceIndirect: 0.25
+    - _SubsurfaceIndirect: 0.633
     - _SubsurfaceKwToggle: 0
     - _Surface: 0
     - _TopLine: 0.708
@@ -170,9 +170,9 @@ Material:
     m_Colors:
     - _BaseColor: {r: 0.26820046, g: 0.31012213, b: 0.46226418, a: 1}
     - _BottomColor: {r: 0, g: 6.8726964, b: 646.0372, a: 1}
-    - _Color: {r: 0.745283, g: 0.27772337, b: 0.31835443, a: 1}
+    - _Color: {r: 0.6698113, g: 0.23696151, b: 0.23696151, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _HueVariationColor: {r: 0.7830189, g: 0.3930448, b: 0, a: 0.77254903}
+    - _HueVariationColor: {r: 0, g: 0.114498354, b: 1, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SubsurfaceColor: {r: 0.8490566, g: 0.40450338, b: 0.40450338, a: 1}
     - _TopColor: {r: 10.79021, g: 11.83575, b: 28.956007, a: 1}
