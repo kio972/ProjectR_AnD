@@ -18,6 +18,7 @@ public class AngelImpact : SkillMain
         float attackDelay = 1f;
         for(int i = 0; i < 3; i++)
         {
+            TriggerAnimation(attacker);
             yield return StartCoroutine(UtillHelper.RotateTowards(attacker.transform, attacker.curTarget.transform.position, 0.1f, ()=> { }));
             EffectManager.Instance.PlayEffect("Projectile_19", attacker.transform, (Vector3.up * 1.5f), 8);
             //AudioManager.Instance.Play3DSound("Hand1", transform.position, 1);

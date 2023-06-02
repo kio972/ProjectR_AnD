@@ -63,7 +63,10 @@ public class HPBarController : Singleton<HPBarController>
             overlayCanvas = UtillHelper.Instantiate<Canvas>("Prefab/UI/IngameOverlayUI", null);
 
         if (cameraCanvas == null)
+        {
             cameraCanvas = UtillHelper.Instantiate<Canvas>("Prefab/UI/IngameCameraUI", null);
+            cameraCanvas.worldCamera = Camera.main;
+        }
 
         player_HP = UtillHelper.Find<HPUpdater>(overlayCanvas.transform, "Player_HP_Bar");
         boss_HP = UtillHelper.Find<HPUpdater>(overlayCanvas.transform, "Boss_HP_Bar");

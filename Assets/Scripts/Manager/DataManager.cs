@@ -17,7 +17,7 @@ public class DataManager : Singleton<DataManager>
 
     // csv파일 주소(Resource폴더 내)
     private string skill_Active_DataPath = "Data/";
-    private string skill_Passive__DataPath = "Data/";
+    private string skill_Passive__DataPath = "Data/PassiveSkill";
     private string character_DataPath = "Data/CharacterTable";
     private string mapTable_DataPath = "Data/SpawnTable";
 

@@ -19,8 +19,8 @@ public class AngelBoss : Controller
     {
         bossSkills = new SkillMain[3];
         bossSkills[0] = (UtillHelper.AddSkill<AngelImpact>(transform, "AngleImpact"));
-        bossSkills[0].SetStartCoolTime(10f);
-        bossSkills[0].coolTime = 20f;
+        //bossSkills[0].SetStartCoolTime(10f);
+        bossSkills[0].coolTime = 5f;
         bossSkills[1] = (UtillHelper.AddSkill<SpaceSeparation>(transform, "SpaceSeparation"));
         bossSkills[1].SetStartCoolTime(30f);
         bossSkills[1].coolTime = 30f;

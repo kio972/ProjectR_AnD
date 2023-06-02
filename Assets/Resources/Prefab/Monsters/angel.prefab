@@ -1066,6 +1066,7 @@ GameObject:
   m_Component:
   - component: {fileID: 58965781892685535}
   - component: {fileID: 113986674627466861}
+  - component: {fileID: 2915724282187216526}
   m_Layer: 10
   m_Name: Wing_02_High
   m_TagString: Untagged
@@ -1112,6 +1113,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2915724282187216526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55751997011630905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a7a7524c8c38f4b98b721e1fe6433e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &55772787185759711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1731,6 +1744,7 @@ GameObject:
   m_Component:
   - component: {fileID: 180136405726150171}
   - component: {fileID: 1768531005}
+  - component: {fileID: 3785954293267331243}
   - component: {fileID: 1768531008}
   - component: {fileID: 1768531006}
   - component: {fileID: 1768531007}
@@ -1754,7 +1768,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7701693317373694751}
-  - {fileID: 6767243807217983556}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1772,6 +1785,24 @@ CapsuleCollider:
   m_Height: 10
   m_Direction: 1
   m_Center: {x: 0, y: 2, z: 0}
+--- !u!114 &3785954293267331243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663200914590164129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85e00062436a4304aa0d90ae0f333fb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossAnimator: {fileID: 1768531008}
+  wingAnimators:
+  - {fileID: 7382264787593717102}
+  - {fileID: 2133633067873893249}
+  - {fileID: 2915724282187216526}
+  - {fileID: 1627357417620289427}
 --- !u!95 &1768531008
 Animator:
   serializedVersion: 5
@@ -2901,6 +2932,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1819849344350668968}
   - component: {fileID: 1730767641887260698}
+  - component: {fileID: 1627357417620289427}
   m_Layer: 10
   m_Name: Wing_02_middle
   m_TagString: Untagged
@@ -2947,6 +2979,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1627357417620289427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825655922794925390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a7a7524c8c38f4b98b721e1fe6433e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1825666448869330776
 GameObject:
   m_ObjectHideFlags: 0
@@ -3853,6 +3897,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2245966687574018569}
   - component: {fileID: 2192916135788430011}
+  - component: {fileID: 7382264787593717102}
   m_Layer: 10
   m_Name: Wing_02_small,middle
   m_TagString: Untagged
@@ -3899,6 +3944,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7382264787593717102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2250720062477275119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a7a7524c8c38f4b98b721e1fe6433e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2250727159288991225
 GameObject:
   m_ObjectHideFlags: 0
@@ -5332,7 +5389,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3178142245482001465}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 4.47, z: 1.48}
+  m_LocalPosition: {x: 0, y: 4.5, z: 1.5}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5341,6 +5398,7 @@ Transform:
   - {fileID: 58965781892685535}
   - {fileID: 1819849344350668968}
   - {fileID: 4379067875078795902}
+  - {fileID: 6767243807217983556}
   m_Father: {fileID: 180136405726150171}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
@@ -5487,6 +5545,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5424106797342165409}
   - component: {fileID: 5333325405569745171}
+  - component: {fileID: 2133633067873893249}
   m_Layer: 10
   m_Name: Wing_02_Low
   m_TagString: Untagged
@@ -5533,6 +5592,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2133633067873893249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5427157858731215943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a7a7524c8c38f4b98b721e1fe6433e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5427183641842667089
 GameObject:
   m_ObjectHideFlags: 0
@@ -7153,7 +7224,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 180136405726150171}
+    m_TransformParent: {fileID: 7701693317373694751}
     m_Modifications:
     - target: {fileID: 1084983192572740, guid: 6ee654896519a1145a3879638a2c7456, type: 3}
       propertyPath: m_Name
@@ -7165,19 +7236,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4201152911914004, guid: 6ee654896519a1145a3879638a2c7456, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4201152911914004, guid: 6ee654896519a1145a3879638a2c7456, type: 3}
       propertyPath: m_LocalScale.x
-      value: 8
+      value: 13.333334
       objectReference: {fileID: 0}
     - target: {fileID: 4201152911914004, guid: 6ee654896519a1145a3879638a2c7456, type: 3}
       propertyPath: m_LocalScale.y
-      value: 8
+      value: 13.333331
       objectReference: {fileID: 0}
     - target: {fileID: 4201152911914004, guid: 6ee654896519a1145a3879638a2c7456, type: 3}
       propertyPath: m_LocalScale.z
-      value: 8
+      value: 13.333331
       objectReference: {fileID: 0}
     - target: {fileID: 4201152911914004, guid: 6ee654896519a1145a3879638a2c7456, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7185,19 +7256,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4201152911914004, guid: 6ee654896519a1145a3879638a2c7456, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.11
+      value: 0.28333265
       objectReference: {fileID: 0}
     - target: {fileID: 4201152911914004, guid: 6ee654896519a1145a3879638a2c7456, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.31
+      value: 2.733334
       objectReference: {fileID: 0}
     - target: {fileID: 4201152911914004, guid: 6ee654896519a1145a3879638a2c7456, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4201152911914004, guid: 6ee654896519a1145a3879638a2c7456, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4201152911914004, guid: 6ee654896519a1145a3879638a2c7456, type: 3}
       propertyPath: m_LocalRotation.y

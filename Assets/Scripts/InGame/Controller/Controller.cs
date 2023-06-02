@@ -211,7 +211,7 @@ public class Controller : FSM<Controller>
             collider.enabled = false;
         WingAnimationController wing = GetComponentInChildren<WingAnimationController>();
         if (wing != null)
-            wing.SetFlap(false);
+            wing.SetBool("isFlapping", false);
     }
 
     private void Invoke_Attack()

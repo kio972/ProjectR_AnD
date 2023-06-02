@@ -1,0 +1,23 @@
+ID,SkillName,Condition,ConditionID,ModifyTarget,ModifyStat,Value,CoolTime,Description,PriorSkill,Icon
+20301,배반의칼,BackAttack,-1,Player,DamageRate,20,0,후방 공격시 데미지20% 추가,20317/20318/20329,rogue_03
+20302,더멀리더강하게,None,-1,Player,DashDist,20,2,돌진 사거리 추가,,rogue_21
+20303,돌진준비,None,-1,Player,DashCount,1,2,돌진 횟수 추가,-1,warrior_41
+20304,적을 위한 준비,Skill,20002,Player,Damage,50,2,돌진시 공격력 추가,,rogue_22
+20305,돌진&방패,Skill,20002,Player,Shield,200,2,돌진시 보호막생성,20312/20317,rogue_30
+20306,검의 충돌,Skill,20002,Player,DamageRate,10,2,돌진 데미지 10% 추가,,rogue_06
+20307,한발 늦은 방패,Damaged,-1,Player,Shield,300,2,피격시 보호막300 생성,20312/20317,palladin_22
+20308,되갚아주마,Damaged,-1,Player,Damage,30,2,피격시 5초동안 데미지 증가,,palladin_11
+20309,멀리가보자,Damaged,-1,Player,DashCount,1,0,피격시 돌진횟수 추가,,rogue_17
+20310,육체를 탄탄히,None,-1,Player,MaxHp,500,0,최대체력 500증가,-1,palladin_29
+20311,성스러운 파워,None,-1,Player,DamageRate,15,0,공격력 15%증가,-1,warrior_25
+20312,갑옷정비,None,-1,Player,Shield,150,30,30초마다 15의 보호막 재생성(최대치 15),-1,warrior_24
+20313,단련된 육체,None,-1,Player,Hp,30,3,3초마다 체력 30 회복,-1,warrior_23
+20314,마무리 일격,GetBuff,DamageRateBuff,Player,DamageRate,30,20,20초마다 1회 공격력 30% 증가,20312/20317,warrior_37
+20315,휩쓸기,None,-1,Player,"DamageRate,AttackAngle","-30,30",0,공격이 70%로 데미지 감소하지만 범위공격(부채꼴 범위 30)으로 변경,20310/20311/20312/20313,warrior_11
+20316,별동대 타격,7M 이내주변적 2명이하,-1,Player,DamageRate,30,0,적이 2명 이하 일 경우 공격력 30% 증가,,warrior_48
+20317,얼음 결정,GetClose,Slow,Monster,None,15,0,주위 3M 이내 몬스터에게 둔화,-1,ice_02 
+20318,깊은칼날,BackAttack,Bleed,Monster,None,1,0,후방에서 공격시 몬스터에게 출혈 상태부여,-1,rogue_01
+20319,치명적 일격,Debuff,Slow,Player,DamageRate,10,0,둔화된 몬스터에게 10% 추가 대미지,-1,shaman_16
+20320,침묵의 사슬,Stack,Slow,Monster,None,10,0,3타이상 공격시 몬스터 슬로우,20305/20307/20314,rogue_10
+20321,빠른걸음,Stack,-1,Player,Speed,20,0,이동속도 20% 증가,,warrior_43
+20322,피의 칼날,Debuff,Bleed,Player,DamageRate,10,0,출혈상태의 적에게 10% 추가 데미지,20317/20318/20329,druid_24

@@ -47,7 +47,8 @@ public class ProjectileObject : MonoBehaviour
 
     private void OnDisable()
     {
-        rigidbody.isKinematic = false;
+        if(rigidbody != null)
+            rigidbody.isKinematic = false;
     }
 
     private void Update()
