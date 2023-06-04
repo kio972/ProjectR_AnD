@@ -1647,7 +1647,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 4a549139df5067a4b8a97ed96aaa3086, type: 2}
-  m_Tag: 
+  m_Tag: IDLE
   m_SpeedParameter: dashSpeed
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -1674,7 +1674,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 4428cbddccd6004418dbafc3f96052d8, type: 2}
-  m_Tag: 
+  m_Tag: FLAP
   m_SpeedParameter: dashSpeed
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -1755,7 +1755,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 4428cbddccd6004418dbafc3f96052d8, type: 2}
-  m_Tag: 
+  m_Tag: FLAP
   m_SpeedParameter: dashSpeed
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -1837,7 +1837,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 4a549139df5067a4b8a97ed96aaa3086, type: 2}
-  m_Tag: 
+  m_Tag: IDLE
   m_SpeedParameter: dashSpeed
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -2021,7 +2021,7 @@ AnimatorStateMachine:
     m_Position: {x: 340, y: 100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110241256}
-    m_Position: {x: 330, y: 190, z: 0}
+    m_Position: {x: 330, y: 200, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

@@ -12,21 +12,29 @@ public class AngelBoss : Controller
 
     public override void GetCC(CCType ccType, float ccDuration)
     {
-        return;
+        if (ccType == CCType.Stiff)
+            return;
+
+        curCCState = ccType;
+        this.ccDuration = ccDuration;
+        ccElapsed = 0f;
+
+        if ((object)CurState != FSMCC.Instance)
+            ChangeState(FSMCC.Instance);
     }
 
     private void AttachSkills()
     {
         bossSkills = new SkillMain[3];
         bossSkills[0] = (UtillHelper.AddSkill<AngelImpact>(transform, "AngleImpact"));
-        //bossSkills[0].SetStartCoolTime(10f);
-        bossSkills[0].coolTime = 5f;
+        bossSkills[0].coolTime = 20f;
+        bossSkills[0].SetStartCoolTime(20f);
         bossSkills[1] = (UtillHelper.AddSkill<SpaceSeparation>(transform, "SpaceSeparation"));
-        bossSkills[1].SetStartCoolTime(30f);
         bossSkills[1].coolTime = 30f;
+        bossSkills[1].SetStartCoolTime(30f);
         bossSkills[2] = (UtillHelper.AddSkill<RegionControl>(transform, "RegionControl"));
-        bossSkills[2].SetStartCoolTime(1f);
         bossSkills[2].coolTime = 2f;
+        bossSkills[2].SetStartCoolTime(2f);
 
         SkillManager.Instance.ActivateSkill(bossSkills[0].CoolTimeUpdate);
         SkillManager.Instance.ActivateSkill(bossSkills[1].CoolTimeUpdate);

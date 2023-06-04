@@ -9,17 +9,30 @@ public class AngleBoss_AnimationListener : MonoBehaviour
     [SerializeField]
     private List<WingAnimationController> wingAnimators;
 
+    public void SetWingIdle()
+    {
+        foreach (WingAnimationController wing in wingAnimators)
+        {
+            wing.SetBool("isFlapping", false);
+        }
+    }
+
+    public void SetWingFlap()
+    {
+        foreach (WingAnimationController wing in wingAnimators)
+        {
+            wing.SetBool("isFlapping", true);
+        }
+    }
 
     void Wing_Default()
     {
         bool isShield = false;
         float wingSpread = -1f;
-        bool isFlap = true;
         foreach (WingAnimationController wing in wingAnimators)
         {
             wing.ChangeBlend("wingSpread", wingSpread, 0.1f);
             wing.SetBool("isShielding", isShield);
-            wing.SetBool("isFlapping", isFlap);
         }
     }
 
@@ -46,5 +59,20 @@ public class AngleBoss_AnimationListener : MonoBehaviour
             wing.ChangeBlend("wingSpread", wingSpread, 0.1f);
             wing.SetBool("isShielding", isShield);
         }
+    }
+
+    void Wing_Stun()
+    {
+        bool isShield = true;
+        float wingSpread = 1f;
+
+        foreach (WingAnimationController wing in wingAnimators)
+        {
+            wing.ChangeBlend("wingSpread", wingSpread, 0.1f);
+            wing.SetBool("isShielding", isShield);
+        }
+
+        Invoke("SetWingFlap", 1f);
+        Invoke("Wing_Default", 1f);
     }
 }

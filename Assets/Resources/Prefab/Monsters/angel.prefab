@@ -1744,10 +1744,10 @@ GameObject:
   m_Component:
   - component: {fileID: 180136405726150171}
   - component: {fileID: 1768531005}
+  - component: {fileID: 1768531007}
   - component: {fileID: 3785954293267331243}
   - component: {fileID: 1768531008}
   - component: {fileID: 1768531006}
-  - component: {fileID: 1768531007}
   m_Layer: 10
   m_Name: angel
   m_TagString: Untagged
@@ -1785,6 +1785,57 @@ CapsuleCollider:
   m_Height: 10
   m_Direction: 1
   m_Center: {x: 0, y: 2, z: 0}
+--- !u!114 &1768531007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663200914590164129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d67467d3ec165574db2602f7a4210738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: -1
+  _name: 
+  agent: {fileID: 0}
+  hp: 7200
+  maxHp: 7200
+  baseDamage: 30
+  attackRange: 1000
+  criticalChange: 0.15
+  speed: 1
+  dashDist: 5
+  dashCount: 1
+  damageRate: 1
+  damageReduce: 0
+  drainRate: 0
+  shield: 0
+  animator: {fileID: 0}
+  canMove: 0
+  rotationSpeed: 6
+  spawnTime: 2
+  spawnElapsed: 0
+  patrolDist: 1000
+  chasingDist: 1000
+  maxAggroRange: 1000
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  curTarget: {fileID: 0}
+  attackDelayTime: 2
+  attackElapsed: 0
+  stopDelayTime: 0.1
+  isAttacking: 0
+  rotateTime: 0.1
+  unitType: 2
+  isDead: 0
+  basicAttack: {fileID: 0}
+  curCCState: 0
+  ccDuration: 0
+  ccElapsed: 0
+  auraEffect: {fileID: 6871107663942796316}
 --- !u!114 &3785954293267331243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1846,57 +1897,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1768531007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 663200914590164129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d67467d3ec165574db2602f7a4210738, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: -1
-  _name: 
-  agent: {fileID: 0}
-  hp: 7200
-  maxHp: 7200
-  baseDamage: 30
-  attackRange: 1000
-  criticalChange: 0.15
-  speed: 1
-  dashDist: 5
-  dashCount: 1
-  damageRate: 1
-  damageReduce: 0
-  drainRate: 0
-  shield: 0
-  animator: {fileID: 0}
-  canMove: 0
-  rotationSpeed: 6
-  spawnTime: 2
-  spawnElapsed: 0
-  patrolDist: 1000
-  chasingDist: 1000
-  maxAggroRange: 1000
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 512
-  curTarget: {fileID: 0}
-  attackDelayTime: 2
-  attackElapsed: 0
-  stopDelayTime: 0.1
-  isAttacking: 0
-  rotateTime: 0.1
-  unitType: 2
-  isDead: 0
-  basicAttack: {fileID: 0}
-  curCCState: 0
-  ccDuration: 0
-  ccElapsed: 0
-  auraEffect: {fileID: 6871107663942796316}
 --- !u!1 &1824805577158827732
 GameObject:
   m_ObjectHideFlags: 0

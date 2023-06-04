@@ -26,6 +26,7 @@ public abstract class SkillMain : MonoBehaviour
     private int curStack = 1;
     public int Curstack { get { return curStack; } }
     public int maxStack = 1;
+    [SerializeField]
     private float coolTimeElapsed = 0f;
     public float coolTime = 0f;
     [SerializeField]

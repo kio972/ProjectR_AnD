@@ -24,6 +24,8 @@ public class FSMCC : FSMSingleton<FSMCC>, CharState<Controller>
             SkillManager.Instance.curSkill?.StopSkill(e);
             SkillManager.Instance.curSkill = null;
         }
+
+        e.animator.SetBool("CC", true);
     }
 
     public void Excute(Controller e)
@@ -39,5 +41,6 @@ public class FSMCC : FSMSingleton<FSMCC>, CharState<Controller>
     public void Exit(Controller e)
     {
         e.agent.isStopped = false;
+        e.animator.SetBool("CC", false);
     }
 }

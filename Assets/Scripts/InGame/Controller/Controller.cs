@@ -59,9 +59,9 @@ public class Controller : FSM<Controller>
 
     public CCType curCCState = CCType.None;
     [SerializeField]
-    private float ccDuration = 0f;
+    protected float ccDuration = 0f;
     [SerializeField]
-    private float ccElapsed = 0f;
+    protected float ccElapsed = 0f;
     public float CCDuration { get => ccDuration; }
     public float CCElapsed { get => ccElapsed; set => ccElapsed = value; }
 
@@ -148,7 +148,7 @@ public class Controller : FSM<Controller>
             curCCState = ccType;
             this.ccDuration = ccDuration;
             ccElapsed = 0f;
-            
+
             if((object)CurState != FSMCC.Instance)
                 ChangeState(FSMCC.Instance);
         }

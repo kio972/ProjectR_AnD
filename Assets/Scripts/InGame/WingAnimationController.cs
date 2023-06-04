@@ -7,6 +7,13 @@ public class WingAnimationController : MonoBehaviour
     private Animator wingAnimator;
     private Coroutine blendOpenCoroutine = null;
 
+    public bool IsWingIdle()
+    {
+        if(wingAnimator.GetCurrentAnimatorStateInfo(2).IsTag("IDLE") && !wingAnimator.IsInTransition(2))
+            return true;
+        return false;
+    }
+
     public void SetBool(string targetPram, bool value)
     {
         wingAnimator.SetBool(targetPram, value);

@@ -9,15 +9,34 @@ public class AngelImpact : SkillMain
         attacker.animator.SetTrigger("Attack");
     }
 
+    private bool IsWingIdle(Controller attacker)
+    {
+        WingAnimationController wing = attacker.GetComponentInChildren<WingAnimationController>();
+        if(wing != null)
+        {
+            if (!wing.IsWingIdle())
+                return false;
+        }
+
+        return true;
+    }
+
     public override IEnumerator ISkillFunc(Controller attacker, bool mouseRotate = false)
     {
         AngelBoss boss = attacker.GetComponent<AngelBoss>();
+        AngleBoss_AnimationListener bossAnim = attacker.GetComponent<AngleBoss_AnimationListener>();
         if (boss != null)
             boss.auraEffect.Play();
         //attacker.curTarget방향으로 공격 3회, 공격간 텀은 x초
         float attackDelay = 1f;
         for(int i = 0; i < 3; i++)
         {
+            if(bossAnim != null)
+            {
+                bossAnim.SetWingIdle();
+                while (!IsWingIdle(attacker))
+                    yield return null;
+            }
             TriggerAnimation(attacker);
             yield return StartCoroutine(UtillHelper.RotateTowards(attacker.transform, attacker.curTarget.transform.position, 0.1f, ()=> { }));
             EffectManager.Instance.PlayEffect("Projectile_19", attacker.transform, (Vector3.up * 1.5f), 8);
@@ -25,10 +44,12 @@ public class AngelImpact : SkillMain
             yield return new WaitForSeconds(attackDelay);
         }
 
+        if (bossAnim != null)
+            bossAnim.SetWingFlap();
+        if (boss != null)
+            boss.auraEffect.Stop();
         after_Delay = 1f;
         yield return StartCoroutine(IAfterDelay(() => { }));
         SkillEnd(attacker);
-        if (boss != null)
-            boss.auraEffect.Stop();
     }
 }
