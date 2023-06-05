@@ -28835,7 +28835,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 1489801952}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -48485,7 +48485,7 @@ PrefabInstance:
     - target: {fileID: 3884371424329630924, guid: 4ef1fab7bf58274459f508c189788747,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3884371424329630924, guid: 4ef1fab7bf58274459f508c189788747,
         type: 3}
@@ -68098,6 +68098,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClipStarter
       objectReference: {fileID: 0}
+    - target: {fileID: 3954875217311334394, guid: 9a3fc2003dd7cd740a890bafa667b00a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3954875217311334395, guid: 9a3fc2003dd7cd740a890bafa667b00a,
         type: 3}
       propertyPath: m_RootOrder
@@ -68168,6 +68173,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7718631835364242030}
     m_Modifications:
+    - target: {fileID: 87564667619458162, guid: 95a74279ae424524794c57fe51d32657,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6056895381025044826, guid: 95a74279ae424524794c57fe51d32657,
         type: 3}
       propertyPath: m_RootOrder
@@ -68227,6 +68237,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main_Model
+      objectReference: {fileID: 0}
+    - target: {fileID: 7423774672743002083, guid: 95a74279ae424524794c57fe51d32657,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.98
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95a74279ae424524794c57fe51d32657, type: 3}
@@ -83233,7 +83248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 436698, guid: c27bc3fb460b46cda2476a3121665a20, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.98
+      value: 2.97
       objectReference: {fileID: 0}
     - target: {fileID: 436698, guid: c27bc3fb460b46cda2476a3121665a20, type: 3}
       propertyPath: m_LocalPosition.z

@@ -90,7 +90,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 7.19e-43, y: -6.9972146e-34, z: 7.17e-43, w: 1.03961805e+21}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -141,7 +141,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1474550704345680}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.242, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9341,7 +9341,12 @@ MonoBehaviour:
   movingDist: 20
   duration: 5
   movingSpeed: 0
+  damage: 150
+  targetType: 0
+  soundName: PostEffect2
   rootTransform: {fileID: 4709693737692316}
+  collisionEffect: 
+  collisionEffectScale: 1
 --- !u!1 &1748139164946814
 GameObject:
   m_ObjectHideFlags: 0
