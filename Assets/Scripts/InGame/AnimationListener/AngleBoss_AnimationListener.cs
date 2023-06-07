@@ -8,6 +8,8 @@ public class AngleBoss_AnimationListener : MonoBehaviour
     private Animator bossAnimator;
     [SerializeField]
     private List<WingAnimationController> wingAnimators;
+    [SerializeField]
+    private ParticleSystem escapePortal;
 
     public void SetWingIdle()
     {

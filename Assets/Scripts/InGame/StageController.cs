@@ -21,7 +21,7 @@ public class StageController : MonoBehaviour
         chapters = GetComponentsInChildren<ChapterController>();
         //foreach (ChapterController chapter in chapters)
         //{
-            
+
         //}
     }
 

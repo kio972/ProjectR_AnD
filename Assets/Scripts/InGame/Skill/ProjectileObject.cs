@@ -29,7 +29,8 @@ public class ProjectileObject : MonoBehaviour
         Controller controller = collision.gameObject.GetComponentInParent<Controller>();
         if (controller != null && controller.unitType == targetType)
         {
-            rigidbody.isKinematic = true;
+            if(rigidbody != null)
+                rigidbody.isKinematic = true;
             controller.TakeDamage(damage);
             AudioManager.Instance.Play2DSound(soundName, 1);
             if (collisionEffect != string.Empty)

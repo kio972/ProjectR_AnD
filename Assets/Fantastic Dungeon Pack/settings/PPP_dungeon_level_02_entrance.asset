@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 558a8e2b6826cf840aae193990ba9f2e, type: 3}
   m_Name: ShadowsMidtonesHighlights
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   shadows:
     m_OverrideState: 0
     m_Value: {x: 1, y: 1, z: 1, w: 0}
@@ -101,7 +101,7 @@ MonoBehaviour:
     m_Value: 2
   intensity:
     m_OverrideState: 1
-    m_Value: 0.24
+    m_Value: 0.548
   clamp:
     m_OverrideState: 0
     m_Value: 0.05
@@ -140,13 +140,13 @@ MonoBehaviour:
   active: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 0.67
+    m_Value: 0.05
   intensity:
     m_OverrideState: 1
-    m_Value: 1.4
+    m_Value: 0.6
   scatter:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.554
   clamp:
     m_OverrideState: 0
     m_Value: 65472
@@ -158,14 +158,14 @@ MonoBehaviour:
     m_Value: 1
   skipIterations:
     m_OverrideState: 0
-    m_Value: 1
+    m_Value: 0
   dirtTexture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
     dimension: 1
   dirtIntensity:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: 3.36
 --- !u!114 &7086757028029196457
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -187,10 +187,10 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.331
+    m_Value: 0.4
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.183
+    m_Value: 0.3
   rounded:
     m_OverrideState: 0
     m_Value: 0
