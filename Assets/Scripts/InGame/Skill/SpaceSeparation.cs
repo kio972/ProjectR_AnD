@@ -38,6 +38,6 @@ public class SpaceSeparation : SkillMain
         if (boss != null)
             boss.auraEffect.Stop();
         if (getStun)
-            attacker.GetCC(CCType.Stun, 2f);
+            attacker.GetCC(CCType.Stun, 5f);
     }
 }
