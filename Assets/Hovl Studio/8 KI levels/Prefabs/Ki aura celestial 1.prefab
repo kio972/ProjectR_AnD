@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 198208700324117042}
   - component: {fileID: 199574726639431696}
   m_Layer: 0
-  m_Name: Ki aura celestial
+  m_Name: Ki aura celestial 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
