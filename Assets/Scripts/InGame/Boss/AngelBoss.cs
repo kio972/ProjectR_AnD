@@ -10,6 +10,34 @@ public class AngelBoss : Controller
 
     public ParticleSystem auraEffect;
 
+    void BloodEffect()
+    {
+        Vector3 randomModify = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1));
+        EffectManager.Instance.PlayEffect("Bloodaura", transform, Vector3.up * 0.5f + randomModify, 5f);
+    }
+
+    public override void Dead()
+    {
+        animator.SetBool("Dead", true);
+        isDead = true;
+        agent.enabled = false;
+        Collider collider = GetComponentInChildren<Collider>();
+        if (collider != null)
+            collider.enabled = false;
+
+        foreach(SkillMain skill in bossSkills)
+        {
+            skill.StopSkill(this);
+        }
+        auraEffect.Stop();
+
+        Invoke("BloodEffect", 0.1f);
+        Invoke("BloodEffect", 0.3f);
+        Invoke("BloodEffect", 0.5f);
+
+        Destroy(curTarget);
+    }
+
     public override void GetCC(CCType ccType, float ccDuration)
     {
         if (ccType == CCType.Stiff)

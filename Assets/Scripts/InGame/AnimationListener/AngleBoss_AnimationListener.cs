@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AngleBoss_AnimationListener : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class AngleBoss_AnimationListener : MonoBehaviour
     private List<WingAnimationController> wingAnimators;
     [SerializeField]
     private ParticleSystem escapePortal;
+
+    [SerializeField]
+    private string nextSceneName = "Stage2Scene";
 
     public void SetWingIdle()
     {
@@ -76,5 +80,10 @@ public class AngleBoss_AnimationListener : MonoBehaviour
 
         Invoke("SetWingFlap", 1f);
         Invoke("Wing_Default", 1f);
+    }
+
+    void BossBattleEnd()
+    {
+        SceneController.Instance.MoveScene(nextSceneName, 1f);
     }
 }

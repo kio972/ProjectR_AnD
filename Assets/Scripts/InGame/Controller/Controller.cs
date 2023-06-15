@@ -200,7 +200,7 @@ public class Controller : FSM<Controller>
         }
     }
 
-    public void Dead()
+    public virtual void Dead()
     {
         animator.SetInteger("Random", UnityEngine.Random.Range(0, 3));
         animator.SetBool("Dead", true);
