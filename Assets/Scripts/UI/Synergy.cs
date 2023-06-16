@@ -7,9 +7,10 @@ using TMPro;
 public struct SkillInfo
 {
     public int skillID;
-    public Image skillImage;
+    public Sprite skillImage;
     public string skillName;
     public string skillText;
+    public bool stackable;
 }
 
 public class Synergy : MonoBehaviour
@@ -22,18 +23,25 @@ public class Synergy : MonoBehaviour
     public SkillInfo SkillInfo { get { return skillInfo; } }
     public bool haveSkill = false;
 
-    private void CallSkillTree()
-    {
+    private int skillIndex = -1;
 
+    private void GetSynergy()
+    {
+        if (haveSkill)
+            return;
+
+        SynergyView synergyView = FindObjectOfType<SynergyView>();
+        synergyView.GetSynergy(skillInfo);
     }
 
-    private void GetSkillData(int skillID)
+    private void GetSkillData(int skillId)
     {
         // skillInfo에 정보를 불러오는 함수
-        int skillIndex = UtillHelper.Find_Data_Index(skillID, DataManager.Instance.Skill_Passive_Dic);
-        //skillIcon.sprite = ;
-        skillName.text = DataManager.Instance.Skill_Passive_Dic[skillIndex]["SkillName"].ToString();
-        skillText.text = DataManager.Instance.Skill_Passive_Dic[skillIndex]["Description"].ToString();
+        skillInfo = DataManager.Instance.FindSkillInfo(skillId);
+
+        skillIcon.sprite = skillInfo.skillImage;
+        skillName.text = skillInfo.skillName;
+        skillText.text = skillInfo.skillText;
     }
 
     private void GetElements()
@@ -51,20 +59,21 @@ public class Synergy : MonoBehaviour
     private void SetElements()
     {
         if (synergyBtn != null)
-            synergyBtn.onClick.AddListener(CallSkillTree);
-        if (skillIcon != null)
-            skillIcon = skillInfo.skillImage;
+            synergyBtn.onClick.AddListener(GetSynergy);
+        if (skillIcon != null && skillInfo.skillImage != null)
+            skillIcon.sprite = skillInfo.skillImage;
         if (skillName != null)
             skillName.text = skillInfo.skillName;
         if (skillText != null)
             skillText.text = skillInfo.skillText;
     }
 
-    public void Init()
+    public void Init(int index)
     {
         GetElements();
-        GetSkillData(0);
+        GetSkillData(index);
         SetElements();
+        skillIndex = index;
     }
 
     // Start is called before the first frame update

@@ -1090,7 +1090,7 @@ Transform:
   - {fileID: 58692729963141267}
   - {fileID: 58513221269601057}
   m_Father: {fileID: 7701693317373694751}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 24.783, y: 0, z: 0}
 --- !u!95 &113986674627466861
 Animator:
@@ -1901,6 +1901,7 @@ MonoBehaviour:
   - {fileID: 2915724282187216526}
   - {fileID: 1627357417620289427}
   escapePortal: {fileID: 0}
+  nextSceneName: Stage2Scene
 --- !u!95 &1768531008
 Animator:
   serializedVersion: 5
@@ -3003,7 +3004,7 @@ Transform:
   - {fileID: 1819629058275397348}
   - {fileID: 1828456158274399574}
   m_Father: {fileID: 7701693317373694751}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1730767641887260698
 Animator:
@@ -3968,7 +3969,7 @@ Transform:
   - {fileID: 2245817815815801925}
   - {fileID: 2248944018892795895}
   m_Father: {fileID: 7701693317373694751}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2192916135788430011
 Animator:
@@ -5440,10 +5441,10 @@ Transform:
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2245966687574018569}
   - {fileID: 5424106797342165409}
   - {fileID: 58965781892685535}
   - {fileID: 1819849344350668968}
+  - {fileID: 2245966687574018569}
   - {fileID: 4379067875078795902}
   - {fileID: 6767243807217983556}
   m_Father: {fileID: 180136405726150171}
@@ -5616,7 +5617,7 @@ Transform:
   - {fileID: 5424504173441355757}
   - {fileID: 5429318061372042335}
   m_Father: {fileID: 7701693317373694751}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -24.045, y: 0, z: 0}
 --- !u!95 &5333325405569745171
 Animator:

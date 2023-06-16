@@ -21,6 +21,20 @@ public class DataManager : Singleton<DataManager>
     private string character_DataPath = "Data/CharacterTable";
     private string mapTable_DataPath = "Data/SpawnTable";
 
+    public SkillInfo FindSkillInfo(int skillId)
+    {
+        SkillInfo skill = new SkillInfo();
+        int skillIndex = UtillHelper.Find_Data_Index(skillId, Skill_Passive_Dic);
+        skill.skillID = skillId;
+        string spriteName = Skill_Passive_Dic[skillIndex]["Icon"].ToString();
+        skill.skillImage = SpriteList.Instance.LoadSprite(spriteName);
+        skill.skillName = Skill_Passive_Dic[skillIndex]["SkillName"].ToString();
+        skill.skillText = Skill_Passive_Dic[skillIndex]["Description"].ToString(); ;
+        skill.stackable = Convert.ToBoolean(Skill_Passive_Dic[skillIndex]["Stackable"]);
+
+        return skill;
+}
+
     public int Find_SpawnMonsterID(int mapID, int spawnPointIndex)
     {
         for (int i = 0; i < mapTableDic.Count; i++)

@@ -18,13 +18,13 @@ public class TempDialog : MonoBehaviour
     private void CallThird()
     {
         dialogController.CallDialog(thirdDialog, EndDialog);
-        dialogController.illurst.sprite = spriteList.sprites[1];
+        //dialogController.illurst.sprite = spriteList.sprites[1];
     }
 
     private void CallSecond()
     {
         dialogController.CallDialog(secondDialog, CallThird);
-        dialogController.illurst.sprite = spriteList.sprites[0];
+        //dialogController.illurst.sprite = spriteList.sprites[0];
     }
     
     // Start is called before the first frame update

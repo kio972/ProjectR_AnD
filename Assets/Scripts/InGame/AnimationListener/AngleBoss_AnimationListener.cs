@@ -37,7 +37,7 @@ public class AngleBoss_AnimationListener : MonoBehaviour
         float wingSpread = -1f;
         foreach (WingAnimationController wing in wingAnimators)
         {
-            wing.ChangeBlend("wingSpread", wingSpread, 0.1f);
+            //wing.ChangeBlend("wingSpread", wingSpread, 0.1f);
             wing.SetBool("isShielding", isShield);
         }
     }
@@ -49,7 +49,7 @@ public class AngleBoss_AnimationListener : MonoBehaviour
         bool isFlap = false;
         foreach (WingAnimationController wing in wingAnimators)
         {
-            wing.ChangeBlend("wingSpread", wingSpread, 0.2f);
+            //wing.ChangeBlend("wingSpread", wingSpread, 0.2f);
             wing.SetBool("isShielding", isShield);
             wing.SetBool("isFlapping", isFlap);
         }
@@ -62,7 +62,7 @@ public class AngleBoss_AnimationListener : MonoBehaviour
         
         foreach (WingAnimationController wing in wingAnimators)
         {
-            wing.ChangeBlend("wingSpread", wingSpread, 0.1f);
+            //wing.ChangeBlend("wingSpread", wingSpread, 0.1f);
             wing.SetBool("isShielding", isShield);
         }
     }
@@ -71,15 +71,15 @@ public class AngleBoss_AnimationListener : MonoBehaviour
     {
         bool isShield = true;
         float wingSpread = 1f;
-
         foreach (WingAnimationController wing in wingAnimators)
         {
-            wing.ChangeBlend("wingSpread", wingSpread, 0.1f);
+            //wing.ChangeBlend("wingSpread", wingSpread, 0.1f);
             wing.SetBool("isShielding", isShield);
         }
-
-        Invoke("SetWingFlap", 1f);
-        Invoke("Wing_Default", 1f);
+        Controller controller = GetComponent<Controller>();
+        float invokeTime = controller.CCDuration - 0.3f;
+        Invoke("SetWingFlap", invokeTime);
+        Invoke("Wing_Default", invokeTime);
     }
 
     void BossBattleEnd()

@@ -81,7 +81,7 @@ public class DescToggle : MonoBehaviour
         float elapsedTime = 0f;
         while (elapsedTime < toggleTime)
         {
-            elapsedTime += Time.deltaTime;
+            elapsedTime += Time.unscaledDeltaTime;
 
             float t = Mathf.Clamp01(elapsedTime / toggleTime);
             descRectTransform.anchoredPosition = Vector2.Lerp(startPos, endPos, t);
@@ -132,7 +132,7 @@ public class DescToggle : MonoBehaviour
             float currentValue = startValue;
             while (elapsedTime < toggleTime)
             {
-                elapsedTime += Time.deltaTime;
+                elapsedTime += Time.unscaledDeltaTime;
                 float t = Mathf.Clamp01(elapsedTime / toggleTime);
                 currentValue = Mathf.Lerp(startValue, targetValue, t);
                 maskImage.fillAmount = currentValue;
@@ -156,14 +156,10 @@ public class DescToggle : MonoBehaviour
                     desc.gameObject.SetActive(!value);
                     break;
                 case ToggleType.Slide:
-                    if (toggleCorutine != null)
-                        StopCoroutine(toggleCorutine);
-                    toggleCorutine = StartCoroutine(I_SlideUI(!value));
+                    CallSlide(!value);
                     break;
                 case ToggleType.Drop:
-                    if (toggleCorutine != null)
-                        StopCoroutine(toggleCorutine);
-                    toggleCorutine = StartCoroutine(I_DropUI(!value));
+                    CallDrop(!value);
                     break;
                 case ToggleType.Fade:
                     if(toggleCorutine != null)
@@ -172,6 +168,20 @@ public class DescToggle : MonoBehaviour
                     break;
             }
         }
+    }
+
+    public void CallSlide(bool value)
+    {
+        if (toggleCorutine != null)
+            StopCoroutine(toggleCorutine);
+        toggleCorutine = StartCoroutine(I_SlideUI(value));
+    }
+
+    public void CallDrop(bool value)
+    {
+        if (toggleCorutine != null)
+            StopCoroutine(toggleCorutine);
+        toggleCorutine = StartCoroutine(I_DropUI(value));
     }
 
     void Start()

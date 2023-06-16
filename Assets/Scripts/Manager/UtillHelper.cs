@@ -18,6 +18,45 @@ public enum AdjacentDirection
 
 public static class UtillHelper
 {
+    public static void UpdateUIPosition(Vector3 worldPosition, RectTransform uiPosition, Vector2 offset = new Vector2())
+    {
+        // 월드 좌표를 스크린 좌표로 변환
+        Vector2 screenPosition = Camera.main.WorldToScreenPoint(worldPosition);
+
+        if (offset != new Vector2())
+            screenPosition += offset;
+
+        uiPosition.anchoredPosition = screenPosition;
+    }
+
+    public static void SetColor(Material material, Color color, string key)
+    {
+        material.SetColor(key, color);
+    }
+
+    public static void SetColor(Renderer renderer, Color color, string key)
+    {
+        renderer.material.SetColor(key, color);
+    }
+
+    public static IEnumerator IChangeColor(Material material, Color color, string key, float lerpTime)
+    {
+        Color originColor = material.GetColor(key);
+        float elapsedTime = 0f;
+
+        while (elapsedTime < lerpTime)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsedTime / lerpTime);
+            Color lerpedColor = Color.Lerp(originColor, color, t);
+            material.SetColor(key, lerpedColor);
+            yield return null;
+        }
+
+        // 최종적으로 목표 색상으로 설정
+        material.SetColor(key, color);
+    }
+
     public static Vector3 GetRandomPosition(Vector3 zeroPos, float radius, float deadRadius = 0f)
     {
         while(true)
