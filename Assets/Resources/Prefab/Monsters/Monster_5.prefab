@@ -183,6 +183,8 @@ MonoBehaviour:
   drainRate: 0
   shield: 0
   animator: {fileID: 0}
+  canMove: 1
+  rotationSpeed: 1
   spawnTime: 2
   spawnElapsed: 0
   patrolDist: 15
@@ -1601,7 +1603,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 345c0c985cd6a374085aa2a0d5149a9f, type: 2}
+  - {fileID: 2100000, guid: 06521538d14457b4f807db657384eb7f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

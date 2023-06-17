@@ -7,6 +7,9 @@ public class ChapterController : MonoBehaviour
     public Transform startPosition;
     [SerializeField]
     private Transform endPosition;
+    [SerializeField]
+    private Transform synergyStonePoint;
+    private SynergyStone synergyStone;
 
     private SpawnController[] spawnGroups;
 
@@ -33,6 +36,11 @@ public class ChapterController : MonoBehaviour
             spawnGroup.Init(waitTime);
         }
 
+        SynergyStone stone = Resources.Load<SynergyStone>("Prefab/Objects/SynergyStone");
+        stone = Instantiate(stone, synergyStonePoint.transform);
+        //stone.transform.position = synergyStonePoint.position;
+        synergyStone = stone;
+
         cutSceneCam.gameObject.SetActive(true);
     }
 
@@ -56,6 +64,7 @@ public class ChapterController : MonoBehaviour
 
             isMonsterCleared = true;
             endPosition.gameObject.SetActive(true);
+            synergyStone.SetActive(true);
         }
     }
 }

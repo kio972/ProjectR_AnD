@@ -1076,7 +1076,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 889b7d84b7a91624280e580a26bd83fb, type: 2}
+  - {fileID: 2100000, guid: 99d47009b47608e449bb5bfa86302ef7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1675,6 +1675,8 @@ MonoBehaviour:
   drainRate: 0
   shield: 0
   animator: {fileID: 0}
+  canMove: 1
+  rotationSpeed: 1
   spawnTime: 2
   spawnElapsed: 0
   patrolDist: 20
@@ -2119,6 +2121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackType: 3
   maxStack: 1
+  coolTimeElapsed: 0
   coolTime: 0
   ccType: 0
 --- !u!1001 &2196633487046917007

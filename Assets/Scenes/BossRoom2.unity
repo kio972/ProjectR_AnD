@@ -212,51 +212,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: 2 Boss Anime Scene
       objectReference: {fileID: 0}
-    - target: {fileID: 2019857135803353448, guid: e936b3a4d6a9406448e0c5f651ee1168,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 28.447598
-      objectReference: {fileID: 0}
-    - target: {fileID: 2019857135803353448, guid: e936b3a4d6a9406448e0c5f651ee1168,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -57.005432
-      objectReference: {fileID: 0}
-    - target: {fileID: 2019857135803353448, guid: e936b3a4d6a9406448e0c5f651ee1168,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 49.436203
-      objectReference: {fileID: 0}
-    - target: {fileID: 2019857136912363312, guid: e936b3a4d6a9406448e0c5f651ee1168,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 61.265965
-      objectReference: {fileID: 0}
-    - target: {fileID: 2019857136912363312, guid: e936b3a4d6a9406448e0c5f651ee1168,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 8.087456
-      objectReference: {fileID: 0}
-    - target: {fileID: 2019857136912363312, guid: e936b3a4d6a9406448e0c5f651ee1168,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -171.1048
-      objectReference: {fileID: 0}
-    - target: {fileID: 2019857137100739816, guid: e936b3a4d6a9406448e0c5f651ee1168,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -66.63529
-      objectReference: {fileID: 0}
-    - target: {fileID: 2019857137100739816, guid: e936b3a4d6a9406448e0c5f651ee1168,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 102.001434
-      objectReference: {fileID: 0}
-    - target: {fileID: 2019857137100739816, guid: e936b3a4d6a9406448e0c5f651ee1168,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -93.93589
-      objectReference: {fileID: 0}
     - target: {fileID: 5189079841259011022, guid: e936b3a4d6a9406448e0c5f651ee1168,
         type: 3}
       propertyPath: m_RootOrder

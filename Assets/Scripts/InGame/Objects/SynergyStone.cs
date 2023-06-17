@@ -66,6 +66,7 @@ public class SynergyStone : MonoBehaviour
         if (rewardUI == null)
             return;
 
+        //시너지 3개를 랜덤으로 호출
 
     }
 
@@ -83,14 +84,16 @@ public class SynergyStone : MonoBehaviour
         colorCoroutines = new List<Coroutine>();
         foreach (Renderer renderer in renderers)
         {
-            Coroutine co = StartCoroutine(UtillHelper.IChangeColor(renderer.material, color, "_BaseColor", 0.5f));
+            Coroutine co = StartCoroutine(UtillHelper.IChangeColor(renderer.material, color, "_BaseColor", 1f));
             colorCoroutines.Add(co);
         }
+
+        EffectManager.Instance.PlayEffect("HealEffect", transform);
 
         if (value)
         {
             effect.Play();
-            Invoke("CallSynergy", 0.5f);
+            Invoke("CallSynergy", 1f);
         }
         else
             effect.Stop();
