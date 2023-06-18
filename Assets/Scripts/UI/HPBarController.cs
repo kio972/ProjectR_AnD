@@ -12,8 +12,14 @@ public class HPBarController : Singleton<HPBarController>
     HPUpdater boss_HP;
     List<HPUpdater> monsters_HP = new List<HPUpdater>();
 
+    public void ClearList()
+    {
+
+    }
+
     private void Monster_HP_Pooling(Controller controller)
     {
+        cameraCanvas.worldCamera = Camera.main;
         // monsters_HP내에 비활성화된 체력바가 있다면, 재활용
         foreach (HPUpdater hp in monsters_HP)
         {
@@ -54,18 +60,28 @@ public class HPBarController : Singleton<HPBarController>
         foreach(Canvas canvas in canvases)
         {
             if (canvas.gameObject.name == "IngameOverlayUI")
+            {
                 overlayCanvas = canvas;
+                DontDestroyOnLoad(overlayCanvas.gameObject);
+            }
             if (canvas.gameObject.name == "IngameCameraUI")
+            {
                 cameraCanvas = canvas;
+                DontDestroyOnLoad(cameraCanvas.gameObject);
+            }
         }
 
         if(overlayCanvas == null)
+        {
             overlayCanvas = UtillHelper.Instantiate<Canvas>("Prefab/UI/IngameOverlayUI", null);
+            DontDestroyOnLoad(overlayCanvas.gameObject);
+        }
 
         if (cameraCanvas == null)
         {
             cameraCanvas = UtillHelper.Instantiate<Canvas>("Prefab/UI/IngameCameraUI", null);
             cameraCanvas.worldCamera = Camera.main;
+            DontDestroyOnLoad(cameraCanvas.gameObject);
         }
 
         player_HP = UtillHelper.Find<HPUpdater>(overlayCanvas.transform, "Player_HP_Bar");

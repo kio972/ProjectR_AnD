@@ -30,7 +30,7 @@ public class DataManager : Singleton<DataManager>
         skill.skillImage = SpriteList.Instance.LoadSprite(spriteName);
         skill.skillName = Skill_Passive_Dic[skillIndex]["SkillName"].ToString();
         skill.skillText = Skill_Passive_Dic[skillIndex]["Description"].ToString(); ;
-        skill.stackable = Convert.ToBoolean(Skill_Passive_Dic[skillIndex]["Stackable"]);
+        skill.stackable = Convert.ToBoolean(Convert.ToInt32(Skill_Passive_Dic[skillIndex]["Stackable"]));
 
         return skill;
 }

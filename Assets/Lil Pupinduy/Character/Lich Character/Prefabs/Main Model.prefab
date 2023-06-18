@@ -834,7 +834,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 968de81bc2a99d74aba151526d283843, type: 2}
+  - {fileID: 2100000, guid: 146ab59c1ae8e134bbaf501492f9e3e7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1439,7 +1439,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 968de81bc2a99d74aba151526d283843, type: 2}
+  - {fileID: 2100000, guid: 146ab59c1ae8e134bbaf501492f9e3e7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1627,7 +1627,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 968de81bc2a99d74aba151526d283843, type: 2}
+  - {fileID: 2100000, guid: 146ab59c1ae8e134bbaf501492f9e3e7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2602,6 +2602,8 @@ MonoBehaviour:
   drainRate: 0
   shield: 0
   animator: {fileID: 2062549493358625412}
+  canMove: 1
+  rotationSpeed: 1
   spawnTime: 2
   spawnElapsed: 0
   patrolDist: 15
@@ -2614,11 +2616,14 @@ MonoBehaviour:
   attackDelayTime: 2
   attackElapsed: 0
   stopDelayTime: 0.1
+  isAttacking: 0
   rotateTime: 0.1
   unitType: 0
   isDead: 0
   basicAttack: {fileID: 0}
   curCCState: 0
+  ccDuration: 0
+  ccElapsed: 0
 --- !u!1 &4786800778186390979
 GameObject:
   m_ObjectHideFlags: 0

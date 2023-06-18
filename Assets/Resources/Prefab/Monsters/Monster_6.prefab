@@ -1076,7 +1076,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 99d47009b47608e449bb5bfa86302ef7, type: 2}
+  - {fileID: 2100000, guid: 8e30f029cd3d120488df32981e8eb031, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3787,3 +3787,21 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2196633487046917007}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2196341368928392191 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1964080848988272, guid: 641b9210bc9218f44b0516b26c449d7f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2196633487046917007}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3274130541433188615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2196341368928392191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a7a7524c8c38f4b98b721e1fe6433e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

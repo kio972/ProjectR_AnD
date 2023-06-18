@@ -6,14 +6,15 @@ using UnityEngine.AI;
 public class UnitIniter : MonoBehaviour
 {
     public Controller monster;
-    public int unitIndex = -1;
+    public int unitId = -1;
     // Update is called once per frame
     void Start()
     {
         if (monster == null)
             return;
 
-        if (unitIndex >= 0 && unitIndex < DataManager.Instance.CharacterDic.Count)
+        int unitIndex = UtillHelper.Find_Data_Index(unitId, DataManager.Instance.CharacterDic);
+        if (unitIndex != -1)
             monster.Init(DataManager.Instance.CharacterDic[unitIndex]);
         else
             monster.Init();

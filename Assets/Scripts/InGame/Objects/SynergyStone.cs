@@ -18,6 +18,8 @@ public class SynergyStone : MonoBehaviour
 
     private RewardUI rewardUI;
 
+    private Controller player = null;
+
     private void OnTriggerEnter(Collider other)
     {
         Controller player = other.transform.GetComponentInParent<Controller>();
@@ -26,6 +28,7 @@ public class SynergyStone : MonoBehaviour
         if(player.unitType == UnitType.Player)
         {
             playerClosed = true;
+            this.player = player;
         }
     }
 
@@ -37,6 +40,7 @@ public class SynergyStone : MonoBehaviour
         if (player.unitType == UnitType.Player)
         {
             playerClosed = false;
+            this.player = null;
         }
     }
 
@@ -51,8 +55,10 @@ public class SynergyStone : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.F))
             {
                 isActive = false;
+                EffectManager.Instance.PlayEffect("HealEffect", transform);
                 rewardUI.UpdateInteractText(false, transform.position);
-                rewardUI.CallReward();
+                player.ModifyHp(player.maxHp * 0.15f);
+                Invoke("CallSynergy", 1.2f);
             }
         }
         else
@@ -67,7 +73,8 @@ public class SynergyStone : MonoBehaviour
             return;
 
         //시너지 3개를 랜덤으로 호출
-
+        
+        rewardUI.CallReward();
     }
 
     public void SetActive(bool value)
@@ -88,12 +95,9 @@ public class SynergyStone : MonoBehaviour
             colorCoroutines.Add(co);
         }
 
-        EffectManager.Instance.PlayEffect("HealEffect", transform);
-
         if (value)
         {
             effect.Play();
-            Invoke("CallSynergy", 1f);
         }
         else
             effect.Stop();

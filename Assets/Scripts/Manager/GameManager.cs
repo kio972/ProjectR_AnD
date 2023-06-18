@@ -6,6 +6,18 @@ public class GameManager : Singleton<GameManager>
 {
     public bool isIngame = false;
 
+    public void PlayCutScene(bool value)
+    {
+        Canvas[] canvas = FindObjectsOfType<Canvas>(true);
+        foreach(Canvas ui in canvas)
+        {
+            if (ui.tag == "MainUI")
+                continue;
+
+            ui.gameObject.SetActive(!value);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {

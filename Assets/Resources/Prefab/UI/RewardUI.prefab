@@ -443,7 +443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rewardDesc: {fileID: 6492227718193976170}
   interactText: {fileID: 1428400153}
-  yOffset: 100
+  yOffset: 150
   synergySlot:
   - {fileID: 5761833078209611}
   - {fileID: 5761833022930989}

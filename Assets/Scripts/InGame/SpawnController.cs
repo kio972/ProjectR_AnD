@@ -7,7 +7,7 @@ public class SpawnController : MonoBehaviour
     private SpawnPoint[] spawnPoints;
     public Collider spawnTrigger = null;
     public ChapterController chapterController;
-
+    public bool isSpawned = false;
 
     public void SpawnMonsters(float spawnWaitTime = 2f)
     {
@@ -25,16 +25,14 @@ public class SpawnController : MonoBehaviour
             monster.spawnTime = spawnWaitTime;
             chapterController.monsterGroup.Add(monster);
         }
+        isSpawned = true;
     }
 
-    public void Init(float spawnWaitTime = 2f)
+    public void Init()
     {
         spawnPoints = GetComponentsInChildren<SpawnPoint>();
         foreach (SpawnPoint spawnPoint in spawnPoints)
             spawnPoint.Init();
-
-        if (spawnTrigger == null)
-            SpawnMonsters(spawnWaitTime);
     }
 
     private void Update()

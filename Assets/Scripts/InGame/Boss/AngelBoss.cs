@@ -12,8 +12,12 @@ public class AngelBoss : Controller
 
     void BloodEffect()
     {
-        Vector3 randomModify = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1));
-        EffectManager.Instance.PlayEffect("Bloodaura", transform, Vector3.up * 0.5f + randomModify, 5f);
+        float randomRange = 2f;
+        float x = Random.Range(-randomRange, randomRange);
+        float y = Random.Range(-randomRange, randomRange);
+        float z = Random.Range(-randomRange, randomRange);
+        Vector3 randomModify = new Vector3(x, y, z);
+        EffectManager.Instance.PlayEffect("Bloodaura", transform, Vector3.up * 3f + randomModify, 5f);
     }
 
     public override void Dead()
@@ -34,6 +38,8 @@ public class AngelBoss : Controller
         Invoke("BloodEffect", 0.1f);
         Invoke("BloodEffect", 0.3f);
         Invoke("BloodEffect", 0.5f);
+
+        GameManager.Instance.PlayCutScene(true);
 
         Destroy(curTarget);
     }

@@ -789,7 +789,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 638a5fd189236f64081ec0a888a61af5, type: 2}
+  - {fileID: 2100000, guid: 6c4ca024073ef4843a646277c10218f6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1840,6 +1840,8 @@ MonoBehaviour:
   drainRate: 0
   shield: 0
   animator: {fileID: 0}
+  canMove: 1
+  rotationSpeed: 1
   spawnTime: 2
   spawnElapsed: 0
   patrolDist: 15
@@ -2131,6 +2133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackType: 0
   maxStack: 1
+  coolTimeElapsed: 0
   coolTime: 0
   ccType: 0
 --- !u!1001 &6628407345682785382
@@ -2864,3 +2867,21 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6628407345682785382}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6627661541075536918 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1964080848988272, guid: 641b9210bc9218f44b0516b26c449d7f,
+    type: 3}
+  m_PrefabInstance: {fileID: 6628407345682785382}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &866507843395711519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6627661541075536918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a7a7524c8c38f4b98b721e1fe6433e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

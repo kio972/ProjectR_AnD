@@ -11,6 +11,7 @@ public struct SkillInfo
     public string skillName;
     public string skillText;
     public bool stackable;
+    public int[] topSkill;
 }
 
 public class Synergy : MonoBehaviour
@@ -32,6 +33,11 @@ public class Synergy : MonoBehaviour
 
         SynergyView synergyView = FindObjectOfType<SynergyView>();
         synergyView.GetSynergy(skillInfo);
+        RewardUI rewardUI = FindAnyObjectByType<RewardUI>();
+        rewardUI.CloseReward();
+        SynergyManager.Instance.GetSynergy(skillInfo);
+
+        haveSkill = true;
     }
 
     private void GetSkillData(int skillId)
@@ -51,9 +57,9 @@ public class Synergy : MonoBehaviour
         if (skillIcon == null)
             skillIcon = UtillHelper.Find<Image>(transform, "SkillIcon");
         if (skillName == null)
-            skillName = UtillHelper.Find<TextMeshProUGUI>(transform, "SkillDescription/SkillName");
+            skillName = UtillHelper.Find<TextMeshProUGUI>(transform, "SkillInfo/SkillName");
         if (skillText == null)
-            skillText = UtillHelper.Find<TextMeshProUGUI>(transform, "SkillDescription/SkillText");
+            skillText = UtillHelper.Find<TextMeshProUGUI>(transform, "SkillInfo/SkillText");
     }
 
     private void SetElements()
@@ -74,6 +80,7 @@ public class Synergy : MonoBehaviour
         GetSkillData(index);
         SetElements();
         skillIndex = index;
+        haveSkill = false;
     }
 
     // Start is called before the first frame update

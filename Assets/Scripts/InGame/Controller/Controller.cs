@@ -212,6 +212,12 @@ public class Controller : FSM<Controller>
         WingAnimationController wing = GetComponentInChildren<WingAnimationController>();
         if (wing != null)
             wing.SetBool("isFlapping", false);
+
+        Renderer[] renderers = GetComponentsInChildren<Renderer>();
+        foreach(Renderer renderer in renderers)
+        {
+            StartCoroutine(UtillHelper.IChangeFloat(renderer.material, 1, "_Dissolve", 4f));
+        }
     }
 
     private void Invoke_Attack()
@@ -274,7 +280,7 @@ public class Controller : FSM<Controller>
         }
     }
 
-    public float TakeDamage(float damage)
+    public virtual float TakeDamage(float damage)
     {
         if (isDead)
             return 0;

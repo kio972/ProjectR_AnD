@@ -39,6 +39,24 @@ public static class UtillHelper
         renderer.material.SetColor(key, color);
     }
 
+    public static IEnumerator IChangeFloat(Material material, float value, string key, float lerpTime)
+    {
+        float originValue = material.GetFloat(key);
+        float elapsedTime = 0f;
+
+        while (elapsedTime < lerpTime)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsedTime / lerpTime);
+            float lerpedFloat = Mathf.Lerp(originValue, value, t);
+            material.SetFloat(key, lerpedFloat);
+            yield return null;
+        }
+
+        // 최종적으로 목표 색상으로 설정
+        material.SetFloat(key, value);
+    }
+
     public static IEnumerator IChangeColor(Material material, Color color, string key, float lerpTime)
     {
         Color originColor = material.GetColor(key);

@@ -41,7 +41,7 @@ public class HPUpdater : MonoBehaviour
             hp_Bar.fillAmount = controller.hp / controller.maxHp;
             delayed_Bar.fillAmount = hp_Bar.fillAmount;
             if (monsterName != null)
-                monsterName.text = controller.name;
+                monsterName.text = controller._name;
         }
     }
 

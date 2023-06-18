@@ -16,7 +16,30 @@ public class RewardUI : MonoBehaviour
 
     private void SetReward()
     {
+        List<int> indexList = new List<int>();
+        foreach(Synergy synergy in synergySlot)
+        {
+            int randomIndex = Random.Range(0, DataManager.Instance.Skill_Passive_Dic.Count);
+            while(true)
+            {
+                if (!indexList.Contains(randomIndex))
+                {
+                    indexList.Add(randomIndex);
+                    break;
+                }
+                randomIndex = Random.Range(0, DataManager.Instance.Skill_Passive_Dic.Count);
+            }
 
+            int skillId = System.Convert.ToInt32(DataManager.Instance.Skill_Passive_Dic[randomIndex]["ID"]);
+            synergy.Init(skillId);
+            
+        }
+    }
+
+    public void CloseReward()
+    {
+        rewardDesc.CallDrop(false);
+        Time.timeScale = 1f;
     }
 
     public void CallReward()

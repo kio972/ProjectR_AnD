@@ -29,4 +29,10 @@ public class SaveData
 
     //Difficulty Setting
 
+
+    //Player Data
+    public float curHp;
+    public float maxHp;
+    public int[] synergys;
+
 }

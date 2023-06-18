@@ -24,6 +24,19 @@ public class ChapterController : MonoBehaviour
     public float waitTime = 5f;
     private float elapsedTime = 0f;
 
+    private bool SpwanNext(float waitTime = 2f)
+    {
+        for(int i = 0; i < spawnGroups.Length; i++)
+        {
+            if(!spawnGroups[i].isSpawned && spawnGroups[i].spawnTrigger == null)
+            {
+                spawnGroups[i].SpawnMonsters(waitTime);
+                return true;
+            }
+        }
+
+        return false;
+    }
 
     public void Init()
     {
@@ -33,14 +46,16 @@ public class ChapterController : MonoBehaviour
         foreach (SpawnController spawnGroup in spawnGroups)
         {
             spawnGroup.chapterController = this;
-            spawnGroup.Init(waitTime);
+            spawnGroup.Init();
         }
+        SpwanNext(waitTime);
 
         SynergyStone stone = Resources.Load<SynergyStone>("Prefab/Objects/SynergyStone");
         stone = Instantiate(stone, synergyStonePoint.transform);
         //stone.transform.position = synergyStonePoint.position;
         synergyStone = stone;
 
+        GameManager.Instance.PlayCutScene(true);
         cutSceneCam.gameObject.SetActive(true);
     }
 
@@ -54,13 +69,19 @@ public class ChapterController : MonoBehaviour
             if (elapsedTime < waitTime)
                 elapsedTime += Time.deltaTime;
             else if(cutSceneCam != null)
+            {
+                GameManager.Instance.PlayCutScene(false);
                 cutSceneCam.gameObject.SetActive(false);
+            }
 
             foreach (Controller monster in monsterGroup)
             {
                 if (!monster.isDead)
                     return;
             }
+
+            if (SpwanNext())
+                return;
 
             isMonsterCleared = true;
             endPosition.gameObject.SetActive(true);
